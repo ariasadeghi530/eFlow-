@@ -1,6 +1,7 @@
 const express = require('express')
 const { join } = require('path')
 const app = express()
+const sequelize = require('./config')
 
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -21,4 +22,6 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
-app.listen(3000)
+sequelize.sync() //or .authenticate()
+  .then(() => app.listen(3000))
+  .catch(e => console.log(e))
