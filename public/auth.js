@@ -11,6 +11,7 @@ const loginUser = () => {
     })
     .catch(e => console.error(e))
 }
+
 const createUser = () => {
   axios.post('/api/users', {
     username: $('#username').val(),

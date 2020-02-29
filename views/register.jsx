@@ -8,7 +8,6 @@ const Register = () => {
         <div className="row justify-content-center">
           <div className="col-3">
             <div id="alerts" className="mt-2">
-              
             </div>
             <div className="card mt-5">
               <div className="card-header">
