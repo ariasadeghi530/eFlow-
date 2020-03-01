@@ -1,40 +1,26 @@
 const React = require('react')
-const Auth = require('./layouts/auth.jsx')
+const Default = require('./layouts/default.jsx')
+const HeaderPlain = require('./components/plain-header')
+const Container = require('./sections/container.jsx')
+const Row = require('./sections/row.jsx')
+const Card = require('./components/card.jsx')
+const LogIn = require('./components/login-form.jsx')
 
-const Login = () => {
+const User = () => {
   return (
-    <Auth>
-      <div className="container-fluid">
-        <div className="row justify-content-center">
-          <div className="col-3">
-            <div id="alerts" className="mt-2">
-            </div>
-            <div className="card mt-5">
-              <div className="card-header">
-                eFlow
-              </div>
-              <div className="card-body">
-                <form>
-                  <div className="form-group">
-                    <label htmlFor="loginUsername">Username</label>
-                    <input type="text" className="form-control" id="loginUsername" aria-describedby="emailHelp"></input>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="loginPassword">Password</label>
-                    <input type="password" className="form-control" id="loginPassword"></input>
-                  </div>
-                </form>
-              </div>
-              <div className="card-footer">
-                <button type="button" className="btn btn-link">Need an account?</button>
-                <a href="#" className="btn btn-primary float-right" id="login">Login</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Auth>
+    <Default>
+        <HeaderPlain />
+        <Container>
+            <div>
+                <button type="button" id="signup" class="btn w-50 p-3 mb-2 border-right">Sign Up</button>
+                <button type="button" id="login" class="btn w-50 p-3 mb-2 border-primary">Log In</button>
+            </div> 
+            <Card>
+              <LogIn />
+            </Card>
+        </Container>
+    </Default>
   )
 }
 
-module.exports = Login
+module.exports = User

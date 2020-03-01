@@ -12,7 +12,7 @@ const LogIn = () => {
             </div>
             <p class="font-weight-light float-right"><a href="#">Forgot Password?</a></p>
             <button type="button" class="btn btn-secondary btn-lg btn-block">Sign Up</button>
-            <p class="font-weight-light">By loggin in you agree to our <a href="#">Terms Of Service</a> and <a href="#">Privacy Policy</a>.</p>
+            <p class="font-weight-light">By loggin in you agree to our <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms Of Service</a> and <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a>.</p>
         </form>
     )
 }
