@@ -1,5 +1,5 @@
 const React = require('react')
-const Default = require('./layouts/default.jsx')
+const Default = require('../layouts/default.jsx')
 
 const Home = () => {
   return (
