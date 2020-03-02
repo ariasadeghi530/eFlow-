@@ -1,6 +1,6 @@
 const React = require('react')
 
-const Default = props => {
+const Login = props => {
   return (
     <html lang='en'>
 
@@ -30,12 +30,11 @@ const Default = props => {
           crossOrigin="anonymous"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-        <script src="../checklogin.js"></script>
-        <script src="../app.js"></script>
+        <script src="../auth.js"></script>
       </body>
 
     </html>
   )
 }
 
-module.exports = Default
+module.exports = Login

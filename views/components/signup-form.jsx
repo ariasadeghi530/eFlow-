@@ -40,7 +40,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-secondary btn-lg btn-block">Sign Up</button>
+      <button id="register" type="button" class="btn btn-secondary btn-lg btn-block">Sign Up</button>
     </form>
   )
 }
