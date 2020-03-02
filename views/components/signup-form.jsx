@@ -32,11 +32,7 @@ const SignUp = () => {
       <div className="uk-margin">
         <p className="">By signing up, you agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Service</a> and <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a></p>
       </div>
-<<<<<<< HEAD
       <button type="button" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Sign Up</button>
-=======
-      <button id="register" type="button" class="btn btn-secondary btn-lg btn-block">Sign Up</button>
->>>>>>> 785787a2bfe12bd367ed88d732a60f65c134a22e
     </form>
   )
 }

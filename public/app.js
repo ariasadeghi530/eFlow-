@@ -13,7 +13,6 @@ $('#logout').on('click', () => {
       location.reload()
     })
     .catch(e => console.error(e))
-<<<<<<< HEAD
 })
 
 // Account Register/Login Btns
@@ -31,6 +30,3 @@ $(document).ready(function () {
       $('#sidebar').toggleClass('active');
   });
 });
-=======
-})0
->>>>>>> 785787a2bfe12bd367ed88d732a60f65c134a22e
