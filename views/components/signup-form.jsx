@@ -29,6 +29,9 @@ const SignUp = () => {
       <div className="uk-margin">
         <input type="password" className="uk-input" id="password2" placeholder="Confirm Password"></input>
       </div>
+      <div className="uk-margin">
+        <p className="">By signing up, you agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Service</a> and <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a></p>
+      </div>
       <button type="button" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Sign Up</button>
     </form>
   )
