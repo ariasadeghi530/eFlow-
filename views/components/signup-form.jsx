@@ -4,43 +4,32 @@ const React = require('react')
 const SignUp = () => {
   return (
     <form>
-      <div className="row">
-        <div className="col-6">
+      <div>
+        <div className="uk-width-1-2@s uk-margin">
           <div className="form-group">
-            <input type="first_name" className="form-control form-control-lg" id="first_name" placeholder="First Name"></input>
+            <input type="first_name" className="uk-input" id="first_name" placeholder="First Name"></input>
           </div>
         </div>
-        <div className="col-6">
+        <div className="uk-width-1-2@s uk-margin">
           <div className="form-group">
-            <input type="last_name" className="form-control form-control-lg" id="last_name" placeholder="Last Name"></input>
+            <input type="last_name" className="uk-input" id="last_name" placeholder="Last Name"></input>
           </div>
         </div>
       </div>
       <hr />
-      <div className="form-group">
-        <input type="text" className="form-control form-control-lg" id="username" aria-describedby="emailHelp" placeholder="Username"></input>
+      <div className="uk-margin">
+        <input type="text" className="uk-input" id="username" aria-describedby="emailHelp" placeholder="Username"></input>
       </div>
-      <div className="form-group">
-        <input type="email" className="form-control form-control-lg" id="email" aria-describedby="emailHelp" placeholder="Email"></input>
+      <div className="uk-margin">
+        <input type="email" className="uk-input" id="email" aria-describedby="emailHelp" placeholder="Email"></input>
       </div>
-      <div className="form-group">
-        <input type="password" className="form-control form-control-lg" id="password" placeholder="Password"></input>
+      <div className="uk-margin">
+        <input type="password" className="uk-input" id="password" placeholder="Password"></input>
       </div>
-      <div className="form-group">
-        <input type="password" className="form-control form-control-lg" id="password2" placeholder="Confirm Password"></input>
+      <div className="uk-margin">
+        <input type="password" className="uk-input" id="password2" placeholder="Confirm Password"></input>
       </div>
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-          <label class="form-check-label" for="invalidCheck">
-            Agree to <a href="#">Terms Of Service</a> and <a href="#">Privacy Policy</a>. 
-          </label>
-          <div class="invalid-feedback">
-            You must agree before submitting.
-          </div>
-        </div>
-      </div>
-      <button type="button" class="btn btn-secondary btn-lg btn-block">Sign Up</button>
+      <button type="button" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Sign Up</button>
     </form>
   )
 }

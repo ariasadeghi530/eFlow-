@@ -10,16 +10,7 @@ const SignUp = require('./components/signup-form.jsx')
 const User = () => {
   return (
     <Default>
-        <HeaderPlain />
-        <Container>
-            <div>
-                <button type="button" id="signup" class="uk-button uk-button-text uk-width-1-2 uk-margin-left">Sign Up</button>
-                <button type="button" id="login" class="uk-button uk-button-text uk-width-1-2 uk-margin-right">Log In</button>
-            </div>
-            <Card>
-                <SignUp />
-            </Card>
-        </Container>
+      
     </Default>
   )
 }
