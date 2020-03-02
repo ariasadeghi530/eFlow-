@@ -24,9 +24,14 @@ $(document).on('click', e => {
   }
 })
 
-// Sidebar Btn
-$(document).ready(function () {
-  $('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
-  });
-});
+
+// SEARCH BAR TOGGLE DISPLAY
+$('#search').click( function (event) {
+  event.preventDefault()
+  if (!$('#searchForm').val()) {
+
+    $('#searchForm').toggle()
+
+    $('.uk-logo').toggle()
+  }
+})
