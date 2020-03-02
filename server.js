@@ -11,13 +11,14 @@ app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(require('./routes'))
 
+app.get('/login', (req, res) => {
+  res.render('login')
+})
 
 app.get('/register', (req, res) => {
   res.render('register')
 })
-app.get('/login', (req, res) => {
-  res.render('login')
-})
+
 app.get('/', (req, res) => {
   res.render('home')
 })
