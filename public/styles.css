@@ -19,3 +19,11 @@
 .uk-open, .uk-offcanvas-bar {
     width: 100%;
 }
+
+.uk-button {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

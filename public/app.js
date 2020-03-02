@@ -1,16 +1,16 @@
-function checkLogin () {
-  axios.get(`/api/users/session`)
-    .then(res => {
-      console.log(res)
+// Retrieve info of signed in user
+let UserInfo
+  axios.get(`/api/users/getinfo`)
+    .then(({data}) => {
+      UserInfo = data
+      $('#welcome').text(`Welcome, ${UserInfo.username}`)
     })
     .catch(e => console.error(e))
-}
-checkLogin()
 
 $('#logout').on('click', () => {
   axios.get(`/api/users/logout`)
-    .then(res => {
-      window.location.replace("./login")
+    .then(() => {
+      location.reload()
     })
     .catch(e => console.error(e))
 })
