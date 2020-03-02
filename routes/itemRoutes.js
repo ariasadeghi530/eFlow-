@@ -1,3 +1,4 @@
+const router = require('express').Router()
 const sequelize = require('../config')
 const Item = require('../models/Item.js')
 
