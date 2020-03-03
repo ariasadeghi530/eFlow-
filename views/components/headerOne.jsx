@@ -4,8 +4,8 @@ const React = require('react')
 const HeaderOne = () => {
   return (
     <nav className="uk-navbar uk-navbar-container uk-margin">
-      <div class="uk-navbar-center">
-        <a class="uk-navbar-item uk-logo" href="/">eFlow</a>
+      <div className="uk-navbar-center">
+        <a className="uk-navbar-item uk-logo" href="/">eFlow</a>
       </div>
     </nav>
   )

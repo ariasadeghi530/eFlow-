@@ -1,3 +1,30 @@
+
+// Open navbar search
+$('#search').click(function (event) {
+  event.preventDefault()
+
+  //open search bar
+  if (!$('#searchForm').val()) {
+    $('#search').toggle()
+    $('#close').toggle()
+    $('#searchForm').toggle()
+    $('.uk-logo').toggle()
+    $('.uk-form-icon').toggle()
+  }
+})
+
+// Close navbar search
+$('#close').click(function (event) {
+  event.preventDefault()
+
+  $('#close').toggle()
+  $('#search').toggle()
+  $('#searchForm').toggle()
+  $('.uk-logo').toggle()
+  $('.uk-form-icon').toggle()
+
+})
+
 // Retrieve info of signed in user
 let UserInfo
   axios.get(`/api/users/getinfo`)
@@ -23,3 +50,4 @@ $(document).on('click', e => {
     window.location.replace('/login')
   }
 })
+

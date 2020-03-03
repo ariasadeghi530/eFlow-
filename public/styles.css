@@ -1,10 +1,91 @@
-.uk-input {
+/* NAVBAR STYLING */
+
+.uk-navbar {
+    height: 75px;
+}
+
+.uk-button-default {
+    border: none;
+}
+
+.uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
+    padding-left: 35px!important;
+}
+
+.uk-form-width-medium {
+    display: none;
+    height: 30px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+
+.uk-form-icon, #close {
+    display: none;
+}
+
+.uk-form-icon {
+    margin-top: 6.5px;
+    margin-left: 6px;
+    margin-right: 0px;
+}
+
+#inputSearch {
+    height: 17px;
+    width: 17px;
+}
+
+/* SIDENAV STYLING */
+
+.uk-open, .uk-offcanvas-bar {
+    padding-left: 0%;
+    padding-right: 0%;
+    width: 100%;
+}
+
+.sidebar-title {
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+.uk-position-top-center {
+    margin-top: 20px;
+}
+
+.sidebar-text {
+    color: black !important;
+}
+
+.sidebar-text-list {
+    color: #666 !important;
+}
+
+.uk-tile-muted {
+    width: 100%;
+}
+#user-img{
+    width: 50px;
+    height: 50px;
+    margin-left: 13px;
+    margin-bottom: 7px;
+    border-radius: 20%;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
+
+.sidebar-header{
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+#username{
+    margin-left: 10px;
+}
+/* Button styling */
 
 .uk-button {
     border-radius: 5px;

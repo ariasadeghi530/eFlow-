@@ -1,8 +1,6 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
-const HeaderOne = require('./components/headerOne')
-const Container = require('./sections/container.jsx')
-const Row = require('./sections/row.jsx')
+const HeaderOne = require('./components/headerOne.jsx')
 const Card = require('./components/card.jsx')
 const SignUp = require('./components/signup-form.jsx')
 
