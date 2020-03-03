@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Default>
       <HeaderTwo />
-     <SidenavLink />
+      <SidenavLink />
       <Sidenav />
       <h1>Hello world</h1>
       <h3 id="welcome"></h3>

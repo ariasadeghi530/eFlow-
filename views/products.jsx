@@ -1,7 +1,7 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
 const Breadcrumb = require('./components/breadcrumb.jsx')
-const Tags = require('./components/share.jsx')
+const Share = require('./components/share.jsx')
 // const HeaderTwo = require('./components/headerTwo.jsx')
 
 const Products = () => {
