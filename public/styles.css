@@ -1,12 +1,20 @@
-
 /* NAVBAR STYLING */
+
+.uk-navbar {
+    height: 75px;
+}
 
 .uk-button-default {
     border: none;
 }
 
+.uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
+    padding-left: 35px!important;
+}
+
 .uk-input {
     display: none;
+    height: 30px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -14,6 +22,20 @@
     -o-border-radius: 5px;
 }
 
+.uk-form-icon, #close {
+    display: none;
+}
+
+.uk-form-icon {
+    margin-top: 6.5px;
+    margin-left: 5px;
+    margin-right: 0px;
+}
+
+#inputSearch {
+    height: 17px;
+    width: 17px;
+}
 /* SIDENAV STYLING */
 
 .uk-open, .uk-offcanvas-bar {
