@@ -11,7 +11,6 @@ const User = () => {
   return (
     <Default>
       <HeaderOne />
-        <Container>
             <div>
                 <button type="button" id="signup" class="uk-button uk-button-text uk-width-1-2">Sign Up</button>
                 <button type="button" id="login" class="uk-button uk-button-text uk-width-1-2">Log In</button>
@@ -19,7 +18,6 @@ const User = () => {
             <Card>
                 <SignUp />
             </Card>
-        </Container>
     </Default>
   )
 }
