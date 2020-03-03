@@ -8,6 +8,7 @@
     border: none;
 }
 
+
 .uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
     padding-left: 35px!important;
 }
@@ -36,11 +37,36 @@
     height: 17px;
     width: 17px;
 }
+
+
 /* SIDENAV STYLING */
 
 .uk-open, .uk-offcanvas-bar {
+    padding-left: 0%;
+    padding-right: 0%;
     width: 100%;
 }
+
+.sidebar-title {
+    margin-left: 15px;
+}
+.uk-position-top-center{
+    margin-top: 20px;
+}
+
+.sidebar-text{
+    color: black !important;
+}
+
+.sidebar-text-list{
+    color: #666 !important;
+}
+
+.uk-tile-muted{
+    width: 100%;
+  
+}
+/* Button styling */
 
 .uk-button {
     border-radius: 5px;
