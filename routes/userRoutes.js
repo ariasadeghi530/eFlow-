@@ -2,6 +2,7 @@ const router = require('express').Router()
 const cookieSession = require('cookie-session')
 const sequelize = require('../config')
 const User = require('../models/User.js')
+const axios = require('axios')
 const md5 = require('md5')
 
 router.use(cookieSession({
@@ -27,10 +28,20 @@ router.get('/users/login/:username/:password', (req, res) => {
       if (user === null){
         res.end('user not found')
       }else{
-        req.session.userId = user.id
-        req.session.isLoggedin = true
-        console.log(req.session)
-        res.end('logged in')
+        axios.get(`https://api.ipify.org/?format=json`)
+          .then(({ data }) => {
+            req.session.userId = user.id
+            req.session.isLoggedin = true
+            req.session.ip = data.ip
+            axios.get(`http://api.ipstack.com/${data.ip}?access_key=ccb8e026d1e52d9ae1861d591d4bdd28`)
+              .then((locationData) => {
+                req.session.location = [locationData.data.city, locationData.data.region_name, locationData.data.zip]
+                console.log(req.session)
+                res.end('logged in')
+              })
+              .catch(e => console.error(e))
+          })
+          .catch(e => console.error(e))
       }
     })
     .catch(e => console.log(e))
@@ -50,7 +61,6 @@ router.get('/users/checklogin', (req, res) => {
 // LOGOUT USER
 router.get('/users/logout', (req, res) => {
   req.session = null
-  console.log(req.session)
   res.end('logged out')
 })
 // GET USER INFO BY ID
