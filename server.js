@@ -28,6 +28,10 @@ app.get('/products', (req, res) => {
   res.render('products')
 })
 
+app.get('/profile', (req, res) => {
+  res.render('profile')
+})
+
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(3000))
   .catch(e => console.log(e))

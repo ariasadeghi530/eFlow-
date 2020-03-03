@@ -143,3 +143,10 @@
 .slider-product-title {
     font-size: 18px;
 }
+
+/* Profile Page */
+
+.profile-online {
+    color: rgb(0, 212, 0);
+    font-size: 12px;
+}
