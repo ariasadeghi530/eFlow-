@@ -1,22 +1,24 @@
 const React = require('react')
-const Default = require('./layouts/default.jsx')
-const HeaderOne = require('./components/headerOne')
+const Default = require('./layouts/login.jsx')
+const HeaderPlain = require('./components/plain-header')
 const Container = require('./sections/container.jsx')
 const Row = require('./sections/row.jsx')
 const Card = require('./components/card.jsx')
+const SignUp = require('./components/signup-form.jsx')
 const LogIn = require('./components/login-form.jsx')
 
 const User = () => {
   return (
     <Default>
-      <HeaderOne />
+        <HeaderPlain />
         <Container>
             <div>
-              <button type="button" id="signup" class="uk-button uk-button-text uk-width-1-2">Sign Up</button>
-              <button type="button" id="login" class="uk-button uk-button-text uk-width-1-2">Log In</button>
+                <button type="button" class="btn w-50 p-3 mb-2 border-right">Sign Up</button>
+                <button type="button" class="btn w-50 p-3 mb-2">Log In</button>
             </div>
             <Card>
-              <LogIn />
+              <SignUp />
+              {/* <LogIn /> */}
             </Card>
         </Container>
     </Default>

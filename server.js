@@ -17,10 +17,15 @@ app.get('/login', (req, res) => {
 
 app.get('/register', (req, res) => {
   res.render('register')
+  res.render('log-reg')
 })
 
 app.get('/', (req, res) => {
   res.render('home')
+})
+
+app.get('/products', (req, res) => {
+  res.render('products')
 })
 
 sequelize.sync() //or .authenticate()

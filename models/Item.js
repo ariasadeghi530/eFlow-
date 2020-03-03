@@ -1,4 +1,4 @@
-const { Model, STRING, INTEGER, BOOLEAN, DECIMAL, DATE } = require('sequelize')
+const { Model, STRING, INTEGER } = require('sequelize')
 const sequelize = require('../config')
 // 
 class Item extends Model { }
@@ -6,14 +6,10 @@ class Item extends Model { }
 Item.init({
   name: {
     type: STRING,
-    allowNull: false,
+    allowNull: false
   },
   description: {
     type: STRING,
-    allowNull: false,
-  },
-  forSale: {
-    type: BOOLEAN,
     allowNull: false
   },
   category: {
@@ -24,13 +20,22 @@ Item.init({
     type: STRING,
     allowNull: false
   },
-  PRICE: {
-    type: DECIMAL,
+  price: {
+    type: INTEGER,
     allowNull: false
   },
-  soldDate: {
-    type: DATE
+  sell_date: {
+    type: STRING,
+    allowNull: false
+  },
+  location: {
+    type: STRING,
+    allowNull: false
+  },
+  owner_id: {
+    type: INTEGER,
+    allowNull: false
   }
 }, { sequelize, modelName: 'user' })
 
-module.exports = Item
+module.exports = User
