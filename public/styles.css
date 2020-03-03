@@ -4,9 +4,9 @@
     height: 75px;
 }
 
-.uk-button-default {
+/* .uk-button-default {
     border: none;
-}
+} */
 
 .uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
     padding-left: 35px!important;

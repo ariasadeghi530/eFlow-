@@ -5,11 +5,16 @@ const Share = require('./components/share.jsx')
 const Pricing = require('./components/pricing.jsx')
 const Info = require('./components/productInfo.jsx')
 const ProductSlider = require('./components/productPageSlider.jsx')
-// const HeaderTwo = require('./components/headerTwo.jsx')
+const HeaderTwo = require('./components/headerTwo.jsx')
+const SidenavLink = require('./components/sidenavLink.jsx')
+const Sidenav = require('./components/sidenav.jsx')
 
 const Products = () => {
   return (
     <Default>
+      <HeaderTwo />
+      <Sidenav />
+      <SidenavLink />
       <Breadcrumb />
       <div className="uk-margin-top uk-margin-left uk-margin-right">
         <img src="https://x3g4v3s8.stackpathcdn.com/wp-content/uploads/2018/05/image-placeholder-500x500-4.jpg" width="500" height="500" alt="product-image" uk-img />
