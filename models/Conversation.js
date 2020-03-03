@@ -4,11 +4,11 @@ const sequelize = require('../config')
 class Conversation extends Model { }
 
 Conversation.init({
-  sellerId: {
+  user1: {
     type: INTEGER,
     allowNull: false
   },
-  buyerId: {
+  user2: {
     type: INTEGER,
     allowNull: false
   },

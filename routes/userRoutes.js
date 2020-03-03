@@ -81,7 +81,7 @@ router.get('/users/getinfo', (req, res) => {
 // CREATE CONVO
 router.get('/chat/newconvo/:userid', (req, res) => {
   let newChatToken = srs()
-  Conversation.create({ buyerId: parseInt(req.session.userId), sellerId: parseInt(req.params.userid), chatToken: newChatToken})
+  Conversation.create({ user1: parseInt(req.session.userId), user2: parseInt(req.params.userid), chatToken: newChatToken})
     .then(() => {
       res.sendStatus(200)
     })
@@ -92,8 +92,8 @@ router.get('/chat/getconvos', (req, res) => {
   Conversation.findAll({
     where: {
       [Op.or]: [
-        { buyerId: req.session.userId },
-        { sellerId: req.session.userId }
+        { user1: req.session.userId },
+        { user2: req.session.userId }
       ]
     }
   })
@@ -112,6 +112,27 @@ router.get('/users/getbyid/:searchid', (req, res) => {
   })
     .then(user => {
       res.json(user)
+    })
+    .catch(e => console.log(e))
+})
+
+// SEND CHAT MESSAGE
+router.get('/chat/new/:chatToken/:msg', (req, res) => {
+  let chatToken = req.params.chatToken
+  let msg = req.params.msg
+  Message.create({sender: req.session.userId, text: msg, convoToken: chatToken})
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
+
+// GET ALL MESSAGES FOR CONVO
+router.get('/chat/messages/:chatToken', (req, res) => {
+  let chatToken = req.params.chatToken
+  Message.findAll({where: {convoToken: chatToken}})
+    .then(data => {
+      res.json(data)
     })
     .catch(e => console.log(e))
 })
