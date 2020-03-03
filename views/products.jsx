@@ -27,7 +27,7 @@ const Products = () => {
       <Info />
       <ProductSlider />
     </Default>
-  )
+  ) 
 }
 
 module.exports = Products
