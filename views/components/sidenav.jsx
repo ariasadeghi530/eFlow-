@@ -2,8 +2,8 @@ const React = require('react')
 
 const Sidenav = () => {
   return (
-    <a href="#sidenav" uk-toggle></a>
-    <div id="sidenav" uk-offcanvas>
+    
+    <div id="sidenav" uk-offcanvas="true">
       <div className="uk-offcanvas-bar uk-background-default esc-close">
         <a className="uk-logo sidebar-text uk-position-top-center" href="/">eFlow</a>
         <a className="uk-offcanvas-close sidebar-text" type="button"><i className="gg-close"></i></a>

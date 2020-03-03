@@ -1,6 +1,6 @@
 const React = require('react')
 const Default = require('./layouts/login.jsx')
-const HeaderPlain = require('./components/plain-header')
+const HeaderOne = require('./components/headerOne.jsx')
 const Container = require('./sections/container.jsx')
 const Row = require('./sections/row.jsx')
 const Card = require('./components/card.jsx')
@@ -10,7 +10,7 @@ const LogIn = require('./components/login-form.jsx')
 const User = () => {
   return (
     <Default>
-        <HeaderPlain />
+        <HeaderOne />
         <Container>
             <div>
                 <button type="button" class="btn w-50 p-3 mb-2 border-right">Sign Up</button>

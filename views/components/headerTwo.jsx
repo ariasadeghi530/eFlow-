@@ -3,11 +3,11 @@ const React = require('react')
 // Header with links
 const HeaderTwo = () => {
     return (
-       
+
         <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
             <nav className="uk-navbar uk-navbar-container uk-margin">
                 <div className="uk-navbar-left">
-                    <a className="uk-navbar-toggle" uk-toggle="target: #sidenav" uk-navbar-toggle-icon href="#"></a>
+            <a className="uk-navbar-toggle" uk-toggle="target: #sidenav" href="#"><i class="gg-menu"></i></a>
                 </div>
                 <div className="uk-navbar-center">
                     <a className="uk-navbar-item uk-logo" href="/">eFlow</a>
@@ -30,4 +30,4 @@ const HeaderTwo = () => {
             )
         }
         
-        module.exports = HeaderTwo
+      module.exports = HeaderTwo

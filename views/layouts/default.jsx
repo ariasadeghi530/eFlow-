@@ -11,13 +11,17 @@ const Default = props => {
 
         <link rel="stylesheet" href="../reset.css"></link>
         <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"></link>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../styles.css"></link>
 
       </head>
 
       <body>
         {props.children}
+       
+      
+
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
