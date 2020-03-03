@@ -20,6 +20,10 @@ app.get('/register', (req, res) => {
   res.render('log-reg')
 })
 
+app.get('/chat', (req, res) => {
+  res.render('userchat')
+})
+
 app.get('/', (req, res) => {
   res.render('home')
 })
