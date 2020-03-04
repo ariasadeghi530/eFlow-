@@ -1,7 +1,5 @@
 const React = require('react')
 const HeaderTwo = require('../components/headerTwo.jsx')
-const SidenavLink = require('../components/sidenavLink.jsx')
-const Sidenav = require('../components/sidenav.jsx')
 
 const Default = props => {
   return (
@@ -21,8 +19,6 @@ const Default = props => {
 
       <body>
         <HeaderTwo />
-        <SidenavLink />
-        <Sidenav />
         {props.children}
 
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>

@@ -6,7 +6,6 @@ const BreadCrumbs = require('./components/breadcrumb.jsx')
 const Profile = () => {
   return (
     <Default>
-      <BreadCrumbs />
       <div className="uk-card uk-margin-left uk-margin-right">
         <h1 className="uk-text-bold">Profile</h1>
         <div className="uk-card-header uk-padding-remove">
