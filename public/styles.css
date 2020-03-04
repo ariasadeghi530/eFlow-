@@ -6,14 +6,17 @@
 
 .search-bar-button {
     border: none;
-} 
+    padding: 0%;
+}
 
 .uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
     padding-left: 35px!important;
 }
-.uk-margin{
+
+.uk-margin {
     margin-bottom: 0px;
 }
+
 .uk-form-width-medium {
     display: none;
     height: 30px;
@@ -26,6 +29,11 @@
 
 .uk-form-icon, #close {
     display: none;
+}
+
+.uk-form-width-medium {
+    width: 250px;
+    margin-right: 20px;
 }
 
 .uk-form-icon {
@@ -67,7 +75,8 @@
 .uk-tile-muted {
     width: 100%;
 }
-#user-img{
+
+#user-img {
     width: 50px;
     height: 50px;
     margin-left: 13px;
@@ -79,14 +88,15 @@
     -o-border-radius: 20%;
 }
 
-.sidebar-header{
+.sidebar-header {
     margin-top: 50px;
     margin-bottom: 0px;
 }
 
-#username{
+#username {
     margin-left: 10px;
 }
+
 /* Button styling */
 
 .uk-button {
@@ -124,7 +134,7 @@
     background-color: rgb(80, 151, 80);
 }
 
-.slider-img{
+.slider-img {
     width: 150px !important;
     height: 150px !important;
 }
@@ -148,16 +158,16 @@
 
 /* COLLECTION STYLING */
 
-.collection-tile{
+.collection-tile {
     margin-bottom: 25px;
 }
 
-.uk-card-small{
+.uk-card-small {
     margin-left: 8px;
     margin-bottom: 10px;
 }
 
-.pagination{
+.pagination {
     margin-left: 50px;
     margin-top: 10px;
 }

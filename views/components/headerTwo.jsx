@@ -13,7 +13,7 @@ const HeaderTwo = () => {
                     <a className="uk-navbar-item uk-logo" href="/">eFlow</a>
                 </div>
                 <div className="uk-navbar-right">
-                    <div className="uk-navbar-item">
+                    <div className="uk-navbar-item search-icon">
                         <form action="javascript:void(0)">
                             <div className="uk-inline">
                                 <a className="uk-form-icon" id="inputSearch" uk-icon="icon: search"></a>
