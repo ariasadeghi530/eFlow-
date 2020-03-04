@@ -46,6 +46,7 @@ router.get('/users/login/:username/:password', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // CHECK IF USER IS LOGGED IN
 router.get('/users/checklogin', (req, res) => {
   if (req.session===null){
@@ -58,11 +59,13 @@ router.get('/users/checklogin', (req, res) => {
     }
   }
 })
+
 // LOGOUT USER
 router.get('/users/logout', (req, res) => {
   req.session = null
   res.end('logged out')
 })
+
 // GET USER INFO BY ID
 router.get('/users/getinfo', (req, res) => {
   User.findOne({

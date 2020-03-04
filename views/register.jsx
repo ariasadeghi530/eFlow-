@@ -1,5 +1,5 @@
 const React = require('react')
-const Default = require('./layouts/default.jsx')
+const LogInDefault = require('./layouts/login.jsx')
 const HeaderOne = require('./components/headerOne.jsx')
 const Card = require('./components/card.jsx')
 const SignUp = require('./components/signup-form.jsx')
@@ -7,7 +7,7 @@ const SignUp = require('./components/signup-form.jsx')
 
 const User = () => {
   return (
-    <Default>
+    <LogInDefault>
       <HeaderOne />
             <div>
                 <button type="button" id="signup" class="uk-button uk-button-text uk-width-1-2">Sign Up</button>
@@ -16,7 +16,7 @@ const User = () => {
             <Card>
                 <SignUp />
             </Card>
-    </Default>
+    </LogInDefault>
   )
 }
 

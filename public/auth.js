@@ -1,3 +1,4 @@
+// User Login Authentication
 const loginUser = () => {
   let u = $('#loginUsername').val()
   let p = $('#loginPassword').val()
@@ -12,6 +13,7 @@ const loginUser = () => {
     .catch(e => console.error(e))
 }
 
+// Register Successful
 const createUser = () => {
   axios.post('/api/users', {
     username: $('#username').val(),
@@ -36,6 +38,7 @@ const createUser = () => {
     .catch(e => console.error(e))
 }
 
+// If Password doesn't match
 $(document).on('click', e => {
   if (e.target.id==='register'){
     e.preventDefault()

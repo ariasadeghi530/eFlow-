@@ -1,6 +1,8 @@
+// Checks Login
 // axios.get(`/api/users/checklogin`)
 //   .then(({data}) => {
-//     if (data==='not logged in'){
+//     if (data === 'not logged in') {
+//       console.log(data)
 //       window.location.replace("/login")
 //     }
 //   })
