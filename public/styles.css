@@ -150,3 +150,10 @@
     color: rgb(0, 212, 0);
     font-size: 12px;
 }
+
+/* Footer*/
+.footer-container {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(56, 56, 56);
+}

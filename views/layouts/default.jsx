@@ -1,4 +1,8 @@
 const React = require('react')
+const HeaderTwo = require('../components/headerTwo.jsx')
+const Sidenav = require('../components/sidenav.jsx')
+const SidenavLink = require('../components/sidenavLink.jsx')
+const Breadcrumb = require('../components/breadcrumb.jsx')
 
 const Default = props => {
   return (
@@ -14,13 +18,13 @@ const Default = props => {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../styles.css"></link>
-
       </head>
 
       <body>
+        <HeaderTwo />
+        <Sidenav />
+        <SidenavLink />
         {props.children}
-       
-      
 
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
