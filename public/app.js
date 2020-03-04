@@ -62,7 +62,7 @@ $('#logout').on('click', () => {
 $('#logout').on('click', () => {
   axios.get(`/api/users/logout`)
     .then(() => {
-      location.reload()
+      location.replace('./login')
     })
     .catch(e => console.error(e))
 })

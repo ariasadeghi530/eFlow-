@@ -19,6 +19,7 @@ router.post('/users', (req, res) => {
   User.create(req.body)
     .then(() => {
       console.log('User created')
+      res.sendStatus(200)
     })
     .catch(e => console.log(e))
 })
