@@ -38,6 +38,12 @@ const createUser = () => {
           <p className="uk-text-bold">Success!</p>Your account has been registered! Click <a href="../login">here</a> to login.
         </div>
       `)
+      $('#username').val('')
+      $('#email').val('')
+      $('#password').val('')
+      $('#password2').val('')
+      $('#first_name').val('')
+      $('#last_name').val('')
     })
     .catch(e => console.error(e))
 }
