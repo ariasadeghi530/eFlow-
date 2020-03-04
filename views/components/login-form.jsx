@@ -10,10 +10,10 @@ const LogIn = () => {
             <div className="uk-margin">
                 <input type="password" className="uk-input" id="loginPassword" placeholder="Password"></input>
             </div>
-            <div class="uk-flex uk-flex-right">
+            <div className="uk-flex uk-flex-right">
                 <p><a href="#">Forgot Password?</a></p>
             </div>
-            <button type="button" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Log In</button>
+            <button type="button" id="login" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Log In</button>
             <p className="font-weight-light">By logging in you agree to our <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms Of Service</a> and <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a>.</p>
         </form>
     )

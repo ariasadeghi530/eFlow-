@@ -1,14 +1,18 @@
 const router = require('express').Router()
 const cookieSession = require('cookie-session')
 const sequelize = require('../config')
-const User = require('../models/User.js')
+const srs = require('secure-random-string')
+const { Op } = require("sequelize")
 const axios = require('axios')
 const md5 = require('md5')
+
+const { User, Message, Conversation } = require('../models')
 
 router.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
 }))
+
 // POST an user
 router.post('/users', (req, res) => {
   req.body.password = md5(req.body.password)
@@ -18,6 +22,7 @@ router.post('/users', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // LOGIN an user
 router.get('/users/login/:username/:password', (req, res) => {
   User.findOne({ where: { 
@@ -46,24 +51,27 @@ router.get('/users/login/:username/:password', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // CHECK IF USER IS LOGGED IN
 router.get('/users/checklogin', (req, res) => {
   if (req.session===null){
     res.end('not logged in')
   }else{
     if (req.session.isLoggedin===true){
-      res.end(`User_ID: ${req.session.userId}, logged`)
+      res.json({userId: req.session.userId})
     }else{
-      res.end('not logged in')
+      res.json({})
     }
   }
 })
+
 // LOGOUT USER
 router.get('/users/logout', (req, res) => {
   req.session = null
   res.end('logged out')
 })
-// GET USER INFO BY ID
+
+// GET LOGGED IN USER INFO
 router.get('/users/getinfo', (req, res) => {
   User.findOne({
     where: {
@@ -72,6 +80,65 @@ router.get('/users/getinfo', (req, res) => {
   })
     .then(user => {
       res.json(user)
+    })
+    .catch(e => console.log(e))
+})
+
+// CREATE CONVO
+router.get('/chat/newconvo/:userid', (req, res) => {
+  let newChatToken = srs()
+  Conversation.create({ user1: parseInt(req.session.userId), user2: parseInt(req.params.userid), chatToken: newChatToken})
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
+
+// GET ALL USER's CONVERSATION
+router.get('/chat/getconvos', (req, res) => {
+  Conversation.findAll({
+    where: {
+      [Op.or]: [
+        { user1: req.session.userId },
+        { user2: req.session.userId }
+      ]
+    }
+  })
+    .then(convos => {
+      res.json(convos)
+    })
+    .catch(e => console.log(e))
+})
+
+// GET USER BY ID
+router.get('/users/getbyid/:searchid', (req, res) => {
+  User.findOne({
+    where: {
+      id: req.params.searchid
+    }
+  })
+    .then(user => {
+      res.json(user)
+    })
+    .catch(e => console.log(e))
+})
+
+// SEND CHAT MESSAGE
+router.post('/chat/new', (req, res) => {
+  let chatToken = req.body.chatToken
+  let msg = req.body.msg
+  Message.create({ text: msg, convoToken: chatToken, userId: req.session.userId })
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
+// GET ALL MESSAGES FOR CONVO
+router.get('/chat/messages/:chatToken', (req, res) => {
+  let chatToken = req.params.chatToken
+  Message.findAll({where: {convoToken: chatToken}, include: [User]})
+    .then(data => {
+      res.json(data)
     })
     .catch(e => console.log(e))
 })

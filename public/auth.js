@@ -1,3 +1,4 @@
+// User Login Authentication
 const loginUser = () => {
   let u = $('#loginUsername').val()
   let p = $('#loginPassword').val()
@@ -5,6 +6,12 @@ const loginUser = () => {
     .then(({ data }) => {
       if (data.length<1) {
         console.log('Login failed')
+        $('#alerts').html(`
+        <div className="uk-alert-danger" uk-alert>
+          <a className="uk-alert-close" uk-close></a>
+          <p className="uk-text-bold">Incorrent username or password. Please try again</p>
+        </div>
+      `)
       }else{
         window.location.replace("./")
       }
@@ -12,6 +19,7 @@ const loginUser = () => {
     .catch(e => console.error(e))
 }
 
+// Register Successful
 const createUser = () => {
   axios.post('/api/users', {
     username: $('#username').val(),
@@ -25,17 +33,16 @@ const createUser = () => {
   })
     .then(() => {
       $('#alerts').html(`
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Success!</strong> Your account has been registered! Click <a href="../login">here</a> to login.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div className="uk-alert-success" role="alert">
+          <a className="uk-alert-close" uk-close></a>
+          <p className="uk-text-bold">Success!</p>Your account has been registered! Click <a href="../login">here</a> to login.
         </div>
       `)
     })
     .catch(e => console.error(e))
 }
 
+// If Password doesn't match
 $(document).on('click', e => {
   if (e.target.id==='register'){
     e.preventDefault()
@@ -43,11 +50,9 @@ $(document).on('click', e => {
       createUser()
     }else{
       $('#alerts').html(`
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Fail! You suck!</strong> The passwords you entered do not match. Please try again.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div className="uk-alert-danger" uk-alert>
+          <a className="uk-alert-close" uk-close></a>
+          <p className="uk-text-bold">Fail! You suck! The passwords you entered do not match. Please try again.</p>
         </div>
       `)
     }
