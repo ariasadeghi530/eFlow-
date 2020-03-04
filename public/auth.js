@@ -6,6 +6,12 @@ const loginUser = () => {
     .then(({ data }) => {
       if (data.length<1) {
         console.log('Login failed')
+        $('#alerts').html(`
+        <div class="uk-alert-danger" uk-alert>
+          <a class="uk-alert-close" uk-close></a>
+          <p className="uk-text-bold">Incorrent username or password. Please try again</p>
+        </div>
+      `)
       }else{
         window.location.replace("./")
       }
@@ -27,11 +33,9 @@ const createUser = () => {
   })
     .then(() => {
       $('#alerts').html(`
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Success!</strong> Your account has been registered! Click <a href="../login">here</a> to login.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="uk-alert-success" role="alert">
+          <a class="uk-alert-close" uk-close></a>
+          <p className="uk-text-bold">Success!</p>Your account has been registered! Click <a href="../login">here</a> to login.
         </div>
       `)
     })
@@ -46,11 +50,9 @@ $(document).on('click', e => {
       createUser()
     }else{
       $('#alerts').html(`
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Fail! You suck!</strong> The passwords you entered do not match. Please try again.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="uk-alert-danger" uk-alert>
+          <a class="uk-alert-close" uk-close></a>
+          <p className="uk-text-bold">Fail! You suck! The passwords you entered do not match. Please try again.</p>
         </div>
       `)
     }

@@ -13,6 +13,7 @@ const User = () => {
               <button type="button" id="signup" className="uk-button uk-button-text uk-width-1-2">Sign Up</button>
               <button type="button" id="login" className="uk-button uk-button-text uk-width-1-2">Log In</button>
             </div>
+            <div id="alerts"></div>
             <Card>
               <LogIn />
             </Card>
