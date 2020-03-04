@@ -11,10 +11,10 @@ const Sidenav = () => {
         <h3 className=" sidebar-title"><a href="/collections" className="sidebar-text">Browse</a></h3>
         <div className="uk-tile-muted">
           <ul>
-            <li><h4><a href="" className="sidebar-text-list">Category 1</a></h4></li>
-            <li><h4><a href="" className="sidebar-text-list">Category 2</a></h4></li>
-            <li><h4><a href="" className="sidebar-text-list">Category 3</a></h4></li>
-            <li><h4><a href="" className="sidebar-text-list">Category 4</a></h4></li>
+            <li><h4><a href="/collections" className="sidebar-text-list">Category 1</a></h4></li>
+            <li><h4><a href="/collections" className="sidebar-text-list">Category 2</a></h4></li>
+            <li><h4><a href="/collections" className="sidebar-text-list">Category 3</a></h4></li>
+            <li><h4><a href="/collections" className="sidebar-text-list">Category 4</a></h4></li>
           </ul>
         </div>
         <h4 className="sidebar-text sidebar-title">Poop</h4>
