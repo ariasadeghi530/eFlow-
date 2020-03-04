@@ -7,8 +7,8 @@ const loginUser = () => {
       if (data.length<1) {
         console.log('Login failed')
         $('#alerts').html(`
-        <div class="uk-alert-danger" uk-alert>
-          <a class="uk-alert-close" uk-close></a>
+        <div className="uk-alert-danger" uk-alert>
+          <a className="uk-alert-close" uk-close></a>
           <p className="uk-text-bold">Incorrent username or password. Please try again</p>
         </div>
       `)
@@ -33,8 +33,8 @@ const createUser = () => {
   })
     .then(() => {
       $('#alerts').html(`
-        <div class="uk-alert-success" role="alert">
-          <a class="uk-alert-close" uk-close></a>
+        <div className="uk-alert-success" role="alert">
+          <a className="uk-alert-close" uk-close></a>
           <p className="uk-text-bold">Success!</p>Your account has been registered! Click <a href="../login">here</a> to login.
         </div>
       `)
@@ -50,8 +50,8 @@ $(document).on('click', e => {
       createUser()
     }else{
       $('#alerts').html(`
-        <div class="uk-alert-danger" uk-alert>
-          <a class="uk-alert-close" uk-close></a>
+        <div className="uk-alert-danger" uk-alert>
+          <a className="uk-alert-close" uk-close></a>
           <p className="uk-text-bold">Fail! You suck! The passwords you entered do not match. Please try again.</p>
         </div>
       `)
