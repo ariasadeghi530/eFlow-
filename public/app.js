@@ -16,7 +16,10 @@ $('#search').click(function (event) {
 // Close navbar search
 $('#close').click(function (event) {
   event.preventDefault()
-
+  if($('#searchForm').val()){
+    $('#searchForm').val('')
+  }
+  
   $('#close').toggle()
   $('#search').toggle()
   $('#searchForm').toggle()
@@ -24,6 +27,18 @@ $('#close').click(function (event) {
   $('.uk-form-icon').toggle()
 
 })
+
+$(document).on('keypress', function (e) {
+  if (e.which == 13) {
+    if($('#searchForm').val()){
+      console.log($('#searchForm').val())
+      location.replace('./products')
+      $('#searchForm').val('')
+    }
+  }
+});
+
+
 
 // Retrieve info of signed in user
 let UserInfo
