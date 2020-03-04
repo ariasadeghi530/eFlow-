@@ -31,6 +31,8 @@ function renderMessages(token){
             <hr></hr>
               `
         $('#chatStream').append(msgElem)
+        var objDiv = document.getElementById("chatStream");
+        objDiv.scrollTop = objDiv.scrollHeight;
       })
     })
     .catch(e => console.error(e))
@@ -107,14 +109,16 @@ axios.get('/api/chat/getconvos')
             renderMessages(currentChatToken)
           }
         })
-
         .catch(e => console.error(e))
     }, 3000)
   }
 
   $('#chatSend').on('click', ()=> {
-    let msg = $('#chatInput').val()
-    axios.get(`/api/chat/new/${currentChatToken}/${msg}`)
+    let thisMsg = $('#chatInput').val()
+    axios.post(`/api/chat/new`, {
+      msg: thisMsg,
+      chatToken: currentChatToken
+    })
       .then(() => {
       $('#chatInput').val('')
       })
