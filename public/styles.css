@@ -1,9 +1,14 @@
 /* NAVBAR STYLING */
 
 .uk-navbar {
-    height: 75px;
+    height: 50px;
 }
-
+.gg-menu{
+    margin-bottom: 21px;
+}
+.gg-search, .gg-close{
+    margin-bottom: 23px;
+}
 .search-bar-button {
     border: none;
     padding: 0%;
@@ -13,7 +18,7 @@
     padding-left: 35px!important;
 }
 
-.uk-margin {
+.nav-margin {
     margin-bottom: 0px;
 }
 
@@ -34,6 +39,7 @@
 .uk-form-width-medium {
     width: 250px;
     margin-right: 20px;
+    margin-bottom: 22px;
 }
 
 .uk-form-icon {
@@ -93,7 +99,7 @@
     margin-bottom: 0px;
 }
 
-#username {
+#side-username {
     margin-left: 10px;
 }
 
@@ -170,6 +176,18 @@
 .pagination {
     margin-left: 70px;
     margin-top: 10px;
+}
+
+/* Footer*/
+
+.footer-container {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(56, 56, 56);
+    
+
+}
+
 /* Profile Page */
 
 .profile-online {
@@ -177,9 +195,17 @@
     font-size: 12px;
 }
 
-/* Footer*/
-.footer-container {
-    height: 100px;
-    width: 100%;
-    background-color: rgb(56, 56, 56);
+/* Home Page */
+
+.spacer{
+    height: 50px;
+}
+.home-sliders{
+    padding-left: 10px;
+}
+.cat-width{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 90px;
+    
 }
