@@ -31,7 +31,6 @@ const Login = props => {
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
         <script src="../checklogin.js"></script>
-        <script src="../app.js"></script>
         <script src="../auth.js"></script>
       </body>
 

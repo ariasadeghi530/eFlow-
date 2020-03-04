@@ -25,6 +25,9 @@ const Sidenav = () => {
           </ul>
         </div>
         <h4 className="sidebar-text sidebar-title">Poop</h4>
+        <div className="uk-flex uk-flex-center">
+          <button id="logout" className="uk-button uk-button-primary">Logout</button>
+        </div>
       </div>
     </div>
   )

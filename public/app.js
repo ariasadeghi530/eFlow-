@@ -57,11 +57,12 @@ $('#logout').on('click', () => {
     .catch(e => console.error(e))
 })
 
-// Account Register/Login Btns
-$(document).on('click', e => {
-  if (e.target.id === 'signup') {
-    window.location.replace('/register')
-  } else if (e.target.id === 'login') {
-    window.location.replace('/login')
-  }
+
+// Account Logout
+$('#logout').on('click', () => {
+  axios.get(`/api/users/logout`)
+    .then(() => {
+      location.reload()
+    })
+    .catch(e => console.error(e))
 })
