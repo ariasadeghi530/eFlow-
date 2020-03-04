@@ -1,6 +1,40 @@
 let myUserId
 let currentMsgCount
+let msgArr
 
+async function getMessages(token) {
+  let response = await new Promise((resolve, reject) => {
+    axios.get(`./api/chat/messages/${token}`)
+    .then(({data})=>{
+      msgArr = []
+      if (!data) {
+        reject(new Error('Error communicating with server'))
+      } else {
+       resolve(data)
+      }
+    })
+  })
+
+  return response
+}
+function renderMessages(token){
+  $('#chatStream').html('')
+  getMessages(token)
+    .then(data => {
+      currentMsgCount = data.length
+      data.forEach(msg => {
+        let msgElem = `
+            <div className="uk-alert">
+              <h4>${msg.user.username}</h4>
+              <p>${msg.text}</p>
+            </div>
+            <hr></hr>
+              `
+        $('#chatStream').append(msgElem)
+      })
+    })
+    .catch(e => console.error(e))
+}
 function getUrlVars() {
   var vars = {};
   var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
@@ -62,40 +96,15 @@ axios.get('/api/chat/getconvos')
   })
   .catch(e => console.error(e))
 
-  function LoadChat(token){
-    $('#chatStream').html('')
-    axios.get(`/api/chat/messages/${token}`)
-      .then(({ data }) => {
-        currentMsgCount = data.length
-        data.forEach(msg => {
-          axios.get(`/api/users/getbyid/${msg.sender}`)
-            .then(({ data }) => {
-              let senderUsername = data.username
-              let msgElem = `
-            <div className="uk-alert">
-              <h4>${senderUsername}</h4>
-              <p>${msg.text}</p>
-            </div>
-            <hr></hr>
-              `
-              $('#chatStream').append(msgElem)
-            })
-            .catch(e => console.error(e))
-        })
-      })
-
-      .catch(e => console.error(e))
-  }
-
   if (currentChatToken==='None'){
     console.log(`No chat`)
   }else{
-    LoadChat(currentChatToken)
+    renderMessages(currentChatToken)
     setInterval(() => {
       axios.get(`/api/chat/messages/${currentChatToken}`)
         .then(({ data }) => {
           if (currentMsgCount<data.length){
-            LoadChat(currentChatToken)
+            renderMessages(currentChatToken)
           }
         })
 

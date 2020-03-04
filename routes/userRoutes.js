@@ -120,7 +120,7 @@ router.get('/users/getbyid/:searchid', (req, res) => {
 router.get('/chat/new/:chatToken/:msg', (req, res) => {
   let chatToken = req.params.chatToken
   let msg = req.params.msg
-  Message.create({sender: req.session.userId, text: msg, convoToken: chatToken})
+  Message.create({userId: req.session.userId, text: msg, convoToken: chatToken})
     .then(() => {
       res.sendStatus(200)
     })
@@ -130,7 +130,7 @@ router.get('/chat/new/:chatToken/:msg', (req, res) => {
 // GET ALL MESSAGES FOR CONVO
 router.get('/chat/messages/:chatToken', (req, res) => {
   let chatToken = req.params.chatToken
-  Message.findAll({where: {convoToken: chatToken}})
+  Message.findAll({where: {convoToken: chatToken}, include: [User]})
     .then(data => {
       res.json(data)
     })
