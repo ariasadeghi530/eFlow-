@@ -21,7 +21,7 @@ const UserChat = props => {
             <div className="uk-card uk-card-primary uk-card-body">
               <div className="uk-margin" uk-margin>
                     <input className="uk-input uk-form-width-1-1" id="chatInput" type="text" placeholder="Enter a message..."></input>
-                <button className="uk-button uk-button-default" id="chatSend" style={{ float: "right" }}>Submit</button>
+                <button className="uk-button uk-button-default uk-margin-small-top" id="chatSend" style={{ float: "right" }}>Submit</button>
               </div>
             </div>
           </div>

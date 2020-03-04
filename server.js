@@ -25,8 +25,16 @@ app.get('/chat', (req, res) => {
   res.render('userchat')
 })
 
+app.get('/collections', (req, res) => {
+  res.render('collections')
+})
+
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home',
+  {
+    whatsHot: `What's Hot`,
+    whatsNew: `What's New`
+  })
 })
 
 app.get('/products', (req, res) => {

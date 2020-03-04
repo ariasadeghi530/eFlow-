@@ -1,15 +1,25 @@
 /* NAVBAR STYLING */
 
 .uk-navbar {
-    height: 75px;
+    height: 50px;
 }
-
-/* .uk-button-default {
+.gg-menu{
+    margin-bottom: 21px;
+}
+.gg-search, .gg-close{
+    margin-bottom: 23px;
+}
+.search-bar-button {
     border: none;
-} */
+    padding: 0%;
+}
 
 .uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
     padding-left: 35px!important;
+}
+
+.nav-margin {
+    margin-bottom: 0px;
 }
 
 .uk-form-width-medium {
@@ -24,6 +34,12 @@
 
 .uk-form-icon, #close {
     display: none;
+}
+
+.uk-form-width-medium {
+    width: 250px;
+    margin-right: 20px;
+    margin-bottom: 22px;
 }
 
 .uk-form-icon {
@@ -65,7 +81,8 @@
 .uk-tile-muted {
     width: 100%;
 }
-#user-img{
+
+#user-img {
     width: 50px;
     height: 50px;
     margin-left: 13px;
@@ -77,9 +94,13 @@
     -o-border-radius: 20%;
 }
 
-.sidebar-header{
+.sidebar-header {
     margin-top: 50px;
     margin-bottom: 0px;
+}
+
+#side-username {
+    margin-left: 10px;
 }
 
 /* Button styling */
@@ -119,7 +140,7 @@
     background-color: rgb(80, 151, 80);
 }
 
-.slider-img{
+.slider-img {
     width: 150px !important;
     height: 150px !important;
 }
@@ -141,6 +162,32 @@
     font-size: 18px;
 }
 
+/* COLLECTION STYLING */
+
+.collection-tile {
+    margin-bottom: 25px;
+}
+
+.uk-card-small {
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+/* Footer*/
+
+.footer-container {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(56, 56, 56);
+    
+
+}
+
 /* Profile Page */
 
 .profile-online {
@@ -148,9 +195,17 @@
     font-size: 12px;
 }
 
-/* Footer*/
-.footer-container {
-    height: 100px;
-    width: 100%;
-    background-color: rgb(56, 56, 56);
+/* Home Page */
+
+.spacer{
+    height: 50px;
+}
+.home-sliders{
+    padding-left: 10px;
+}
+.cat-width{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 90px;
+    
 }
