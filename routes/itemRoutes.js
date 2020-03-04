@@ -1,8 +1,9 @@
+// const router = require('express').Router()
 // const sequelize = require('../config')
 // const Item = require('../models/Item.js')
 
 
-// // POST an item
+// POST an item
 // router.post('/items', (req, res) => {
 //   Item.create(req.body)
 //     .then(() => {
@@ -10,7 +11,7 @@
 //     })
 //     .catch(e => console.log(e))
 // })
-// // GET all items
+// GET all items
 // router.get('/items', (req, res) => {
 //   Item.findAll()
 //     .then(items => {

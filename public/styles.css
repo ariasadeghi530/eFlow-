@@ -1,4 +1,20 @@
-.uk-input {
+/* NAVBAR STYLING */
+
+.uk-navbar {
+    height: 75px;
+}
+
+/* .uk-button-default {
+    border: none;
+} */
+
+.uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
+    padding-left: 35px!important;
+}
+
+.uk-form-width-medium {
+    display: none;
+    height: 30px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -6,10 +22,131 @@
     -o-border-radius: 5px;
 }
 
+.uk-form-icon, #close {
+    display: none;
+}
+
+.uk-form-icon {
+    margin-top: 6.5px;
+    margin-left: 6px;
+    margin-right: 0px;
+}
+
+#inputSearch {
+    height: 17px;
+    width: 17px;
+}
+
+/* SIDENAV STYLING */
+
+.uk-open, .uk-offcanvas-bar {
+    padding-left: 0%;
+    padding-right: 0%;
+    width: 100%;
+}
+
+.sidebar-title {
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+.uk-position-top-center {
+    margin-top: 20px;
+}
+
+.sidebar-text {
+    color: black !important;
+}
+
+.sidebar-text-list {
+    color: #666 !important;
+}
+
+.uk-tile-muted {
+    width: 100%;
+}
+#user-img{
+    width: 50px;
+    height: 50px;
+    margin-left: 13px;
+    margin-bottom: 7px;
+    border-radius: 20%;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
+
+.sidebar-header{
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+#username{
+    margin-left: 10px;
+}
+/* Button styling */
+
 .uk-button {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+
+/* Product Page Styles */
+
+.share-btn {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.product-page-price {
+    font-size: 38px;
+}
+
+.product-price-secondary {
+    font-size: 18px;
+}
+
+.bid-btn {
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    background-color: rgb(80, 151, 80);
+}
+
+.slider-img{
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.slider-price {
+    font-size: 18px;
+}
+
+.slider-margin-remove {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.slider-margin-bottom-remove {
+    margin-bottom: 0px;
+}
+
+.slider-product-title {
+    font-size: 18px;
+}
+
+/* Profile Page */
+
+.profile-online {
+    color: rgb(0, 212, 0);
+    font-size: 12px;
 }

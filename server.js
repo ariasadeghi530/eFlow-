@@ -19,8 +19,8 @@ app.get('/login', (req, res) => {
 
 app.get('/register', (req, res) => {
   res.render('register')
-  res.render('log-reg')
 })
+
 
 app.get('/', (req, res) => {
   res.render('home')
@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
 
 app.get('/products', (req, res) => {
   res.render('products')
+})
+
+app.get('/profile', (req, res) => {
+  res.render('profile')
 })
 
 sequelize.sync() //or .authenticate()
