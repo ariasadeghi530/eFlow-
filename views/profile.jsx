@@ -1,16 +1,11 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
-const HeaderTwo = require('./components/headerTwo.jsx')
-const SidenavLink = require('./components/sidenavLink.jsx')
-const Sidenav = require('./components/sidenav.jsx')
+
 const BreadCrumbs = require('./components/breadcrumb.jsx')
 
 const Profile = () => {
   return (
     <Default>
-      <HeaderTwo />
-      <SidenavLink />
-      <Sidenav />
       <BreadCrumbs />
       <div className="uk-card uk-margin-left uk-margin-right">
         <h1 className="uk-text-bold">Profile</h1>

@@ -1,16 +1,21 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
-const SidenavLink = require('./components/sidenavLink.jsx')
-const Sidenav = require('./components/sidenav.jsx')
+const HomeSlider = require('./components/homeSlider.jsx')
+const CatSlider = require('./components/catSlider.jsx')
+const WhatsHot = require('./components/whatsHot.jsx')
+const Footer = require('./components/footer.jsx')
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Default>
-      <SidenavLink />
-      <Sidenav />
-      <h1>Hello world</h1>
-      <h3 id="welcome"></h3>
-      <button id="logout">Logout</button>
+     <HomeSlider />
+     <CatSlider />
+      <WhatsHot whats={props.whatsHot} />
+      <WhatsHot whats={props.whatsNew} />
+      <div className="uk-container">
+        <div className="spacer"></div>
+      </div>
+      <Footer />
     </Default>
   )
 }
