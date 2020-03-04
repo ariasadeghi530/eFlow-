@@ -21,6 +21,9 @@ app.get('/register', (req, res) => {
   res.render('register')
 })
 
+app.get('/chat', (req, res) => {
+  res.render('userchat')
+})
 
 app.get('/', (req, res) => {
   res.render('home')
