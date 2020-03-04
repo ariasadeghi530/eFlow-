@@ -11,7 +11,9 @@
 .uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
     padding-left: 35px!important;
 }
-
+.uk-margin{
+    margin-bottom: 0px;
+}
 .uk-form-width-medium {
     display: none;
     height: 30px;
@@ -142,4 +144,20 @@
 
 .slider-product-title {
     font-size: 18px;
+}
+
+/* COLLECTION STYLING */
+
+.collection-tile{
+    margin-bottom: 25px;
+}
+
+.uk-card-small{
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+
+.pagination{
+    margin-left: 50px;
+    margin-top: 10px;
 }
