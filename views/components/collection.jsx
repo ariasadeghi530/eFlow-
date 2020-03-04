@@ -2,6 +2,7 @@ const React = require('react')
 
 const Collection = () => {
   return (
+    <a href="/products">
     <div className="uk-flex-inline">
       <div class="uk-card uk-card-default uk-card-small">
         <div class="uk-card-media-top uk-flex uk-flex-center">
@@ -14,6 +15,7 @@ const Collection = () => {
         </div>
       </div>
     </div>
+    </a>
   )
 }
 
