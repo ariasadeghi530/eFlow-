@@ -14,7 +14,7 @@ const Pricing = props => {
           <p>Asking Price:</p> 
         </div>
         <div className="uk-flex uk-flex-center">
-          <p class="product-page-price uk-text-bold">$42,069</p>
+          <p className="product-page-price uk-text-bold">$42,069</p>
         </div>
     </Card>
   )

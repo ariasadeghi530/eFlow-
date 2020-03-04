@@ -12,6 +12,7 @@ router.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
 }))
+
 // POST an user
 router.post('/users', (req, res) => {
   req.body.password = md5(req.body.password)
@@ -21,6 +22,7 @@ router.post('/users', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // LOGIN an user
 router.get('/users/login/:username/:password', (req, res) => {
   User.findOne({ where: { 
@@ -49,6 +51,7 @@ router.get('/users/login/:username/:password', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // CHECK IF USER IS LOGGED IN
 router.get('/users/checklogin', (req, res) => {
   if (req.session===null){
@@ -61,11 +64,13 @@ router.get('/users/checklogin', (req, res) => {
     }
   }
 })
+
 // LOGOUT USER
 router.get('/users/logout', (req, res) => {
   req.session = null
   res.end('logged out')
 })
+
 // GET LOGGED IN USER INFO
 router.get('/users/getinfo', (req, res) => {
   User.findOne({
@@ -78,6 +83,7 @@ router.get('/users/getinfo', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // CREATE CONVO
 router.get('/chat/newconvo/:userid', (req, res) => {
   let newChatToken = srs()
@@ -87,6 +93,7 @@ router.get('/chat/newconvo/:userid', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // GET ALL USER's CONVERSATION
 router.get('/chat/getconvos', (req, res) => {
   Conversation.findAll({
