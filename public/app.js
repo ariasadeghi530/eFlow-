@@ -65,3 +65,12 @@ $(document).on('click', e => {
     window.location.replace('/login')
   }
 })
+
+// Account Logout
+$('#logout').on('click', () => {
+  axios.get(`/api/users/logout`)
+    .then(() => {
+      location.reload()
+    })
+    .catch(e => console.error(e))
+})
