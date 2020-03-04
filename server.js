@@ -6,8 +6,10 @@ const sequelize = require('./config')
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
 app.set('views', join(__dirname, 'views'))
 app.set('view engine', 'jsx')
+
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(require('./routes'))
 
@@ -29,6 +31,10 @@ app.get('/', (req, res) => {
 
 app.get('/products', (req, res) => {
   res.render('products')
+})
+
+app.get('/profile', (req, res) => {
+  res.render('profile')
 })
 
 sequelize.sync() //or .authenticate()

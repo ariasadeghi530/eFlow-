@@ -1,4 +1,8 @@
 const React = require('react')
+const HeaderTwo = require('../components/headerTwo.jsx')
+const Sidenav = require('../components/sidenav.jsx')
+const SidenavLink = require('../components/sidenavLink.jsx')
+const Breadcrumb = require('../components/breadcrumb.jsx')
 
 const Default = props => {
   return (
@@ -11,16 +15,20 @@ const Default = props => {
 
         <link rel="stylesheet" href="../reset.css"></link>
         <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"></link>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../styles.css"></link>
-
       </head>
 
       <body>
+        <HeaderTwo />
+        <Sidenav />
+        <SidenavLink />
         {props.children}
+
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossOrigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
           integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
           crossOrigin="anonymous"></script>
@@ -31,6 +39,7 @@ const Default = props => {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
         <script src="../checklogin.js"></script>
         <script src="../app.js"></script>
+        <script src="../auth.js"></script>
       </body>
 
     </html>

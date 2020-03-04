@@ -1,6 +1,6 @@
 const { Model, STRING, INTEGER } = require('sequelize')
 const sequelize = require('../config')
-// 
+
 class Item extends Model { }
 
 Item.init({

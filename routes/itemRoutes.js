@@ -11,6 +11,7 @@ router.post('/items', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
 // GET all items
 router.get('/items', (req, res) => {
   Item.findAll()

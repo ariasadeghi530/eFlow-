@@ -4,16 +4,15 @@
     height: 75px;
 }
 
-.uk-button-default {
+/* .uk-button-default {
     border: none;
-}
-
+} */
 
 .uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
     padding-left: 35px!important;
 }
 
-.uk-input {
+.uk-form-width-medium {
     display: none;
     height: 30px;
     border-radius: 5px;
@@ -38,7 +37,6 @@
     width: 17px;
 }
 
-
 /* SIDENAV STYLING */
 
 .uk-open, .uk-offcanvas-bar {
@@ -49,23 +47,41 @@
 
 .sidebar-title {
     margin-left: 15px;
+    margin-top: 25px;
 }
-.uk-position-top-center{
+
+.uk-position-top-center {
     margin-top: 20px;
 }
 
-.sidebar-text{
+.sidebar-text {
     color: black !important;
 }
 
-.sidebar-text-list{
+.sidebar-text-list {
     color: #666 !important;
 }
 
-.uk-tile-muted{
+.uk-tile-muted {
     width: 100%;
-  
 }
+#user-img{
+    width: 50px;
+    height: 50px;
+    margin-left: 13px;
+    margin-bottom: 7px;
+    border-radius: 20%;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
+
+.sidebar-header{
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
 /* Button styling */
 
 .uk-button {
@@ -123,4 +139,18 @@
 
 .slider-product-title {
     font-size: 18px;
+}
+
+/* Profile Page */
+
+.profile-online {
+    color: rgb(0, 212, 0);
+    font-size: 12px;
+}
+
+/* Footer*/
+.footer-container {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(56, 56, 56);
 }
