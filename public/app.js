@@ -50,4 +50,3 @@ $(document).on('click', e => {
     window.location.replace('/login')
   }
 })
-

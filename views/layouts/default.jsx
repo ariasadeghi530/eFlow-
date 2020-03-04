@@ -17,7 +17,6 @@ const Default = props => {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../styles.css"></link>
-
       </head>
 
       <body>
@@ -25,8 +24,6 @@ const Default = props => {
         <SidenavLink />
         <Sidenav />
         {props.children}
-       
-      
 
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
@@ -41,6 +38,7 @@ const Default = props => {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
         <script src="../checklogin.js"></script>
         <script src="../app.js"></script>
+        <script src="../auth.js"></script>
       </body>
 
     </html>
