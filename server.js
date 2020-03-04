@@ -27,7 +27,11 @@ app.get('/collections', (req, res) => {
 
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home',
+  {
+    whatsHot: `What's Hot`,
+    whatsNew: `What's New`
+  })
 })
 
 app.get('/products', (req, res) => {
