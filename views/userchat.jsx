@@ -13,8 +13,7 @@ const UserChat = props => {
           </div>
           <div className="uk-card uk-card-default uk-card-body uk-overflow-auto uk-height-large" id="chatStream">
             <div className="uk-alert">
-              <h4>Username</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <h4>No chat is loaded</h4>
             </div>
             <hr></hr>
           </div>

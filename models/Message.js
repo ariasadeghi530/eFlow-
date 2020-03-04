@@ -3,11 +3,12 @@ const sequelize = require('../config')
 // 
 class Message extends Model { }
 
+// sender: {
+//   type: INTEGER,
+//     allowNull: false
+// },
+
 Message.init({
-  sender: {
-    type: INTEGER,
-    allowNull: false
-  },
   text: {
     type: STRING,
     allowNull: false
