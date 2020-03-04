@@ -19,6 +19,10 @@ app.get('/register', (req, res) => {
   res.render('register')
 })
 
+app.get('/collections', (req, res) => {
+  res.render('collections')
+})
+
 
 app.get('/', (req, res) => {
   res.render('home')
