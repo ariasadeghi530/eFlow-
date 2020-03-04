@@ -117,16 +117,15 @@ router.get('/users/getbyid/:searchid', (req, res) => {
 })
 
 // SEND CHAT MESSAGE
-router.get('/chat/new/:chatToken/:msg', (req, res) => {
-  let chatToken = req.params.chatToken
-  let msg = req.params.msg
-  Message.create({userId: req.session.userId, text: msg, convoToken: chatToken})
+router.post('/chat/new', (req, res) => {
+  let chatToken = req.body.chatToken
+  let msg = req.body.msg
+  Message.create({ text: msg, convoToken: chatToken, userId: req.session.userId })
     .then(() => {
       res.sendStatus(200)
     })
     .catch(e => console.log(e))
 })
-
 // GET ALL MESSAGES FOR CONVO
 router.get('/chat/messages/:chatToken', (req, res) => {
   let chatToken = req.params.chatToken
