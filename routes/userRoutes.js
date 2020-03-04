@@ -60,7 +60,7 @@ router.get('/users/checklogin', (req, res) => {
     if (req.session.isLoggedin===true){
       res.json({userId: req.session.userId})
     }else{
-      res.json({})
+      res.end()
     }
   }
 })

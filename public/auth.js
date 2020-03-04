@@ -61,4 +61,12 @@ $(document).on('click', e => {
   if (e.target.id==='login'){
     loginUser()
   }
+
+    if (e.target.id === 'signupPage') {
+      window.location.replace('/register')
+    } 
+    if (e.target.id === 'loginPage') {
+      window.location.replace('/login')
+    }
+
 })

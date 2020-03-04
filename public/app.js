@@ -58,10 +58,10 @@ $('#logout').on('click', () => {
 })
 
 // Account Register/Login Btns
-$(document).on('click', e => {
-  if (e.target.id === 'signup') {
-    window.location.replace('/register')
-  } else if (e.target.id === 'login') {
-    window.location.replace('/login')
-  }
-})
+// $(document).on('click', e => {
+//   if (e.target.id === 'signup') {
+//     window.location.replace('/register')
+//   } else if (e.target.id === 'login') {
+//     window.location.replace('/login')
+//   }
+// })
