@@ -23,10 +23,3 @@ $(document).on('click', e => {
     window.location.replace('/login')
   }
 })
-
-// Sidebar Btn
-$(document).ready(function () {
-  $('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
-  });
-});

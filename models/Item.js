@@ -38,4 +38,4 @@ Item.init({
   }
 }, { sequelize, modelName: 'user' })
 
-module.exports = User
+module.exports = Item
