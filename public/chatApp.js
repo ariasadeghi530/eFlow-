@@ -72,19 +72,13 @@ axios.get('/api/chat/getconvos')
             .then(({ data }) => {
               let senderUsername = data.username
               let msgElem = `
-                  <li className="left clearfix">
-                    <div className="chat-body clearfix">
-                      <div className="header">
-                        <strong className="primary-font">${senderUsername}</strong> <small className="pull-right text-muted">
-                          <span className="glyphicon glyphicon-time"></span>${msg.createdAt}</small>
-                      </div>
-                      <p>
-                        ${msg.text}
-                      </p>
-                    </div>
-                  </li>
+            <div className="uk-alert">
+              <h4>${senderUsername}</h4>
+              <p>${msg.text}</p>
+            </div>
+            <hr></hr>
               `
-              $('#chatStream').prepend(msgElem)
+              $('#chatStream').append(msgElem)
             })
             .catch(e => console.error(e))
         })
