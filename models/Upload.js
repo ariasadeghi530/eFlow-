@@ -18,7 +18,7 @@ Upload.init({
   },
   contents: {
     type: STRING,
-    allowNull: false
+    allowNull: true
   }
 }, { sequelize, modelName: 'upload' })
 
