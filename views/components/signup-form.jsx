@@ -4,6 +4,9 @@ const React = require('react')
 const SignUp = () => {
   return (
     <form>
+      <div id="alerts">
+        
+      </div>
       <div>
         <div className="uk-width-1-2@s uk-margin">
           <div className="form-group">

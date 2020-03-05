@@ -5,13 +5,34 @@ const srs = require('secure-random-string')
 const { Op } = require("sequelize")
 const axios = require('axios')
 const md5 = require('md5')
+const TokenGenerator = require('uuid-token-generator');
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload } = require('../models')
+const nodemailer = require("nodemailer");
 
-const { User, Message, Conversation } = require('../models')
+let domainName = 'localhost' //This will be where we read in the current domain name
+
+let domainPort = process.env.PORT || 3000 //Read in config setting for our default listen port on our domain
 
 router.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
 }))
+
+// Update a user
+router.put('/users/:id',
+  (req, res) => {
+
+    console.log(req.body)
+    console.log(req.params.id)
+    // User.update({ password: req.body }, { where: { id: req.params.id } })
+    //   .then(() => {
+    //     console.log('Password Updated')
+    //   })
+    //   .catch(e => console.log(e))
+    res.sendStatus(200)
+
+  })
+
 
 // POST an user
 router.post('/users', (req, res) => {
@@ -84,6 +105,105 @@ router.get('/users/getinfo', (req, res) => {
     })
     .catch(e => console.log(e))
 })
+
+//Render the user-contact view
+router.get('/userContact/', (req, res) => {
+  res.render('user-contact')
+})
+
+//Render the user-upload view
+router.get('/userUpload/', (req, res) => {
+  res.render('user-upload')
+
+})
+
+//Renders Forget Password Email View
+router.get('/forgetPasswordEmail/', (req, res) => {
+  res.render('forgetpassword-email')
+})
+
+//Render Reset Password View
+router.get('/forgetPasswordReset/:token', (req, res) => {
+  let token = req.params.token
+
+  let found = ForgotPassword.findOne({
+    where: {
+      token: token
+    },
+    // Add order conditions here....
+    order: [
+      ['id', 'DESC'],
+    ]
+  })
+    .then(forgotPassword => {
+
+      res.render('forgetpassword-reset', {
+        userid: forgotPassword.userid
+
+      })
+    })
+})
+
+router.post('/ForgetPasswordToken', (req, res) => {
+  let userEmail = req.body.forgetPasswordEmail
+  let newTokenGen128 = new TokenGenerator(); //default 128bit
+  let newToken = newTokenGen128.generate()
+  User.findOne({
+    where: {
+      email: userEmail
+    }
+  })
+    .then(user => {
+
+      let userid = user.id
+
+      //res.end(userid)
+      ForgotPassword.create({ userid: userid, token: newToken, email: userEmail })
+        .then(forgot => {
+          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/api/forgetPasswordReset/' + newToken
+          sendForgotPasswordMail(userEmail, tokenUrlLink)
+        })
+
+    })
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+  res.sendStatus(200)
+})
+
+async function sendForgotPasswordMail(email, tokenURL) {
+
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: 'eflowresponse',
+      pass: 'Test!12345'
+    }
+  });
+
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"eflow Password Reset" <eflowresponse@gmail.com>', // sender address
+    to: email, // list of receivers
+    subject: "Password Reset", // Subject line
+    text: `Please use the following URL to resetup your password: ${tokenURL}`, // plain text body
+    html: `<b>Please use the following URL to resetup your password:</b> ${tokenURL}` // html body
+  })
+    .catch(e => console.log(e))
+  //console.log("Message sent: %s", info.messageId);
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+  // Preview only available when sending through an Ethereal account
+  //console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+
+  //nodemailer.sendMail()
+}
+
 
 // CREATE CONVO
 router.get('/chat/newconvo/:userid', (req, res) => {
