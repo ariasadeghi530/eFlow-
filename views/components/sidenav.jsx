@@ -18,13 +18,14 @@ const Sidenav = () => {
         <h3 className=" sidebar-title"><a href="/collections" className="sidebar-text">Browse</a></h3>
         <div className="uk-tile-muted">
           <ul>
-            <li><h4><a href="/collections" className="sidebar-text-list">Category 1</a></h4></li>
-            <li><h4><a href="/collections" className="sidebar-text-list">Category 2</a></h4></li>
-            <li><h4><a href="/collections" className="sidebar-text-list">Category 3</a></h4></li>
-            <li><h4><a href="/collections" className="sidebar-text-list">Category 4</a></h4></li>
+            <li><h4><a href="/collections" className="sidebar-text-list">Electronics</a></h4></li>
+            <li><h4><a href="/collections" className="sidebar-text-list">Apparel</a></h4></li>
+            <li><h4><a href="/collections" className="sidebar-text-list">Automotive</a></h4></li>
           </ul>
         </div>
-        <h4 className="sidebar-text sidebar-title">Poop</h4>
+        <a href=""><h4 className="sidebar-text sidebar-title">FAQ</h4></a>
+        <a href=""><h4 className="sidebar-text sidebar-title">About Us</h4></a>
+        <a href=""><h4 className="sidebar-text sidebar-title">Contact Us</h4></a>
         <div className="uk-flex uk-flex-center">
           <button id="logout" className="uk-button uk-button-primary">Logout</button>
         </div>
