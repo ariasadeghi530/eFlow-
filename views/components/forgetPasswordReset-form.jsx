@@ -2,18 +2,24 @@ const React = require('react');
 
 const ForgotPasswordResetForm = props => {
   return (
+    <div className="uk-container">
     <form>
-      <fieldset data-uk-margin>
-        <legend>Forgot Password Reset</legend>
-        <p>Please enter in new password.</p>
-        <p><label>Password</label><input type="text" placeholder="" id='password' /></p>
-        <p><label>Confirm</label><input type="text" placeholder="" id='passwordConfirm' /></p>
-        <input type="hidden" id="uid" name="uid" value={props.userid} />
-        <input type="hidden" id="tid" name="tid" value={props.token} />
-        <button class="uk-button" id="ResetUserPassword">Submit</button>
-        <div id="displayForgetPasswordReset"></div>
-      </fieldset>
+      <div id="alerts">
+      </div>
+      <h3>Please enter a new password.</h3>
+      <hr />
+      <div className="uk-margin">
+        <input type="password" className="uk-input" id="password" placeholder="Password"></input>
+      </div>
+      <div className="uk-margin">
+        <input type="password" className="uk-input" id="passwordConfirm" placeholder="Confirm Password"></input>
+      </div>
+      <input type="hidden" id="uid" name="uid" value={props.userid} />
+      <input type="hidden" id="tid" name="tid" value={props.token} />
+      
+      <button type="button" id="ResetUserPassword" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" >Submit</button>
     </form>
+    </div>
   );
 }
 
