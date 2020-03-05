@@ -56,6 +56,7 @@ router.post('/users/login', (req, res) => {
             req.session.userId = user.id
             req.session.isLoggedin = true
             req.session.ip = data.ip
+            req.session.perm = user.permissions
             axios.get(`http://api.ipstack.com/${data.ip}?access_key=ccb8e026d1e52d9ae1861d591d4bdd28`)
               .then((locationData) => {
                 req.session.location = [locationData.data.city, locationData.data.region_name, locationData.data.zip]
@@ -82,6 +83,15 @@ router.get('/users/checklogin', (req, res) => {
     }
   }
 })
+
+// TEMP NEW ADMIN ROUTE
+// router.get('/users/newadmin/:id', (req, res) => {
+//   User.update({ permissions: 1 }, {
+//     where: {
+//       id: req.params.id
+//     }
+//   })
+// })
 
 // LOGOUT USER
 router.get('/users/logout', (req, res) => {

@@ -105,6 +105,16 @@ app.get('/forgetPasswordReset/:token', (req, res) => {
     })
 })
 
+app.get('/admin', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('admindash')
+    }else{
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
 //Reset password external link
 app.put('/forgetPasswordReset/:user/:token', (req, res) => {
   let md5pass = md5(req.body.password)
