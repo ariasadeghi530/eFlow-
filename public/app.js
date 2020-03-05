@@ -45,17 +45,15 @@ let UserInfo
   axios.get(`/api/users/getinfo`)
     .then(({data}) => {
       UserInfo = data
-      $('#welcome').text(`Welcome, ${UserInfo.username}`)
+      console.log(data)
+      $('#side-username').text(data.username)
+      $('#profile-username').text(data.username)
+      $('#profile-name').text(`${data.first_name} ${data.last_name}`)
+      $('#profile-email').text(data.email)
+
     })
     .catch(e => console.error(e))
 
-$('#logout').on('click', () => {
-  axios.get(`/api/users/logout`)
-    .then(() => {
-      location.reload()
-    })
-    .catch(e => console.error(e))
-})
 
 
 // Account Logout
