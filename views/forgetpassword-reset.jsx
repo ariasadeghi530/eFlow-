@@ -1,12 +1,14 @@
 const React = require('react')
-const Default = require('./layouts/default.jsx')
+const Login = require('./layouts/login.jsx')
+const HeaderOne = require('./components/headerOne.jsx')
 const ForgetPasswordResetForm = require('./components/forgetPasswordReset-form.jsx')
 
 const ForgetPasswordReset = (props) => {
   return (
-    <Default>
+    <Login>
+      <HeaderOne />
       <ForgetPasswordResetForm userid={props.userid} ></ForgetPasswordResetForm>
-    </Default>
+    </Login>
   )
 }
 

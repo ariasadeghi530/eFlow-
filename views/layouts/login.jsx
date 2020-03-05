@@ -14,6 +14,7 @@ const Login = props => {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../css/styles.css"></link>
+        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
       </head>
 
       <body>
