@@ -4,6 +4,9 @@ const React = require('react')
 const SignUp = () => {
   return (
     <form>
+      <div id="alerts">
+        
+      </div>
       <div>
         <div className="uk-width-1-2@s uk-margin">
           <div className="form-group">
@@ -32,7 +35,7 @@ const SignUp = () => {
       <div className="uk-margin">
         <p >By signing up, you agree to the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Service</a> and <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a></p>
       </div>
-      <button type="button" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Sign Up</button>
+      <button type="button" id="register" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Sign Up</button>
     </form>
   )
 }

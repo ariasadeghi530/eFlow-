@@ -4,5 +4,6 @@ const Message = require('./Message.js')
 const Conversation = require('./Conversation.js')
 
 Message.belongsTo(User)
+Item.belongsTo(User)
 
 module.exports = { User, Item, Message, Conversation }

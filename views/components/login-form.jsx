@@ -4,6 +4,7 @@ const React = require('react')
 const LogIn = () => {
     return (
         <form>
+            <div id="alerts"></div>
             <div className="uk-margin">
                 <input type="text" className="uk-input" id="loginUsername" placeholder="Username"></input>
             </div>
