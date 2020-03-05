@@ -13,7 +13,7 @@ const loginUser = () => {
         </div>
       `)
       }else{
-        window.location.replace("./")
+        window.location.href = "/"
       }
     })
     .catch(e => console.error(e))

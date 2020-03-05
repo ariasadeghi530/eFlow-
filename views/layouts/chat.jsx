@@ -12,12 +12,12 @@ const Chat = props => {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title>eFlow - Chat</title>
 
-        <link rel="stylesheet" href="../reset.css"></link>
+        <link rel="stylesheet" href="../css/reset.css"></link>
         <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"></link>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
-        <link rel="stylesheet" href="../styles.css"></link>
-        <link rel="stylesheet" href="../chat.css"></link>
+        <link rel="stylesheet" href="../css/styles.css"></link>
+        <link rel="stylesheet" href="../css/chat.css"></link>
 
       </head>
 
@@ -39,11 +39,11 @@ const Chat = props => {
           crossOrigin="anonymous"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-        <script src="../checklogin.js"></script>
-        <script src="../app.js"></script>
-        <script src="../auth.js"></script>
-        <script src="../checklogin.js"></script>
-        <script src="../chatApp.js"></script>
+        <script src="../js/checklogin.js"></script>
+        <script src="../js/app.js"></script>
+        <script src="../js/auth.js"></script>
+        <script src="../js/checklogin.js"></script>
+        <script src="../js/chatApp.js"></script>
       </body>
 
     </html>
