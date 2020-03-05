@@ -32,6 +32,18 @@ const createUser = () => {
     join_date: moment().unix()
   })
     .then(() => {
+      $('#alerts').html(`
+        <div className="uk-alert-success" role="alert">
+          <a className="uk-alert-close" uk-close></a>
+          <p className="uk-text-bold">Success!</p>Your account has been registered! Click <a href="../login">here</a> to login.
+        </div>
+      `)
+      $('#username').val('')
+      $('#email').val('')
+      $('#password').val('')
+      $('#password2').val('')
+      $('#first_name').val('')
+      $('#last_name').val('')
       window.location.replace('/login')
     })
     .catch(e => console.error(e))

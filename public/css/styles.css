@@ -29,6 +29,10 @@ html, body {
     margin-bottom: 0px;
 }
 
+.nav-background{
+    background-color: white !important;
+}
+
 .uk-form-width-medium {
     display: none;
     height: 30px;
