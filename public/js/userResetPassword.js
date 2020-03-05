@@ -8,10 +8,14 @@ const ResetPassword = (userid, password, token) => {
 }
 
 const displayPasswordReset = () => {
-  $('#displayForgetPasswordReset').html('The password has been reset.')
+  $('#reset-alerts').html(`
+        <div className="uk-alert-success" uk-alert="true">
+         
+          <p className="uk-text-bold">Your password has been reset! You may login now.</p>
+        </div>`)
+
 
 }
-console.log($('#uid').val(), $('#password').val(), $('#tid').val())
 
 $('#ResetUserPassword').on('click',
   event => {
