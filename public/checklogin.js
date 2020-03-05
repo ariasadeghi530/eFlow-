@@ -2,7 +2,7 @@ axios.get(`/api/users/checklogin`)
   .then(({data}) => {
     if (data===''){
       // NOT LOGGED IN
-      if (window.location.pathname === '/login' || window.location.pathname === '/register'){
+      if (window.location.pathname === '/login' || window.location.pathname === '/register' || window.location.pathname === '/api/forgetpasswordemail'){
 
       }else{
         window.location.replace("/login")
