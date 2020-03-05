@@ -42,4 +42,17 @@ router.get('/users/delete/:id', (req, res) => {
     .catch(e => console.log(e))
 })
 
+// UPDATE USER
+router.post('/users/update/:id', (req, res) => {
+  User.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
+
 module.exports = router

@@ -103,6 +103,7 @@ $(document).on('click', e => {
         $('#last_name').val(data.last_name)
         $('#username').val(data.username)
         $('#email').val(data.email)
+        $('#user_id').text(data.id)
 
         if (data.permissions===1){
           // User is admin
@@ -117,4 +118,27 @@ $(document).on('click', e => {
       })
       .catch(e => console.error(e))
   }
+})
+
+$('#editUserSave').on('click', () => {
+  let uid = parseInt($('#user_id').text())
+  let isActive
+  let isAdmin
+  if ($("#checkActive").is(":checked")===true){
+    isActive = true
+  }else{
+    isActive = false
+  }
+  if ($("#checkAdmin").is(":checked")===true){
+    isAdmin = true
+  }else{
+    isAdmin = false
+  }
+  axios.post(`/admin/users/update/${uid}`, { first_name: $('#first_name').val(), last_name: $('#last_name').val(), username: $('#username').val(), email: $('#email').val(), active: isActive, permissions: isAdmin })
+    .then(() => {
+      
+    })
+    .catch(e => console.error(e))
+  $('#editModal').modal('hide')
+  loadUsers()
 })
