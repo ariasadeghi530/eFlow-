@@ -12,7 +12,7 @@ const HeaderTwo = () => {
                         <a className="uk-navbar-toggle" uk-toggle="target: #sidenav" href="#"><i class="gg-menu"></i></a>
                     </div>
                     <div className="uk-navbar-center">
-                        <a className="uk-navbar-item uk-logo" href="/">eFlow</a>
+                        <a className="uk-navbar-item uk-logo" href="/"><img src="../images/eflow_logo.png" alt="eFlow"></img></a>
                     </div>
                     <div className="uk-navbar-right">
                         <div className="uk-navbar-item search-icon">
