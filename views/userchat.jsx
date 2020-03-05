@@ -4,7 +4,7 @@ const Chat = require('./layouts/chat.jsx')
 const UserChat = props => {
   return (
     <Chat>
-      <div className="uk-container">
+      <div className="uk-container uk-margin-top">
         <div className="uk-column-1-8">
           <h3 className="uk-card-title">Conversations</h3>
           <div className="uk-card uk-card-default uk-card-body uk-height-small uk-overflow-auto">

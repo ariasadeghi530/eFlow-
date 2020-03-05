@@ -16,7 +16,7 @@ const Profile = () => {
             </div>
             <div className="uk-width-expand">
               <div className="uk-margin-small">
-                <h3 className="uk-card-title uk-margin-small">WowOmgIKnowHTML</h3>
+                <h3 className="uk-card-title uk-margin-small" id="profile-username">WowOmgIKnowHTML</h3>
 
               </div>
               <div className="uk-margin-small">
@@ -34,15 +34,15 @@ const Profile = () => {
           <ul className="uk-list uk-list-striped">
             <li className="uk-flex uk-padding">
               <p className="uk-inline-flex uk-text-bold uk-margin-remove-bottom uk-margin-right">NAME:</p>
-              <p className="uk-inline-flex uk-text-muted uk-margin-remove">Carlo Nazareno</p>
+              <p className="uk-inline-flex uk-text-muted uk-margin-remove" id="profile-name">Carlo Nazareno</p>
             </li>
             <li className="uk-flex uk-padding">
               <p className="uk-inline-flex uk-text-bold uk-margin-remove-bottom uk-margin-right">EMAIL:</p>
-              <p className="uk-inline-flex uk-text-muted uk-margin-remove">myemail@email.com</p>
+              <p className="uk-inline-flex uk-text-muted uk-margin-remove" id="profile-email">myemail@email.com</p>
             </li>
             <li className="uk-flex uk-padding">
               <p className="uk-inline-flex uk-text-bold uk-margin-remove-bottom uk-margin-right">DICK SIZE:</p>
-              <p className="uk-inline-flex uk-text-muted uk-margin-remove">Small</p>
+              <p className="uk-inline-flex uk-text-muted uk-margin-remove">Extra Small</p>
             </li>
           </ul>
         </div>

@@ -9,6 +9,7 @@ const User = () => {
   return (
     <LogInDefault>
       <HeaderOne />
+      <div className="uk-container">
             <div>
                 <button type="button" id="signupPage" class="uk-button uk-button-text uk-width-1-2">Sign Up</button>
                 <button type="button" id="loginPage" class="uk-button uk-button-text uk-width-1-2">Log In</button>
@@ -17,6 +18,7 @@ const User = () => {
             <Card>
                 <SignUp />
             </Card>
+      </div>
     </LogInDefault>
   )
 }

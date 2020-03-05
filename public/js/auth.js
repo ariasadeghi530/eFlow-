@@ -13,7 +13,7 @@ const loginUser = () => {
         </div>
       `)
       }else{
-        window.location.replace("./")
+        window.location.href = "/"
       }
     })
     .catch(e => console.error(e))
@@ -39,11 +39,11 @@ const createUser = () => {
 
 // If Password doesn't match
 $(document).on('click', e => {
-  if (e.target.id==='register'){
+  if (e.target.id==='signUp'){
     e.preventDefault()
     if ($('#password').val() === $('#password2').val()){
       createUser()
-    }else{
+    } else {
       $('#alerts').html(`
         <div className="uk-alert-danger" uk-alert>
           <a className="uk-alert-close" uk-close></a>

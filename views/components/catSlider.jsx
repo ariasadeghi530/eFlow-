@@ -8,41 +8,27 @@ const CatSlider = () => {
 
         <ul class="uk-slider-items  uk-grid">
           <li className="cat-width">
+            <div className="uk-text-center">
           <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Category</h4></a>
+              <a href="/collections"><h4 className="sidebar-text">Electronics</h4></a>
+            </div>
             </div>
           </li>
         <li className="cat-width">
-
+<div className="uk-text-center">
             <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Category</h4></a>
+              <a href="/collections"><h4 className="sidebar-text">Apparel</h4></a>
             </div>
-
+            </div>
           </li>
         <li className="cat-width">
-
+            <div className="uk-text-center">
             <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Category</h4></a>
+              <a href="/collections"><h4 className="sidebar-text">Automotive</h4></a>
             </div>
-
+</div>
           </li>
-        <li className="cat-width">
-
-            <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Category</h4></a>
-            </div>
-
-          </li>
-        <li className="cat-width">
-
-            <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Category</h4></a>
-            </div>
-
-          </li>
-       
           
-        
         </ul>
 
         

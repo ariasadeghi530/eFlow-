@@ -8,7 +8,8 @@ const LogIn = require('./components/login-form.jsx')
 const User = () => {
   return (
     <LogInDefault>
-      <HeaderOne />  
+      <HeaderOne /> 
+      <div className="uk-container">
             <div>
               <button type="button" id="signupPage" className="uk-button uk-button-text uk-width-1-2">Sign Up</button>
               <button type="button" id="loginPage" className="uk-button uk-button-text uk-width-1-2">Log In</button>
@@ -17,6 +18,7 @@ const User = () => {
             <Card>
               <LogIn />
             </Card>
+      </div> 
     </LogInDefault>
   )
 }

@@ -1,14 +1,21 @@
+html, body {
+    overflow-x: hidden;
+}
+
 /* NAVBAR STYLING */
 
 .uk-navbar {
     height: 50px;
 }
-.gg-menu{
+
+.gg-menu {
     margin-bottom: 26px;
 }
-.gg-search, .gg-close{
+
+.gg-search, .gg-close {
     margin-bottom: 26px;
 }
+
 .search-bar-button {
     border: none;
     padding: 0%;
@@ -112,6 +119,7 @@
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
+
 /* Button styling */
 
 .uk-button {
@@ -190,11 +198,11 @@
 /* Footer*/
 
 .footer-container {
-    height: 100px;
+    height: 10%;
     width: 100%;
     background-color: rgb(56, 56, 56);
-    
-
+    position: static;
+    right: 0%;
 }
 
 /* Profile Page */
@@ -206,15 +214,16 @@
 
 /* Home Page */
 
-.spacer{
+.spacer {
     height: 50px;
 }
-.home-sliders{
+
+.home-sliders {
     padding-left: 10px;
 }
-.cat-width{
+
+.cat-width {
     margin-top: 10px;
-    margin-left: 5px;
+    margin-left: 0px;
     width: 90px;
-    
 }
