@@ -1,13 +1,15 @@
 const React = require('react')
-const Default = require('./layouts/default.jsx')
+const Login = require('./layouts/login.jsx')
+const HeaderOne = require('./components/headerOne.jsx')
 const ForgetPasswordEmailForm = require('./components/forgetPasswordEmail-form.jsx')
 
 const ForgetPasswordEmail = () => {
   return (
-    <Default>
+    <Login>
+      <HeaderOne />
       <ForgetPasswordEmailForm></ForgetPasswordEmailForm>
       <div id="forgetPasswordDisplay"></div>
-    </Default>
+    </Login>
   )
 }
 

@@ -45,6 +45,28 @@ app.get('/profile', (req, res) => {
   res.render('profile')
 })
 
+//Render Reset Password View
+app.get('/forgetPasswordReset/:token', (req, res) => {
+  let token = req.params.token
+
+  let found = ForgotPassword.findOne({
+    where: {
+      token: token
+    },
+    // Add order conditions here....
+    order: [
+      ['id', 'DESC'],
+    ]
+  })
+    .then(forgotPassword => {
+
+      res.render('forgetpassword-reset', {
+        userid: forgotPassword.userid
+
+      })
+    })
+})
+
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(3000))
   .catch(e => console.log(e))

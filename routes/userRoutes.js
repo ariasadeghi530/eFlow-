@@ -122,27 +122,6 @@ router.get('/forgetPasswordEmail/', (req, res) => {
   res.render('forgetpassword-email')
 })
 
-//Render Reset Password View
-router.get('/forgetPasswordReset/:token', (req, res) => {
-  let token = req.params.token
-
-  let found = ForgotPassword.findOne({
-    where: {
-      token: token
-    },
-    // Add order conditions here....
-    order: [
-      ['id', 'DESC'],
-    ]
-  })
-    .then(forgotPassword => {
-
-      res.render('forgetpassword-reset', {
-        userid: forgotPassword.userid
-
-      })
-    })
-})
 
 router.post('/ForgetPasswordToken', (req, res) => {
   let userEmail = req.body.forgetPasswordEmail
@@ -200,7 +179,6 @@ async function sendForgotPasswordMail(email, tokenURL) {
   // Preview only available when sending through an Ethereal account
   //console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-
   //nodemailer.sendMail()
 }
 
