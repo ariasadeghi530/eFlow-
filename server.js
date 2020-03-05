@@ -81,5 +81,5 @@ if (req.session.isLoggedin === true) {
 })
 
 sequelize.sync() //or .authenticate()
-  .then(() => app.listen(3000))
+  .then(() => app.listen(process.env.PORT || 3000))
   .catch(e => console.log(e))
