@@ -2,8 +2,10 @@ const express = require('express')
 const { join } = require('path')
 const app = express()
 const axios = require('axios')
+const md5 = require('md5')
 const sequelize = require('./config')
 const cookieSession = require('cookie-session')
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload } = require('./models')
 
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -80,6 +82,7 @@ if (req.session.isLoggedin === true) {
 }
 })
 
+
 //Render Reset Password View
 app.get('/forgetPasswordReset/:token', (req, res) => {
   let token = req.params.token
@@ -96,10 +99,22 @@ app.get('/forgetPasswordReset/:token', (req, res) => {
     .then(forgotPassword => {
 
       res.render('forgetpassword-reset', {
-        userid: forgotPassword.userid
-
+        userid: forgotPassword.userid,
+        token: token
       })
     })
+})
+
+//Reset password external link
+app.put('/forgetPasswordReset/:user/:token', (req, res) => {
+  let md5pass = md5(req.body.password)
+ 
+  User.update({ password: md5pass }, { where: { id: req.params.user } })
+    .then(() => {
+      console.log('Password Updated')
+    })
+    .catch(e => console.log(e))
+  res.sendStatus(200)
 })
 
 sequelize.sync() //or .authenticate()

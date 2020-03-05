@@ -8,7 +8,7 @@ const ForgetPasswordEmail = () => {
     <Login>
       <HeaderOne />
       <ForgetPasswordEmailForm></ForgetPasswordEmailForm>
-      <div id="forgetPasswordDisplay"></div>
+      
     </Login>
   )
 }

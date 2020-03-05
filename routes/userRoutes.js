@@ -24,11 +24,7 @@ router.put('/users/:id',
 
     console.log(req.body)
     console.log(req.params.id)
-    // User.update({ password: req.body }, { where: { id: req.params.id } })
-    //   .then(() => {
-    //     console.log('Password Updated')
-    //   })
-    //   .catch(e => console.log(e))
+    
     res.sendStatus(200)
 
   })
@@ -139,7 +135,7 @@ router.post('/ForgetPasswordToken', (req, res) => {
       //res.end(userid)
       ForgotPassword.create({ userid: userid, token: newToken, email: userEmail })
         .then(forgot => {
-          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/api/forgetPasswordReset/' + newToken
+          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/forgetPasswordReset/' + newToken
           sendForgotPasswordMail(userEmail, tokenUrlLink)
         })
 
@@ -150,6 +146,7 @@ router.post('/ForgetPasswordToken', (req, res) => {
     .catch(e => console.log(e))
   res.sendStatus(200)
 })
+
 
 async function sendForgotPasswordMail(email, tokenURL) {
 

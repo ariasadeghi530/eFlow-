@@ -1,26 +1,26 @@
 
-const ResetPassword = (userid, password) => {
+const ResetPassword = (userid, password, token) => {
 
-  axios.put(`/api/user/${userid}`, { password: password })
+  axios.put(`/forgetPasswordReset/${userid}/${token}`, { password: password })
 
     .then(() => displayPasswordReset())
     .catch(e => console.error(e))
 }
 
 const displayPasswordReset = () => {
-  $('#displayForgetPasswordReset').html('The password has been reset. ')
+  $('#displayForgetPasswordReset').html('The password has been reset.')
 
 }
+console.log($('#uid').val(), $('#password').val(), $('#tid').val())
 
-document.getElementById('ResetUserPassword').addEventListener('click',
+$('#ResetUserPassword').on('click',
   event => {
     event.preventDefault()
     if ($('#password').val() == $('#passwordConfirm').val()) {
-      ResetPassword($('#uid').val(), $('#password').val())
+      
+      ResetPassword($('#uid').val(), $('#password').val(), $('#tid').val())
     }
     else {
-      $('#displayForgetPasswordReset').html('The password and confirmation password you entered in do not match. '
+      $('#displayForgetPasswordReset').html('The password and confirmation password you entered in do not match.')
     }
-
-
   })
