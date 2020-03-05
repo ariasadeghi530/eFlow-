@@ -118,5 +118,5 @@ app.put('/forgetPasswordReset/:user/:token', (req, res) => {
 })
 
 sequelize.sync() //or .authenticate()
-  .then(() => app.listen(3000))
+  .then(() => app.listen(process.env.PORT || 3000))
   .catch(e => console.log(e))
