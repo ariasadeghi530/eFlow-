@@ -2,7 +2,7 @@
 const loginUser = () => {
   let u = $('#loginUsername').val()
   let p = $('#loginPassword').val()
-  axios.get(`/api/users/login/${u}/${p}`)
+  axios.post(`/api/users/login`, {username: u, password: p})
     .then(({ data }) => {
       if (data.length<1) {
         console.log('Login failed')

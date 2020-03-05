@@ -45,10 +45,10 @@ router.post('/users', (req, res) => {
 })
 
 // LOGIN an user
-router.get('/users/login/:username/:password', (req, res) => {
+router.post('/users/login', (req, res) => {
   User.findOne({ where: { 
-    username: req.params.username,
-    password: md5(req.params.password)
+    username: req.body.username,
+    password: md5(req.body.password)
    } })
     .then(user => {
       if (user === null){
