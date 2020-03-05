@@ -1,4 +1,4 @@
-const { Model, STRING, INTEGER } = require('sequelize')
+const { Model, STRING, INTEGER, BOOLEAN } = require('sequelize')
 const sequelize = require('../config')
 
 class Item extends Model { }
@@ -24,18 +24,28 @@ Item.init({
     type: INTEGER,
     allowNull: false
   },
-  sell_date: {
-    type: STRING,
-    allowNull: false
-  },
   location: {
     type: STRING,
     allowNull: false
   },
-  owner_id: {
+  sell_price: {
     type: INTEGER,
+    defaultValue: null
+  },
+  sell_date: {
+    type: STRING,
     allowNull: false
+  },
+  isSold: {
+    type: BOOLEAN,
+    allowNull: false,
+    defaultValue: false
+  },
+  buyer: {
+    type: STRING,
+    defaultValue: null
   }
+
 }, { sequelize, modelName: 'item' })
 
 module.exports = Item

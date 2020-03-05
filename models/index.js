@@ -7,5 +7,6 @@ const ForgotPassword = require('./ForgotPassword.js')
 const Upload = require('./Upload.js')
 
 Message.belongsTo(User)
+Item.belongsTo(User)
 
 module.exports = { User, Item, Message, Conversation, FAQ, ForgotPassword, Upload }

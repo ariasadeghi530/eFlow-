@@ -44,6 +44,7 @@ const createUser = () => {
       $('#password2').val('')
       $('#first_name').val('')
       $('#last_name').val('')
+      window.location.replace('/login')
     })
     .catch(e => console.error(e))
 }
