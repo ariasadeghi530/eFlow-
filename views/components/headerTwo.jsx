@@ -7,7 +7,7 @@ const HeaderTwo = () => {
     return (
         <div>
             <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-                <nav className="uk-navbar uk-navbar-container uk-margin nav-margin uk-background-default">
+                <nav className="uk-navbar uk-navbar-container uk-margin nav-margin nav-background">
                     <div className="uk-navbar-left">
                         <a className="uk-navbar-toggle" uk-toggle="target: #sidenav" href="#"><i class="gg-menu"></i></a>
                     </div>
