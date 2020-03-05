@@ -93,7 +93,7 @@ app.get('/forgetPasswordReset/:token', (req, res) => {
     },
     // Add order conditions here....
     order: [
-      ['id', 'DESC'],
+      ['id', 'DESC']
     ]
   })
     .then(forgotPassword => {
@@ -115,6 +115,8 @@ app.get('/admin', (req, res) => {
   } else {
     res.render('login')
   }
+})
+
 //Reset password external link
 app.put('/forgetPasswordReset/:user/:token', (req, res) => {
   let md5pass = md5(req.body.password)
