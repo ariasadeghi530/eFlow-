@@ -1,19 +1,24 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
+const Collection = require('./components/collection.jsx')
 const Breadcrumb = require('./components/breadcrumb.jsx')
 const Pagination = require('./components/pagination.jsx')
 const Tile = require('./components/tile.jsx')
 
 const Collections = () => {
-  const collectionLoop = () => {
-    
-  }
   return (
     <Default>
-
       <Tile />
       <Breadcrumb />
-      <div id="collection-body" className="uk-container"></div>
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Collection />
+      <Pagination />
       </Default>
   )
 }
