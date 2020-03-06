@@ -8,6 +8,7 @@ router.post('/items', (req, res) => {
   Item.create(req.body)
     .then(() => {
       console.log('Item created')
+      res.sendStatus(200)
     })
     .catch(e => console.log(e))
 })
@@ -21,6 +22,14 @@ router.get('/items', (req, res) => {
       res.sendStatus(200)
     })
     .catch(e => console.log(e))
+})
+
+// Get One Item
+router.get('/items/:id', (req, res) => {
+  Item.findOne({where: {id: req.params.id}})
+    .then(item => {
+      res.json(item)
+    })
 })
 
 router.put('/items/:id', (req,res) => {

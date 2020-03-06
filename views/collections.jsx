@@ -16,7 +16,7 @@ const Collections = (props) => {
       <Collection />
       <Collection />
       <Collection />
-      <Collection />
+      <Collection /> 
       <Collection />
       <Pagination />
       </div>

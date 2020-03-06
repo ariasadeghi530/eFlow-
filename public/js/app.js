@@ -64,3 +64,23 @@ $('#logout').on('click', () => {
     })
     .catch(e => console.error(e))
 })
+
+// Product Page
+function calumSucksDick(id) {
+  axios.get(`/api/items/${id}`)
+    .then(({data}) => {
+      console.log(data)
+      $('#product-title').text(name)
+      $('#product-description').text(description)
+      $('#product-price').text('$'+price)
+      $('#product-img').attr('src', './images/favicon.ico')
+    })
+    .catch(e => console.error(e))
+}
+
+$(document).on('click', event => {
+  if(event.target.classList.contains('product-collection')) {
+    calumSucksDick(event.target.value)
+  }
+})
+

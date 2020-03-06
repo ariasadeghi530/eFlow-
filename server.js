@@ -38,6 +38,18 @@ app.get('/register', (req, res) => {
   }
 })
 
+app.get('/', (req, res) => {
+  if (req.session.isLoggedin===true){
+    res.render('home',
+      {
+        whatsHot: `What's Hot`,
+        whatsNew: `What's New`
+      })
+  }else{
+    res.render('login')
+  }
+})
+
 app.get('/chat', (req, res) => {
   if (req.session.isLoggedin === true) {
   res.render('userchat')
@@ -54,24 +66,8 @@ app.get('/collections', (req, res) => {
   }
 })
 
-app.get('/', (req, res) => {
-  if (req.session.isLoggedin===true){
-    res.render('home',
-      {
-        whatsHot: `What's Hot`,
-        whatsNew: `What's New`
-      })
-  }else{
-    res.render('login')
-  }
-})
-
-app.get('/products', (req, res) => {
-  if (req.session.isLoggedin === true) {
+app.get('/products', (req,res) => {
   res.render('products')
-  } else {
-    res.render('login')
-  }
 })
 
 app.get('/profile', (req, res) => {

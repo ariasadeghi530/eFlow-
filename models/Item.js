@@ -30,11 +30,12 @@ Item.init({
   },
   sell_price: {
     type: INTEGER,
+    allowNull: true,
     defaultValue: null
   },
   sell_date: {
     type: STRING,
-    allowNull: false
+    allowNull: true
   },
   isSold: {
     type: BOOLEAN,
