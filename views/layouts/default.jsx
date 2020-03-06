@@ -43,6 +43,7 @@ const Default = props => {
         <script src="../js/upload.js"></script>
         <script src="../js/forgotpasswordemail.js"></script>
         <script src="../js/userResetPassword.js"></script>
+        <script src="../js/newPost.js"></script>
       </body>
 
     </html>
