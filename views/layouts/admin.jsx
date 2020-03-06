@@ -1,32 +1,81 @@
 const React = require('react')
-
 const Admin = props => {
   return (
-    <html lang='en'>
-
+    <html lang="en">
       <head>
-        <meta charSet='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <title>eFlow</title>
-        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossOrigin="anonymous"></link>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content=""/>
+        <title>eFlow | Admin</title>
+       <link href="../admin/css/styles.css" rel="stylesheet"/>
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossOrigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossOrigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/c7c1f14b64.js" crossorigin="anonymous"></script>
       </head>
-
-      <body>
-
-        {props.children}
-
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossOrigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossOrigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossOrigin="anonymous"></script>
-        <script src="../js/admin.js"></script>
+      <body class="sb-nav-fixed">
+        
+        <div id="layoutSidenav">
+          <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+              <div class="sb-sidenav-menu">
+                <div class="nav">
+                  <div class="sb-sidenav-menu-heading">Core</div>
+                  <a class="nav-link" href="/admin/">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Dashboard</a>
+                  
+                  <div class="sb-sidenav-menu-heading">Users</div>
+                  <a class="nav-link" href="/admin/users">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    Manage</a>
+                    <a class="nav-link" href="/admin/newuser">
+                      <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    New User</a>
+                  <div class="sb-sidenav-menu-heading">Items</div>
+                  <a class="nav-link" href="/items">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    Manage</a>
+                </div>
+              </div>
+              <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+  <span id="adminid">{props.adminid}</span><span id="adminUsername"></span>
+                </div>
+            </nav>
+          </div>
+          <div id="layoutSidenav_content">
+            <main>
+             {props.children}
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+              <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                  <div class="text-muted">Copyright &copy; eFlow 2020</div>
+                  <div>
+                    <span>Beta 1.0.0</span>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossOrigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" crossOrigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossOrigin="anonymous"></script>
+        <script src="../admin/assets/tables/datatables.min.js" crossOrigin="anonymous"></script>
+        <script src="../admin/assets/tables/datatables.bootstrap4.min.js" crossOrigin="anonymous"></script>
+        <script src="../admin/assets/tables/datatables.buttons.min.js" crossOrigin="anonymous"></script>
+        <script src="../admin/assets/tables/datatables.checkboxes.min.js" crossOrigin="anonymous"></script>
+        <script src="../admin/assets/tables/datatables.select.min.js" crossOrigin="anonymous"></script>
+        <script src="../admin/js/scripts.js"></script>
+        <script src="../admin/js/admin.js"></script>
+        <script src={props.js}></script>
+        
       </body>
-
     </html>
+
   )
 }
 
