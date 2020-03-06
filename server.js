@@ -143,7 +143,7 @@ app.get('/admin/users', (req, res) => {
 app.get('/admin/newuser', (req, res) => {
   if (req.session.isLoggedin === true) {
     if (req.session.perm===1){
-      res.render('Adminnewuser',
+      res.render('adminnewuser',
       {
         js: '../admin/js/newuser.js',
         adminid: req.session.userId
