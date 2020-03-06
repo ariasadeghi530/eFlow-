@@ -86,10 +86,15 @@ app.get('/profile-edit', (req, res) => {
   }
 })
 
+// ADMIN DASHBOARD
 app.get('/admin', (req, res) => {
   if (req.session.isLoggedin === true) {
     if (req.session.perm===1){
-      res.render('admindash')
+      res.render('admindash',
+        {
+          js: '../admin/js/dash.js',
+          adminid: req.session.userId
+        })
     }else{
       res.render('home')
     }
@@ -97,6 +102,41 @@ app.get('/admin', (req, res) => {
     res.render('login')
   }
 })
+
+// ADMIN USER MANAGEMENT
+app.get('/admin/users', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('adminusers',
+      {
+        js: '../admin/js/users.js',
+        adminid: req.session.userId
+      })
+    }else{
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
+})
+
+// ADMIN NEW USER
+app.get('/admin/newuser', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('adminnewuser',
+      {
+        js: '../admin/js/newuser.js',
+        adminid: req.session.userId
+      })
+    }else{
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
+})
+
 //Reset password external link
 app.put('/forgetPasswordReset/:user/:token', (req, res) => {
   let md5pass = md5(req.body.password)
