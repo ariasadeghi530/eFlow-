@@ -78,27 +78,12 @@ if (req.session.isLoggedin === true) {
 }
 })
 
-
-//Render Reset Password View
-app.get('/forgetPasswordReset/:token', (req, res) => {
-  let token = req.params.token
-
-  let found = ForgotPassword.findOne({
-    where: {
-      token: token
-    },
-    // Add order conditions here....
-    order: [
-      ['id', 'DESC'],
-    ]
-  })
-    .then(forgotPassword => {
-
-      res.render('forgetpassword-reset', {
-        userid: forgotPassword.userid,
-        token: token
-      })
-    })
+app.get('/profile-edit', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    res.render('profile-edit') 
+  } else {
+    res.render('login')
+  }
 })
 
 app.get('/admin', (req, res) => {
@@ -131,6 +116,7 @@ app.get('/newListing', (req, res) => {
     res.render('login')
   }
 })
+
 
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(process.env.PORT || 3000))

@@ -10,6 +10,14 @@
     -o-border-radius: 15px;
   }
   
+  .ef-border-radius-input {
+    border-radius: 5px  ;
+    -webkit-border-radius: 5px  ;
+    -moz-border-radius: 5px  ;
+    -ms-border-radius: 5px  ;
+    -o-border-radius: 5px  ;
+}
+
   .ef-border-radius-top {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;

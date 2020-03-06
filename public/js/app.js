@@ -51,9 +51,29 @@ let UserInfo
       $('#profile-name').text(`${data.first_name} ${data.last_name}`)
       $('#profile-email').text(data.email)
 
+      $('#profile-edit-username').val(data.username)
+      $('#profile-name-first').val(data.first_name)
+      $('#profile-name-last').val(data.last_name)
+      $('#profile-edit-email').val(data.email)
     })
     .catch(e => console.error(e))
 
+    // listener for submit profile edits page
+  $(document).on('click', event => {
+    if(event.target.id === 'submit-profile-edit') {
+      axios.put(`/api/users/${UserInfo.id}`, {
+        username: $('#profile-edit-username').val(),
+        first_name: $('#profile-name-first').val(),
+        last_name: $('#profile-name-last').val(),
+        email: $('#profile-edit-email').val()
+      })
+      .then(() => {
+        console.log('User Updated')
+        console.log(UserInfo)
+        window.location.replace('/profile')
+      })
+    }
+  })
 
 
 // Account Logout
@@ -69,7 +89,6 @@ $('#logout').on('click', () => {
 function calumSucksDick(id) {
   axios.get(`/api/items/${id}`)
     .then(({data}) => {
-      console.log(data)
       $('#product-title').text(name)
       $('#product-description').text(description)
       $('#product-price').text('$'+price)
@@ -84,3 +103,9 @@ $(document).on('click', event => {
   }
 })
 
+// Edit Profile
+$(document).on('click', event => {
+  if(event.target.id === 'edit-btn') {
+    window.location.replace('/profile-edit')
+  }
+})

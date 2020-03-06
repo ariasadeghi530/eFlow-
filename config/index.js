@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('mysql://root:root@localhost:3306/eflow')
+const sequelize = new Sequelize('mysql://root:admin@localhost:3306/eflow')
 
 module.exports = sequelize

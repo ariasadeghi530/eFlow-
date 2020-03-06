@@ -32,6 +32,15 @@ router.get('/items/:id', (req, res) => {
     })
 })
 
+// Get Item By Category
+router.get('/items/category/:name', (req, res) => {
+  Item.findAll({where: {category: req.params.name}})
+    .then(catResult => {
+      res.json(catResult)
+    })
+    .catch(e => console.log(e))
+})
+
 router.put('/items/:id', (req,res) => {
   Item.update( req.body, {where: {id: req.params.id}})
   .then(() => {
