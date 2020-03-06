@@ -9,7 +9,7 @@ Upload.init({
     allowNull: false
   },
   fileid: {
-    type: INTEGER,
+    type: STRING,
     allowNull: false
   },
   path: {
