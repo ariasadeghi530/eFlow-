@@ -5,15 +5,12 @@ const NewListing = () => {
   return (
     <div className="uk-container">
     <form>
-      <div id="alerts">
-      </div>
       <div>
         <h3>Create a new listing</h3>
         <div className="uk-width-1-2@s uk-margin">
           <div className="form-group">
             <input type="first_name" className="uk-input" id="item_name" placeholder="Item Name"></input>
-          </div>
-        </div>
+         
         <div className="uk-margin">
           <input type="text" className="uk-input" id="price" placeholder="Price"></input>
         </div>
@@ -28,9 +25,12 @@ const NewListing = () => {
         </div>
       </div>
       <div className="uk-margin">
-        <label ><input class="uk-radio" type="radio" name="New"/> New</label>
-        <label className="uk-margin-small-left"><input class="uk-radio" type="radio" name="Used"/> Used</label>
-          
+              <div className="form-group">
+                <select class="uk-select">
+                  <option id="New">New</option>
+                  <option id="Used">Used</option>
+                  </select>
+      </div>
       </div>
 
       <div className="uk-margin">
@@ -41,6 +41,8 @@ const NewListing = () => {
         </div>
 
       <button type="button" id="postItem" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" >Post Listing</button>
+          </div>
+        </div>
     </form>
     </div>
   )
