@@ -35,7 +35,7 @@ Item.init({
   },
   sell_date: {
     type: STRING,
-    allowNull: true
+    defaultValue: null
   },
   isSold: {
     type: BOOLEAN,

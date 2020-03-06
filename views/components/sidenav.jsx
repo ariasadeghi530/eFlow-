@@ -23,6 +23,7 @@ const Sidenav = () => {
             <li><h4><a href="/collections" className="sidebar-text-list">Automotive</a></h4></li>
           </ul>
         </div>
+        <a href="/newListing"><h4 className="sidebar-text sidebar-title">Post New Listing</h4></a>
         <a href=""><h4 className="sidebar-text sidebar-title">FAQ</h4></a>
         <a href=""><h4 className="sidebar-text sidebar-title">About Us</h4></a>
         <a href=""><h4 className="sidebar-text sidebar-title">Contact Us</h4></a>

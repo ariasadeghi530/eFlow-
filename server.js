@@ -124,6 +124,14 @@ app.put('/forgetPasswordReset/:user/:token', (req, res) => {
   res.sendStatus(200)
 })
 
+app.get('/newListing', (req, res) => {
+  if(req.session.isLoggedin === true) {
+    res.render('newItem')
+  }else {
+    res.render('login')
+  }
+})
+
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(process.env.PORT || 3000))
   .catch(e => console.log(e))
