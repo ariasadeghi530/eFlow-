@@ -4,17 +4,13 @@ const sequelize = require('../config')
 class Upload extends Model { }
 
 Upload.init({
-  userid: {
-    type: INTEGER,
-    allowNull: false
-  },
   fileid: {
-    type: INTEGER,
+    type: STRING,
     allowNull: false
   },
   path: {
     type: STRING,
-    allowNull: false
+    allowNull: true
   },
   contents: {
     type: STRING,

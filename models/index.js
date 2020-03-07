@@ -7,6 +7,11 @@ const ForgotPassword = require('./ForgotPassword.js')
 const Upload = require('./Upload.js')
 
 Message.belongsTo(User)
+
+User.hasMany(Item)
 Item.belongsTo(User)
+Item.hasMany(Upload)
+Upload.belongsTo(Item)
+
 
 module.exports = { User, Item, Message, Conversation, FAQ, ForgotPassword, Upload }

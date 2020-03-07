@@ -24,7 +24,7 @@ router.put('/users/:id',
 
     console.log(req.body)
     console.log(req.params.id)
-    
+
     res.sendStatus(200)
 
   })
@@ -43,14 +43,16 @@ router.post('/users', (req, res) => {
 
 // LOGIN an user
 router.post('/users/login', (req, res) => {
-  User.findOne({ where: { 
-    username: req.body.username,
-    password: md5(req.body.password)
-   } })
+  User.findOne({
+    where: {
+      username: req.body.username,
+      password: md5(req.body.password)
+    }
+  })
     .then(user => {
-      if (user === null){
+      if (user === null) {
         res.end('user not found')
-      }else{
+      } else {
         axios.get(`https://api.ipify.org/?format=json`)
           .then(({ data }) => {
             req.session.userId = user.id
@@ -73,12 +75,12 @@ router.post('/users/login', (req, res) => {
 
 // CHECK IF USER IS LOGGED IN
 router.get('/users/checklogin', (req, res) => {
-  if (req.session===null){
+  if (req.session === null) {
     res.end('not logged in')
-  }else{
-    if (req.session.isLoggedin===true){
-      res.json({userId: req.session.userId})
-    }else{
+  } else {
+    if (req.session.isLoggedin === true) {
+      res.json({ userId: req.session.userId })
+    } else {
       res.end()
     }
   }
@@ -122,6 +124,25 @@ router.get('/userUpload/', (req, res) => {
   res.render('user-upload')
 
 })
+
+
+router.post('/upload', (req, res) => {
+  console.log(req.body.uploadObj)
+  Upload.create(req.body.uploadObj)
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
+
+router.put('/upload/:id', (req, res) => {
+  Upload.update({itemId: req.body.itemId}, {where: {id: req.params.id}})
+  .then(()=> {
+    res.sendStatus(200)
+  })
+  .catch(e=> console.log(e))
+})
+
 
 //Renders Forget Password Email View
 router.get('/forgetPasswordEmail/', (req, res) => {
@@ -180,20 +201,14 @@ async function sendForgotPasswordMail(email, tokenURL) {
     html: `<b>Please use the following URL to resetup your password:</b> ${tokenURL}` // html body
   })
     .catch(e => console.log(e))
-  //console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
-  // Preview only available when sending through an Ethereal account
-  //console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-  //nodemailer.sendMail()
 }
 
 
 // CREATE CONVO
 router.get('/chat/newconvo/:userid', (req, res) => {
   let newChatToken = srs()
-  Conversation.create({ user1: parseInt(req.session.userId), user2: parseInt(req.params.userid), chatToken: newChatToken})
+  Conversation.create({ user1: parseInt(req.session.userId), user2: parseInt(req.params.userid), chatToken: newChatToken })
     .then(() => {
       res.sendStatus(200)
     })
@@ -242,7 +257,7 @@ router.post('/chat/new', (req, res) => {
 // GET ALL MESSAGES FOR CONVO
 router.get('/chat/messages/:chatToken', (req, res) => {
   let chatToken = req.params.chatToken
-  Message.findAll({where: {convoToken: chatToken}, include: [User]})
+  Message.findAll({ where: { convoToken: chatToken }, include: [User] })
     .then(data => {
       res.json(data)
     })

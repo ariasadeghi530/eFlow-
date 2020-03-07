@@ -78,6 +78,9 @@ const Admindash = () => {
             <div class="modal-body">
               <form>
                 <div class="form-group">
+                  <label for="user_id">User ID - </label><span id="user_id">0</span>
+                </div>
+                <div class="form-group">
                   <label for="first_name">First Name</label>
                   <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp"></input>
                 </div>
@@ -111,7 +114,7 @@ const Admindash = () => {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" id="editUserSave" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
