@@ -126,13 +126,21 @@ router.get('/userUpload/', (req, res) => {
 })
 
 
-router.post('/Upload', (req, res) => {
+router.post('/upload', (req, res) => {
+  console.log(req.body.uploadObj)
   Upload.create(req.body.uploadObj)
     .then(() => {
-      console.log('Upload created')
       res.sendStatus(200)
     })
     .catch(e => console.log(e))
+})
+
+router.put('/upload/:id', (req, res) => {
+  Upload.update({itemId: req.body.itemId}, {where: {id: req.params.id}})
+  .then(()=> {
+    res.sendStatus(200)
+  })
+  .catch(e=> console.log(e))
 })
 
 

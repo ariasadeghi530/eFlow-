@@ -44,10 +44,10 @@ const Default = props => {
         <script src="../js/checklogin.js"></script>
         <script src="../js/app.js"></script>
         <script src="../js/auth.js"></script>
-        <script src="../js/upload.js"></script>
+        {/* <script src="../js/upload.js"></script> */}
         <script src="../js/forgotpasswordemail.js"></script>
         <script src="../js/userResetPassword.js"></script>
-        <script src="../js/newPost.js"></script>
+        <script src="../js/newListing.js"></script>
       </body>
 
     </html>

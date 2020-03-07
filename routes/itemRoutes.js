@@ -7,8 +7,14 @@ const Item = require('../models/Item.js')
 router.post('/items', (req, res) => {
   Item.create(req.body)
     .then(() => {
-      console.log('Item created')
-      res.sendStatus(200)
+      Item.findOne({
+        where: { name: req.body.name, userId: req.body.userId}
+      })
+        .then((item) => {
+          res.json(item)
+          
+        })
+        .catch(e => console.log(e))
     })
     .catch(e => console.log(e))
 })
@@ -19,7 +25,7 @@ router.get('/items', (req, res) => {
     .then(items => {
       console.log(items)
       console.log('poop')
-      res.sendStatus(200)
+      res.json(items)
     })
     .catch(e => console.log(e))
 })
@@ -39,7 +45,7 @@ router.get('/items/category/:name', (req, res) => {
       res.json(catResult)
     })
     .catch(e => console.log(e))
-})
+  })
 
 router.put('/items/:id', (req,res) => {
   Item.update( req.body, {where: {id: req.params.id}})

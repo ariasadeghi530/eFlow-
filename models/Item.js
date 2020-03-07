@@ -33,10 +33,6 @@ Item.init({
     allowNull: true,
     defaultValue: null
   },
-  sell_date: {
-    type: STRING,
-    defaultValue: null
-  },
   isSold: {
     type: BOOLEAN,
     allowNull: false,
@@ -46,7 +42,7 @@ Item.init({
     type: STRING,
     defaultValue: null
   }
-
+  
 }, { sequelize, modelName: 'item' })
 
 module.exports = Item

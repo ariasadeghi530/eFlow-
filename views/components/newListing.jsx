@@ -1,47 +1,63 @@
 const React = require('react')
+const UploadForm = require('./upload-form.jsx')
 
 // Sign Up Form
-const NewListing = () => {
+const NewListing = (props) => {
   return (
     <div className="uk-container">
     <form>
-      <div id="alerts">
-      </div>
       <div>
         <h3>Create a new listing</h3>
         <div className="uk-width-1-2@s uk-margin">
           <div className="form-group">
-            <input type="first_name" className="uk-input" id="item_name" placeholder="Item Name"></input>
-          </div>
-        </div>
+            <input type="text" className="uk-input" id="item-name" placeholder="Item Name"></input>
+         
         <div className="uk-margin">
-          <input type="text" className="uk-input" id="price" placeholder="Price"></input>
+          <input type="text" className="uk-input" id="item-price" placeholder="Price"></input>
         </div>
         <div className="uk-width-1-2@s uk-margin">
           <div className="form-group">
-            <select class="uk-select">
-              <option id="Electronics">Electronics</option>
-              <option id="Apparel">Apparel</option>
-              <option id="Automotive">Automotive</option>
+            <select id="item-category" class="uk-select">
+              <option >Electronics</option>
+              <option >Apparel</option>
+              <option >Automotive</option>
             </select>
           </div>
         </div>
       </div>
       <div className="uk-margin">
-        <label ><input class="uk-radio" type="radio" name="New"/> New</label>
-        <label className="uk-margin-small-left"><input class="uk-radio" type="radio" name="Used"/> Used</label>
-          
+              <div className="form-group">
+                <select id="item-condition" class="uk-select">
+                  <option >New</option>
+                  <option >Used</option>
+                  </select>
       </div>
-
+      </div>
+            <div className="uk-margin">
+              <div  className="form-group">
+                <select id="item-location" className="uk-select">
+                  <option>Los Angeles County</option>
+                  <option>Orange County</option>
+                  <option>San Diego County</option>
+                </select>
+              </div>
+            </div>
       <div className="uk-margin">
         <textarea id="description" className="uk-textarea" rows="5" placeholder="Description..."></textarea>
       </div>
-        <div className="uk-margin">
-          <input type="text" className="uk-input" id="image" placeholder="Image URL"></input>
+           
+      <button type="button" id="postItem" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"uk-toggle="target: #upload-modal" >Post Listing</button>
+          </div>
         </div>
-
-      <button type="button" id="postItem" className="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" >Post Listing</button>
     </form>
+      <div id="upload-modal" uk-modal="true">
+        <div class="uk-modal-dialog uk-modal-body">
+          <h2 class="uk-modal-title">Add Image</h2>
+          <UploadForm />
+          <button class="uk-modal-close" type="button" id="finish-post">Submit Post</button>
+        </div>
+      </div>
+      
     </div>
   )
 }
