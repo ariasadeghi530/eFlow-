@@ -1,6 +1,7 @@
 const React = require('react')
 
-const Collection = () => {
+const Collection = (props) => {
+  
   return (
     <a href="/products">
     <div className="uk-flex-inline">
@@ -9,9 +10,9 @@ const Collection = () => {
           <img src="https://x3g4v3s8.stackpathcdn.com/wp-content/uploads/2018/05/image-placeholder-500x500-4.jpg" className="slider-img" alt="" />
         </div>
         <div class="uk-card-body">
-          <p class="uk-text-bold slider-product-title slider-margin-bottom-remove">Product Name</p>
+  <p class="uk-text-bold slider-product-title slider-margin-bottom-remove">{props.card.name}</p>
           <p className="slider-margin-remove uk-text-light">Asking Price</p>
-          <p className="uk-text-bold slider-price slider-margin-remove">$420</p>
+  <p className="uk-text-bold slider-price slider-margin-remove">${props.card.price}</p>
         </div>
       </div>
     </div>

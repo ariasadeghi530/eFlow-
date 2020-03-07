@@ -1,7 +1,7 @@
 const React = require('react')
 
 
-const Breadcrumb = () => {
+const Breadcrumb = (props) => {
   return (
     <div className="uk-margin-top uk-margin-left">
       <ul class="uk-breadcrumb">
