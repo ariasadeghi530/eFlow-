@@ -9,7 +9,7 @@ const Collections = (props) => {
   
   return (
     <Default>
-      <Tile />
+      <Tile categ={props.category}/>
       <Breadcrumb cat={props.category}/>
       {props.stuff.map((item) =>  <Collection card={item} /> )}
       

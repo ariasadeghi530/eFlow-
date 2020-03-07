@@ -10,6 +10,7 @@ const SidenavLink = require('./components/sidenavLink.jsx')
 const Sidenav = require('./components/sidenav.jsx')
 
 const Products = props => {
+  console.log(props.prod.uploads)
   return (
     <Default>
       <Breadcrumb item={props.prod}/>
@@ -23,17 +24,17 @@ const Products = props => {
           </ul>
         </div>
         <div className="uk-margin">
-          <h1 id="product-title" className="uk-text-bold uk-text-center">Calum's Underwear</h1>
+          <h1 id="product-title" className="uk-text-bold uk-text-center">{props.prod.name}</h1>
         </div>
       </div>
       <Share />
-      <Pricing />
+      <Pricing stuff={props.prod}/>
       <div className="uk-flex uk-flex-center">
         <p>
           <button className="uk-button uk-button-primary uk-button-medium bid-btn">Inquire</button>
         </p>
       </div>
-      <Info />
+      <Info blah={props.prod}/>
       <ProductSlider />
       <Footer />
     </Default>
