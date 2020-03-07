@@ -30,6 +30,7 @@ Item.init({
   },
   sell_price: {
     type: INTEGER,
+    allowNull: true,
     defaultValue: null
   },
   isSold: {

@@ -23,7 +23,7 @@ const Products = props => {
           </ul>
         </div>
         <div className="uk-margin">
-          <h1 className="uk-text-bold uk-text-center">Calum's Underwear</h1>
+          <h1 id="product-title" className="uk-text-bold uk-text-center">Calum's Underwear</h1>
         </div>
       </div>
       <Share />

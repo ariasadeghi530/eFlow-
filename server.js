@@ -38,6 +38,18 @@ app.get('/register', (req, res) => {
   }
 })
 
+app.get('/', (req, res) => {
+  if (req.session.isLoggedin===true){
+    res.render('home',
+      {
+        whatsHot: `What's Hot`,
+        whatsNew: `What's New`
+      })
+  }else{
+    res.render('login')
+  }
+})
+
 app.get('/chat', (req, res) => {
   if (req.session.isLoggedin === true) {
   res.render('userchat')
@@ -54,24 +66,8 @@ app.get('/collections', (req, res) => {
   }
 })
 
-app.get('/', (req, res) => {
-  if (req.session.isLoggedin===true){
-    res.render('home',
-      {
-        whatsHot: `What's Hot`,
-        whatsNew: `What's New`
-      })
-  }else{
-    res.render('login')
-  }
-})
-
-app.get('/products', (req, res) => {
-  if (req.session.isLoggedin === true) {
+app.get('/products', (req,res) => {
   res.render('products')
-  } else {
-    res.render('login')
-  }
 })
 
 app.get('/profile', (req, res) => {
@@ -82,33 +78,57 @@ if (req.session.isLoggedin === true) {
 }
 })
 
-
-//Render Reset Password View
-app.get('/forgetPasswordReset/:token', (req, res) => {
-  let token = req.params.token
-
-  let found = ForgotPassword.findOne({
-    where: {
-      token: token
-    },
-    // Add order conditions here....
-    order: [
-      ['id', 'DESC']
-    ]
-  })
-    .then(forgotPassword => {
-
-      res.render('forgetpassword-reset', {
-        userid: forgotPassword.userid,
-        token: token
-      })
-    })
+app.get('/profile-edit', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    res.render('profile-edit') 
+  } else {
+    res.render('login')
+  }
 })
 
+// ADMIN DASHBOARD
 app.get('/admin', (req, res) => {
   if (req.session.isLoggedin === true) {
     if (req.session.perm===1){
-      res.render('admindash')
+      res.render('admindash',
+        {
+          js: '../admin/js/dash.js',
+          adminid: req.session.userId
+        })
+    }else{
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
+})
+
+// ADMIN USER MANAGEMENT
+app.get('/admin/users', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('adminusers',
+      {
+        js: '../admin/js/users.js',
+        adminid: req.session.userId
+      })
+    }else{
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
+})
+
+// ADMIN NEW USER
+app.get('/admin/newuser', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('adminnewuser',
+      {
+        js: '../admin/js/newuser.js',
+        adminid: req.session.userId
+      })
     }else{
       res.render('home')
     }
@@ -136,6 +156,7 @@ app.get('/newListing', (req, res) => {
     res.render('login')
   }
 })
+
 
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(process.env.PORT || 3000))

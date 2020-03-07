@@ -30,16 +30,22 @@ router.get('/items', (req, res) => {
     .catch(e => console.log(e))
 })
 
-router.get('/items/:name', (req, res) => { 
-  Item.findAll({where: {name: req.params.name}})
-    .then(items => {
-      res.json(items)
-      console.log(item)
-      
+// Get One Item
+router.get('/items/:id', (req, res) => {
+  Item.findOne({where: {id: req.params.id}})
+    .then(item => {
+      res.json(item)
     })
-    .catch(e => console.log(e))
 })
 
+// Get Item By Category
+router.get('/items/category/:name', (req, res) => {
+  Item.findAll({where: {category: req.params.name}})
+    .then(catResult => {
+      res.json(catResult)
+    })
+    .catch(e => console.log(e))
+  })
 
 router.put('/items/:id', (req,res) => {
   Item.update( req.body, {where: {id: req.params.id}})
