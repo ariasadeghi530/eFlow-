@@ -32,9 +32,9 @@ const Sidenav = () => {
             <div class="uk-accordion-content">
               <div>
                 <ul>
-                  <li><h4><a href="/collections" className="sidebar-text">Electronics</a></h4></li>
-                  <li><h4><a href="/collections" className="sidebar-text">Apparel</a></h4></li>
-                  <li><h4><a href="/collections" className="sidebar-text">Automotive</a></h4></li>
+                  <li><h4><a href="/collections/Electronics" className="sidebar-text">Electronics</a></h4></li>
+                  <li><h4><a href="/collections/Apparel" className="sidebar-text">Apparel</a></h4></li>
+                  <li><h4><a href="/collections/Automotive" className="sidebar-text">Automotive</a></h4></li>
                 </ul>
               </div>
             </div>

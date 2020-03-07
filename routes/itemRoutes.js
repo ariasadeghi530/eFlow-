@@ -12,7 +12,7 @@ router.post('/items', (req, res) => {
       })
         .then((item) => {
           res.json(item)
-          
+          res.sendStatus(200)
         })
         .catch(e => console.log(e))
     })

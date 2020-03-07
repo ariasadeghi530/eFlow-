@@ -5,19 +5,14 @@ const Breadcrumb = require('./components/breadcrumb.jsx')
 const Pagination = require('./components/pagination.jsx')
 const Tile = require('./components/tile.jsx')
 
-const Collections = () => {
+const Collections = (props) => {
+  
   return (
     <Default>
-      <Tile />
-      <Breadcrumb />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
-      <Collection />
+      <Tile categ={props.category}/>
+      <Breadcrumb cat={props.category}/>
+      {props.stuff.map((item) =>  <Collection card={item} /> )}
+      
       <Pagination />
       </Default>
   )

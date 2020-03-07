@@ -1,9 +1,9 @@
 const React = require('react')
 
-const Tile = () => {
+const Tile = (props) => {
   return(
     <div className="uk-tile uk-tile-muted collection-tile">
-      <p className="uk-h4">Category</p>
+      <p className="uk-h4">{props.categ}</p>
     </div>
   )
 }

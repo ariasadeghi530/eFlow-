@@ -5,7 +5,7 @@ const axios = require('axios')
 const md5 = require('md5')
 const sequelize = require('./config')
 const cookieSession = require('cookie-session')
-const { User, Message, Conversation, FAQ, ForgotPassword, Upload } = require('./models')
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item } = require('./models')
 
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -58,17 +58,39 @@ app.get('/chat', (req, res) => {
 }
 })
 
-app.get('/collections', (req, res) => {
+app.get('/collections/:category', (req, res) => {
   if (req.session.isLoggedin === true) {
-    res.render('collections')
-  }else{
+    Item.findAll({ where: { category: req.params.category }, include: [Upload]})
+  .then((items) => {
+      res.render('collections',
+      {
+        stuff: items, 
+        category: req.params.category
+      })
+    })
+    }else{
+      res.render('login')
+    }
+})
+
+app.get('/products/:id', (req,res) => {
+  if (req.session.isLoggedin === true) {
+    Item.findOne({where: { id: req.params.id}, 
+      include: [Upload]})
+      .then((product) => {
+        
+        res.render('products',
+          {
+            prod: product
+          })
+      })
+    
+  } else {
     res.render('login')
   }
 })
+  
 
-app.get('/products', (req,res) => {
-  res.render('products')
-})
 
 app.get('/profile', (req, res) => {
 if (req.session.isLoggedin === true) {
