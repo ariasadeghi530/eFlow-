@@ -10,7 +10,7 @@ const Collections = (props) => {
   return (
     <Default>
       <Tile />
-      <Breadcrumb />
+      <Breadcrumb cat={props.category}/>
       {props.stuff.map((item) =>  <Collection card={item} /> )}
       
       <Pagination />

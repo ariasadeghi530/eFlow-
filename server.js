@@ -60,11 +60,12 @@ app.get('/chat', (req, res) => {
 
 app.get('/collections/:category', (req, res) => {
   if (req.session.isLoggedin === true) {
-  Item.findAll({where: { category: req.params.category}})
+    Item.findAll({ where: { category: req.params.category }, include: [Upload]})
   .then((items) => {
       res.render('collections',
       {
-        stuff: items
+        stuff: items, 
+        category: req.params.category
       })
     })
     }else{
@@ -72,9 +73,24 @@ app.get('/collections/:category', (req, res) => {
     }
 })
 
-app.get('/products', (req,res) => {
-  res.render('products')
+app.get('/products/:id', (req,res) => {
+  if (req.session.isLoggedin === true) {
+    Item.findOne({where: { id: req.params.id}, 
+      include: [Upload]})
+      .then((product) => {
+        
+        res.render('products',
+          {
+            prod: product
+          })
+      })
+    
+  } else {
+    res.render('login')
+  }
 })
+  
+
 
 app.get('/profile', (req, res) => {
 if (req.session.isLoggedin === true) {
