@@ -7,7 +7,7 @@ const Pricing = props => {
     <Card>
       <Row>
         <div className="uk-flex uk-flex-center">
-          <p className="">Retail Price: $420 | Condition: {props.stuff.condition}</p>
+          <p className="">Condition: {props.stuff.condition}</p>
         </div>
       </Row>
         <div className="uk-flex uk-flex-center uk-text-bold">

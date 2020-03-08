@@ -4,8 +4,8 @@ const Info = (props) => {
   return (
     <ul class="uk-list uk-list-striped uk-margin-left uk-margin-right">
       <li className="uk-padding-remove-vertical uk-padding-remove-right">
-        <h3 className="uk-text-small uk-text-bold uk-flex-inline">Retail Price:</h3>
-        <p id="product-price" className="uk-flex-inline uk-margin-left product-price-secondary">$420</p>
+        <h3 className="uk-text-small uk-text-bold uk-flex-inline">Location:</h3>
+  <p id="product-price" className="uk-flex-inline uk-margin-left product-price-secondary">{props.blah.location}</p>
       </li>
       <li>
         <h3 className="uk-text-small uk-text-bold">Description:</h3>
