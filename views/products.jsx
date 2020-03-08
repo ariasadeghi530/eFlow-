@@ -49,7 +49,7 @@ const Products = props => {
         </p>
       </div>
       <Info blah={props.prod}/>
-      <ProductSlider />
+      <ProductSlider blah={props.prod}/>
       <Footer />
       </div>
     </Default>

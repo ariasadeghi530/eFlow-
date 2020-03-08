@@ -12,7 +12,7 @@ const Collections = (props) => {
     <Default>
      
       <div id='searchCollectionResult'>
-      <Tile categ={'Showing results for ' + props.category} />
+      <Tile categ={'Showing results for ' + `"` + props.category + `"`} />
       <Breadcrumb cat={props.category} />
       {props.stuff.map((item) => <Collection card={item} />)}
 
