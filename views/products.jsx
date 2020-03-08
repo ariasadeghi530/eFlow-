@@ -18,17 +18,22 @@ const Products = props => {
       <div className="uk-margin-top uk-margin-left uk-margin-right">
         
         
-        {props.prod.uploads.map((item,index) => { 
+        {/* {props.prod.uploads.map((item,index) => { 
           if(index === 0){
-              return <img src={item.path} width="500" height="500" alt="product-image" uk-img /> }})}
-          <div className="uk-flex uk-flex-center uk-margin-top">
-            <ul className="uk-thumbnav" uk-margin>
+              return <img src={item.path} width="500" height="500" alt="product-image" uk-img /> }})} */}
+          <div class="uk-position-relative uk-visible-toggle uk-light uk-margin-top" tabindex="-1" uk-slider="center: true">
+
+            <ul class="uk-slider-items uk-grid">
           {props.prod.uploads.map((item, index) => {
            
               return (
-                      <li className="uk-active"><a href="#"><img src={item.path} width="100" alt="" /></a></li>
+                <li class="uk-width-3-4">
+                  <div class="uk-panel" >
+                    <img src={item.path}  alt="" />
+                      </div>
+                      </li>
                    )
-          })}
+                   })}
         
             </ul>
           </div>
