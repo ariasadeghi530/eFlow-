@@ -8,11 +8,9 @@ const NewListing = require('./components/newListing.jsx')
 const NewItem = () => {
   return (
     <Default>
-    
         <Card>
           <NewListing />
         </Card>
-      
     </Default>
     )
   }
