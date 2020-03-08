@@ -73,6 +73,7 @@ app.get('/searchCollections/:searchText', (req, res) => {
     if (req.params.searchText !== 'EmptySearchStringParameter') {
       Item.findAll({
         where: {
+          isSold: 0,
           category: categoryOption,
           [Op.or]: [
             {
@@ -108,7 +109,7 @@ app.get('/searchCollections/:searchText', (req, res) => {
 app.get('/collections/:category', (req, res) => {
   if (req.session.isLoggedin === true) {
     if(req.params.category === 'All'){
-      Item.findAll({ include: [Upload] })
+      Item.findAll({ where:{isSold: 0}, include: [Upload] })
         .then((items) => {
           res.render('collections',
             {
@@ -117,7 +118,7 @@ app.get('/collections/:category', (req, res) => {
             })
         })
     }
-    Item.findAll({ where: { category: req.params.category }, include: [Upload] })
+    Item.findAll({ where: { category: req.params.category, isSold: 0 }, include: [Upload] })
       .then((items) => {
         res.render('collections',
           {
@@ -133,7 +134,7 @@ app.get('/collections/:category', (req, res) => {
 app.get('/products/:id', (req, res) => {
   if (req.session.isLoggedin === true) {
     Item.findOne({
-      where: { id: req.params.id },
+      where: { id: req.params.id, isSold: 0 },
       include: [Upload]
     })
       .then((product) => {

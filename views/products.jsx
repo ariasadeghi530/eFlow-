@@ -45,7 +45,7 @@ const Products = props => {
       <Pricing stuff={props.prod}/>
       <div className="uk-flex uk-flex-center">
         <p>
-          <button className="uk-button uk-button-primary uk-button-medium bid-btn">Inquire</button>
+          <button id={props.prod.userId} className="uk-button uk-button-primary uk-button-medium bid-btn">Inquire</button>
         </p>
       </div>
       <Info blah={props.prod}/>
