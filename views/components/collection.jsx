@@ -5,7 +5,7 @@ const Collection = (props) => {
   return (
     <a href={"/products/" + props.card.id}>
     <div className="uk-flex-inline">
-      <div class="uk-card uk-card-default uk-card-small">
+      <div class="uk-card uk-card-default uk-card-small uk-card-collection" >
         <div class="uk-card-media-top uk-flex uk-flex-center">
             <img src={props.card.uploads.map(item => {return item.path})} className="slider-img" alt="" />
         </div>
