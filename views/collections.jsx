@@ -12,8 +12,6 @@ const Collections = (props) => {
       <Tile categ={props.category}/>
       <Breadcrumb cat={props.category}/>
       {props.stuff.map((item) =>  <Collection card={item} /> )}
-      
-      <Pagination />
       </Default>
   )
 }

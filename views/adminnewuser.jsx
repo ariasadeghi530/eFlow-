@@ -10,42 +10,42 @@ const Adminnewuser = (props) => {
             <div id="alerts">
 
             </div>
-            <div class="card">
-              <div class="card-header">
+            <div className="card">
+              <div className="card-header">
                 New User
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 <form>
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp"></input>
+                    <input type="text" className="form-control" id="first_name" aria-describedby="emailHelp"></input>
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" id="last_name"></input>
+                    <input type="text" className="form-control" id="last_name"></input>
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username"></input>
+                    <input type="text" className="form-control" id="username"></input>
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email"></input>
+                    <input type="email" className="form-control" id="email"></input>
                   </div>
-                  <div class="form-group">
-                    <label for="password">Password</label> <span class="badge badge-secondary" id="showPassword">Show</span>
-                    <input type="password" class="form-control" id="password"></input>
+                  <div className="form-group">
+                    <label for="password">Password</label> <span className="badge badge-secondary" id="showPassword">Show</span>
+                    <input type="password" className="form-control" id="password"></input>
                   </div>
-                  <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="checkAdmin"></input>
-                    <label class="form-check-label" for="checkAdmin">Is Admin</label>
+                  <div className="form-group form-check">
+                    <input type="checkbox" className="form-check-input" id="checkAdmin"></input>
+                    <label className="form-check-label" for="checkAdmin">Is Admin</label>
                   </div>
                 </form>
               </div>
-              <div class="card-footer text-muted">
-                <button type="button" id="resetForm" class="btn btn-danger">Reset</button> 
-                <button type="button" id="createUser" class="btn btn-success ml-3 float-right">Create User</button>
+              <div className="card-footer text-muted">
+                <button type="button" id="resetForm" className="btn btn-danger">Reset</button> 
+                <button type="button" id="createUser" className="btn btn-success ml-3 float-right">Create User</button>
               </div>
             </div>
           </div>
