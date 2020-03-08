@@ -1,7 +1,6 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
 const Breadcrumb = require('./components/breadcrumb.jsx')
-const Share = require('./components/share.jsx')
 const Pricing = require('./components/pricing.jsx')
 const Info = require('./components/productInfo.jsx')
 const ProductSlider = require('./components/productPageSlider.jsx')
@@ -41,7 +40,6 @@ const Products = props => {
           <h1 id="product-title" className="uk-text-bold uk-text-center">{props.prod.name}</h1>
         </div>
       </div>
-      <Share />
       <Pricing stuff={props.prod}/>
       <div className="uk-flex uk-flex-center">
         <p>

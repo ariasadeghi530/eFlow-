@@ -2,7 +2,7 @@ const React = require('react')
 
 const WhatsHot = (props) => {
   return (
-    <div className="uk-margin uk-margin-left uk-margin-right">
+    <div className="uk-margin uk-margin-left uk-margin-right uk-hidden@m">
       <h3>{props.whats}</h3>
       <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="true">
 
