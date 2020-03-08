@@ -10,7 +10,7 @@ const SidenavLink = require('./components/sidenavLink.jsx')
 const Sidenav = require('./components/sidenav.jsx')
 
 const Products = props => {
-  console.log(props.prod.uploads)
+  
   return (
     <Default>
       <div>
@@ -18,7 +18,7 @@ const Products = props => {
       <div className="uk-margin-top uk-margin-left uk-margin-right">
         
         
-        {props.prod.uploads.map((item,index,arr) => { 
+        {props.prod.uploads.map((item,index) => { 
           if(index === 0){
               return <img src={item.path} width="500" height="500" alt="product-image" uk-img /> }})}
           <div className="uk-flex uk-flex-center uk-margin-top">
