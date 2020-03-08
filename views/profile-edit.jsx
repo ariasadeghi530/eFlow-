@@ -11,7 +11,7 @@ const ProfileEdit = () => {
         <div className="uk-card-header uk-padding-remove">
           <div className="uk-grid-small uk-flex-middle" uk-grid>
             <div className="uk-width-auto">
-              <img className="uk-border-circle" width="40" height="40" src="https://mhcd.org/wp-content/uploads/2017/12/placeholder-man.png" />
+              <img className="uk-border-circle" width="80" height="80" src="https://mhcd.org/wp-content/uploads/2017/12/placeholder-man.png" />
               <button id="upload-image-btn" className="uk-flex-inline uk-flex-right uk-margin-left uk-button">Upload Image</button>
             </div>
             <div id="edit-profile">

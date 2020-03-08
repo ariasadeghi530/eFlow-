@@ -1,9 +1,9 @@
 const React = require('react')
 const Default = require('./layouts/default.jsx')
+const MyListings = require('./components/mylistings.jsx')
+const ActiveProductListing = require('./components/activeProductListing.jsx')
 
-const BreadCrumbs = require('./components/breadcrumb.jsx')
-
-const Profile = () => {
+const Profile = props => {
   return (
     <Default>
         <div className="uk-card uk-margin-left uk-margin-right">
@@ -11,7 +11,7 @@ const Profile = () => {
         <div className="uk-card-header uk-padding-remove">
           <div className="uk-grid-small uk-flex-middle" uk-grid>
             <div className="uk-width-auto">
-              <img className="uk-border-circle" width="40" height="40" src="https://mhcd.org/wp-content/uploads/2017/12/placeholder-man.png" />
+              <img className="uk-border-circle" width="80" height="80" src="https://mhcd.org/wp-content/uploads/2017/12/placeholder-man.png" />
                <a id="edit-btn" className="uk-flex-inline uk-flex-right uk-margin-left uk-link-muted">Edit</a>
             </div>
           <div id="edit-profile">
@@ -43,6 +43,9 @@ const Profile = () => {
           </div> 
         </div>
       </div>
+      <MyListings>
+        {props.mylisting.map(listing => <ActiveProductListing card={listing} />)}
+      </MyListings>
     </Default>
   )
 }

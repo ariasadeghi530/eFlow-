@@ -61,7 +61,7 @@ app.get('/chat', (req, res) => {
 app.get('/collections/:category', (req, res) => {
   if (req.session.isLoggedin === true) {
     Item.findAll({ where: { category: req.params.category }, include: [Upload]})
-  .then((items) => {
+      .then((items) => {
       res.render('collections',
       {
         stuff: items, 
@@ -89,12 +89,17 @@ app.get('/products/:id', (req,res) => {
     res.render('login')
   }
 })
-  
-
 
 app.get('/profile', (req, res) => {
 if (req.session.isLoggedin === true) {
-  res.render('profile')
+  Item.findAll({ where: { userid: req.session.userId }, include: [Upload]})
+      .then((items) => {
+      res.render('profile',
+      {
+        mylisting: items, 
+        userid: req.session.userId
+      })
+    })
 }else {
   res.render('login')
 }

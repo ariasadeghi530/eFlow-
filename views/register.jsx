@@ -10,7 +10,7 @@ const User = () => {
     <LogInDefault>
       <HeaderOne />
       <div className="uk-container">
-            <div>
+            <div className="uk-margin-top">
                 <button type="button" id="signupPage" class="uk-button uk-button-text uk-width-1-2">Sign Up</button>
                 <button type="button" id="loginPage" class="uk-button uk-button-text uk-width-1-2">Log In</button>
             </div>
