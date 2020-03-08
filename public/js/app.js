@@ -31,10 +31,23 @@ $('#close').click(function (event) {
 $(document).on('keypress', function (e) {
   if (e.which == 13) {
     if($('#searchForm').val()){
-      console.log($('#searchForm').val())
-      location.replace('./products')
+      event.preventDefault()
+      
+      let searchText = $('#searchForm').val()
+
+      if (searchText === '') {
+        searchText = 'EmptySearchStringParameter'
+      }
+      window.location.href = `/searchCollections/${searchText}`
+      // axios.get(`/searchCollections/${searchText}`)
+      // .then(({ data }) => {
+        
+        
+      //     $('#searchCollectionResult').html(data)
+      //   })
+      //   .catch(e => console.error(e))
+      }
       $('#searchForm').val('')
-    }
   }
 });
 
