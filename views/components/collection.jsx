@@ -21,3 +21,4 @@ const Collection = (props) => {
 }
 
 module.exports = Collection
+
