@@ -91,33 +91,47 @@ app.get('/searchCollections/:category/:searchText', (req, res) => {
   }
   console.log(req.params.category, req.params.searchText)
   if (req.session.isLoggedin === true) {
-    Item.findAll({
-      where: {
-        category: categoryOption,
-        [Op.or]: [
-          {
-            name:
+
+    if (req.params.searchText !== 'EmptySearchStringParameter') {
+      Item.findAll({
+        where: {
+          category: categoryOption,
+          [Op.or]: [
             {
-              [Op.like]: '%' + req.params.searchText + '%'
-            }
-          },
-          {
-            description:
+              name:
+              {
+                [Op.like]: '%' + req.params.searchText + '%'
+              }
+            },
             {
-              [Op.like]: '%' + req.params.searchText + '%'
+              description:
+              {
+                [Op.like]: '%' + req.params.searchText + '%'
+              }
             }
-          }
-        ]
-      }, include: [Upload]
-    })
-      .then((items) => {
-        console.log(items)
-        res.render('searchCollections',
-          {
-            stuff: items,
-            category: categoryDisplay
-          })
+          ]
+        }, include: [Upload]
       })
+        .then((items) => {
+          console.log(items)
+          res.render('searchCollectionsResult',
+            {
+              stuff: items,
+              category: categoryDisplay
+            })
+        })
+    }
+    else {
+      Item.findAll({ limit: 50, include: [Upload] })
+        .then((items) => {
+          console.log(items)
+          res.render('searchCollectionsResult',
+            {
+              stuff: items,
+              category: req.params.category
+            })
+        })
+    }
   } else {
     res.render('login')
   }
