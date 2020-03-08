@@ -10,7 +10,6 @@ const UploadForm = props => {
       <input type="hidden" id="form-upload-id" name="form-upload-id" />
       <div id='uploadDisplay'></div>
       <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden ></progress>
-
     </form>
   );
 }
