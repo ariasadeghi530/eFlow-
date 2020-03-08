@@ -48,7 +48,7 @@ const Default = props => {
         <script src="../js/forgotpasswordemail.js"></script>
         <script src="../js/userResetPassword.js"></script>
         <script src="../js/newListing.js"></script>
-        <script src="../js/searchCollections.js"></script>
+        
       </body>
 
     </html>
