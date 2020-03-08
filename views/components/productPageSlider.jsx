@@ -10,6 +10,7 @@ const ProductSlider = () => {
           <ul className="uk-slider-items uk-child-width-1-2@s uk-grid">
             <li className="uk-child-width-1-2" uk-grid>
               <div className="uk-flex-inline">
+
                 <div className="uk-card uk-card-default">
                   <div className="uk-card-media-top uk-flex uk-flex-center">
                     <img src="https://x3g4v3s8.stackpathcdn.com/wp-content/uploads/2018/05/image-placeholder-500x500-4.jpg" className="slider-img" alt="" />
@@ -21,6 +22,7 @@ const ProductSlider = () => {
                   </div>
                   </div>
                 </div>
+
                 <div className="uk-flex-inline">
                   <div className="uk-card uk-card-default">
                     <div className="uk-card-media-top uk-flex uk-flex-center">
