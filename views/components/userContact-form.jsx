@@ -10,7 +10,9 @@ const UserContactForm = props => {
         <p><label>FAQ</label>
           <select>
             <option>Can't bid on an item</option>
-            <option>...</option>
+            <option>Need Help Posting item</option>
+            <option>Want to become a partner</option>
+            <option>Other</option>
           </select></p>
         <p>
           <div class="uk-margin">
