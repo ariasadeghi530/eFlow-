@@ -63,29 +63,6 @@ app.get('/chat', (req, res) => {
   }
 })
 
-app.get('/searchCollections', (req, res) => {
-
-  if (req.session.isLoggedin === true) {
-    // Item.findAll({ where: { category: req.params.category }, include: [Upload]})
-    //   .then((items) => {
-    //   res.render('collections',
-    //   {
-    //     stuff: items, 
-    //     category: req.params.category
-
-    Item.findAll({ limit: 50, include: [Upload] })
-      .then((items) => {
-        res.render('searchCollections',
-          {
-            stuff: items,
-            category: req.params.category
-          })
-// 
-      })
-  } else {
-    res.render('login')
-  }
-})
 
 app.get('/searchCollections/:searchText', (req, res) => {
   let categoryOption = ['Electronics', 'Apparel', 'Automotive']
@@ -122,17 +99,7 @@ app.get('/searchCollections/:searchText', (req, res) => {
             })
         })
     }
-    else {
-      Item.findAll({ limit: 50, include: [Upload] })
-        .then((items) => {
-          console.log(items)
-          res.render('searchCollections',
-            {
-              stuff: items,
-              category: req.params.searchText
-            })
-        })
-    }
+    
   } else {
     res.render('login')
   }
@@ -140,6 +107,16 @@ app.get('/searchCollections/:searchText', (req, res) => {
 
 app.get('/collections/:category', (req, res) => {
   if (req.session.isLoggedin === true) {
+    if(req.params.category === 'All'){
+      Item.findAll({ include: [Upload] })
+        .then((items) => {
+          res.render('collections',
+            {
+              stuff: items,
+              category: req.params.category
+            })
+        })
+    }
     Item.findAll({ where: { category: req.params.category }, include: [Upload] })
       .then((items) => {
         res.render('collections',
