@@ -5,7 +5,7 @@ const axios = require('axios')
 const md5 = require('md5')
 const sequelize = require('./config')
 const cookieSession = require('cookie-session')
-const { User, Message, Conversation, FAQ, ForgotPassword, Upload } = require('./models')
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item } = require('./models')
 
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -38,22 +38,6 @@ app.get('/register', (req, res) => {
   }
 })
 
-app.get('/chat', (req, res) => {
-  if (req.session.isLoggedin === true) {
-  res.render('userchat')
-}else {
-  res.render('login')
-}
-})
-
-app.get('/collections', (req, res) => {
-  if (req.session.isLoggedin === true) {
-    res.render('collections')
-  }else{
-    res.render('login')
-  }
-})
-
 app.get('/', (req, res) => {
   if (req.session.isLoggedin===true){
     res.render('home',
@@ -66,13 +50,47 @@ app.get('/', (req, res) => {
   }
 })
 
-app.get('/products', (req, res) => {
+app.get('/chat', (req, res) => {
   if (req.session.isLoggedin === true) {
-  res.render('products')
+  res.render('userchat')
+}else {
+  res.render('login')
+}
+})
+
+app.get('/collections/:category', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    Item.findAll({ where: { category: req.params.category }, include: [Upload]})
+  .then((items) => {
+      res.render('collections',
+      {
+        stuff: items, 
+        category: req.params.category
+      })
+    })
+    }else{
+      res.render('login')
+    }
+})
+
+app.get('/products/:id', (req,res) => {
+  if (req.session.isLoggedin === true) {
+    Item.findOne({where: { id: req.params.id}, 
+      include: [Upload]})
+      .then((product) => {
+        
+        res.render('products',
+          {
+            prod: product
+          })
+      })
+    
   } else {
     res.render('login')
   }
 })
+  
+
 
 app.get('/profile', (req, res) => {
 if (req.session.isLoggedin === true) {
@@ -82,27 +100,12 @@ if (req.session.isLoggedin === true) {
 }
 })
 
-
-//Render Reset Password View
-app.get('/forgetPasswordReset/:token', (req, res) => {
-  let token = req.params.token
-
-  let found = ForgotPassword.findOne({
-    where: {
-      token: token
-    },
-    // Add order conditions here....
-    order: [
-      ['id', 'DESC'],
-    ]
-  })
-    .then(forgotPassword => {
-
-      res.render('forgetpassword-reset', {
-        userid: forgotPassword.userid,
-        token: token
-      })
-    })
+app.get('/profile-edit', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    res.render('profile-edit') 
+  } else {
+    res.render('login')
+  }
 })
 
 // ADMIN DASHBOARD
@@ -167,6 +170,15 @@ app.put('/forgetPasswordReset/:user/:token', (req, res) => {
     .catch(e => console.log(e))
   res.sendStatus(200)
 })
+
+app.get('/newListing', (req, res) => {
+  if(req.session.isLoggedin === true) {
+    res.render('newItem')
+  }else {
+    res.render('login')
+  }
+})
+
 
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(process.env.PORT || 3000))

@@ -10,25 +10,24 @@ const CatSlider = () => {
           <li className="cat-width">
             <div className="uk-text-center">
           <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Electronics</h4></a>
+                <a href="/collections/Electronics" onClick="renderCollections()" id="category-electronics"><h4 className="sidebar-text">Electronics</h4></a>
             </div>
             </div>
           </li>
         <li className="cat-width">
-<div className="uk-text-center">
+          <div className="uk-text-center">
             <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Apparel</h4></a>
+                <a href="/collections/Apparel" id="category-apparel"><h4 className="sidebar-text">Apparel</h4></a>
             </div>
             </div>
           </li>
         <li className="cat-width">
             <div className="uk-text-center">
             <div class="uk-panel">
-              <a href="/collections"><h4 className="sidebar-text">Automotive</h4></a>
+                <a href="/collections/Automotive" id="category-automotive"><h4 className="sidebar-text">Automotive</h4></a>
             </div>
-</div>
+          </div>
           </li>
-          
         </ul>
 
         

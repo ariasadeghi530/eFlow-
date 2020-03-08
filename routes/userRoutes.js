@@ -21,12 +21,12 @@ router.use(cookieSession({
 // Update a user
 router.put('/users/:id',
   (req, res) => {
+    User.update(req.body, {where: {id: req.params.id}})
+    .then(()=>{
+      res.sendStatus(200)
 
-    console.log(req.body)
-    console.log(req.params.id)
-
-    res.sendStatus(200)
-
+    })
+    .catch(e=>console.log(e))
   })
 
 
@@ -126,13 +126,21 @@ router.get('/userUpload/', (req, res) => {
 })
 
 
-router.post('/Upload', (req, res) => {
+router.post('/upload', (req, res) => {
+  console.log(req.body.uploadObj)
   Upload.create(req.body.uploadObj)
     .then(() => {
-      console.log('Upload created')
       res.sendStatus(200)
     })
     .catch(e => console.log(e))
+})
+
+router.put('/upload/:id', (req, res) => {
+  Upload.update({itemId: req.body.itemId}, {where: {id: req.params.id}})
+  .then(()=> {
+    res.sendStatus(200)
+  })
+  .catch(e=> console.log(e))
 })
 
 
@@ -170,6 +178,27 @@ router.post('/ForgetPasswordToken', (req, res) => {
   res.sendStatus(200)
 })
 
+//Render Reset Password View
+router.get('/forgetPasswordReset/:token', (req, res) => {
+  let token = req.params.token
+
+  let found = ForgotPassword.findOne({
+    where: {
+      token: token
+    },
+    // Add order conditions here....
+    order: [
+      ['id', 'DESC'],
+    ]
+  })
+    .then(forgotPassword => {
+
+      res.render('forgetpassword-reset', {
+        userid: forgotPassword.userid,
+        token: token
+      })
+    })
+})
 
 async function sendForgotPasswordMail(email, tokenURL) {
 
