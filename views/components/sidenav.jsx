@@ -8,11 +8,10 @@ const Sidenav = () => {
         <a className="uk-logo sidebar-text uk-position-top-center" href="/"><img src="../images/eflow_logo.png" alt="eFlow"></img></a>
         <a className="uk-offcanvas-close sidebar-text" type="button"><i className="gg-close"></i></a>
       <div className="uk-margin-small-left uk-margin-small-right">
+        <h3 className="sidebar-header"><img src="https://www.aresprism.com/wp-content/uploads/2017/02/generic-user.png" id="user-img" alt="userImage" /><span id="side-username" className="sidebar-text">Username</span></h3>
         <ul uk-accordion="multiple: true">
           <li>
-                <a class="uk-accordion-title sidebar-text" href="#">
-                <h3 className="sidebar-header"><img src="https://www.aresprism.com/wp-content/uploads/2017/02/generic-user.png" id="user-img" alt="userImage" /><span id="side-username" className="sidebar-text">Username</span><i class="gg-push-chevron-down uk-align-right sidebar-text uk-margin-remove"></i></h3>
-                </a>
+              <a class="uk-accordion-title sidebar-text" href="#">Account<i class="gg-push-chevron-down uk-align-right sidebar-text uk-margin-remove"></i></a>
             <div class="uk-accordion-content">
                 <ul>
                   <li><h4><a href="/profile" className="sidebar-text">Profile</a></h4></li>

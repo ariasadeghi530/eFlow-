@@ -19,8 +19,8 @@ const WhatsHot = (props) => {
                         <img src={hot.uploads.map(items => items.path)} className="ef-home-img" alt="" />
                   </div>
                   <div class="uk-card-body ef-card-body">
-                    <p class="uk-text-bold slider-product-title slider-margin-bottom-remove">{hot.name}</p>
-
+                    <p class="uk-text-bold slider-product-title slider-margin-bottom-remove uk-text-truncate">{hot.name}</p>
+                    <p className="uk-text-bold slider-product-title uk-margin-remove uk-text-truncate">${hot.price}</p>
                   </div>
                 </div>
               </div>

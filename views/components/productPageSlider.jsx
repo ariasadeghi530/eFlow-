@@ -19,9 +19,9 @@ const ProductSlider = (props) => {
                         <img src={item.uploads.path} className="ef-home-img" alt="" />
                       </div>
                       <div className="uk-card-body">
-                        <p className="uk-text-bold slider-product-title slider-margin-bottom-remove">{item.name}</p>
+                        <p className="uk-text-bold slider-product-title slider-margin-bottom-remove uk-text-truncate">{item.name}</p>
                         <p className="slider-margin-remove uk-text-light">Asking Price</p>
-                        <p className="uk-text-bold slider-price slider-margin-remove">${item.price}</p>
+                        <p className="uk-text-bold slider-price slider-margin-remove uk-text-truncate">${item.price}</p>
                       </div>
                     </div>
                   </div>
