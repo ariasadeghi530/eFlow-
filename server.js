@@ -296,7 +296,6 @@ app.get('/product-edit/:id', (req, res) => {
             editProd: product
           }
         )
-        console.log(product)
       })
   } else {
     res.render('login')

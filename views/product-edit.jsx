@@ -15,8 +15,8 @@ console.log(props.editProd)
     <Default>
       <div className="uk-container uk-margin-top">
         <form>
-          <button className="uk-button uk-button-danger uk-width-1-1">Delete Listing</button>
-        <button className="uk-button ef-button-sold uk-width-1-1 uk-margin-small-top">Mark As Sold</button>
+          <button uk-toggle="target: #delete-listing-modal" className="uk-button uk-button-danger uk-width-1-1" type="button">Delete Listing</button>
+          <button id="mark-sold-btn" className="uk-button ef-button-sold uk-width-1-1 uk-margin-small-top" value={props.editProd.id}>Mark As Sold</button>
         <div className="uk-margin-top uk-margin-left uk-margin-right">
 
           <div class="uk-position-relative uk-visible-toggle uk-light uk-margin-top" tabindex="-1" uk-slider="center: true">
@@ -82,6 +82,13 @@ console.log(props.editProd)
         </ul>
           <button id="edit-prod-btn" className="uk-button uk-button-primary uk-width-1-1" value={props.editProd.id}>Edit Listing</button>
         </form>
+        <div id="delete-listing-modal" uk-modal="true">
+          <div class="uk-modal-dialog uk-modal-body">
+            <h2>Are you sure you would like to delete this item?</h2>
+            <button id="delete-listing-btn" class="uk-modal-close uk-button uk-button-danger uk-margin-right" type="button" value={props.editProd.id}>Confirm Delete</button>
+            <a uk-toggle="target: #delete-listing-modal">Cancel</a>
+          </div>
+        </div>
       </div>
     <Footer />
     </Default>

@@ -146,5 +146,23 @@ $(document).on('click', event => {
       .then(() => {
         window.location.replace(`/products/${event.target.value}`)
       })
+      .catch(e => console.error(e))
+  } else if (event.target.id === 'delete-listing-btn') {
+    event.preventDefault()
+    axios.delete(`/api/items/${event.target.value}`)
+      .then(() => {
+        console.log('Product Deleted')
+        window.location.replace('/profile')
+      })
+      .catch(e => console.error(e))
+  } else if (event.target.id === 'mark-sold-btn') {
+    event.preventDefault()
+    axios.put(`/api/items/${event.target.value}`, {
+      isSold: 1
+    })
+      .then(() => {
+        console.log('Item Updated to SOLD')
+      })
+      .catch(e => console.error(e))
   }
 })

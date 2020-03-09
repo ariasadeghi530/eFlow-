@@ -9,13 +9,12 @@ const SidenavLink = require('./components/sidenavLink.jsx')
 const Sidenav = require('./components/sidenav.jsx')
 
 const Products = props => {
-  
+
   return (
     <Default>
       <div>
       <Breadcrumb item={props.prod}/>
       <div className="uk-margin-top uk-margin-left uk-margin-right">
-        
         
         {/* {props.prod.uploads.map((item,index) => { 
           if(index === 0){
