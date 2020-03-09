@@ -118,6 +118,7 @@ $(document).on('click', event => {
   }
 })
 
+// Start Chat
 $('.startchat').on('click', e => {
  let sellerid = e.target.id
   axios.get(`/api/chat/newconvo/${sellerid}`)
@@ -127,4 +128,23 @@ $('.startchat').on('click', e => {
       console.log(data)
     })
     .catch(e => console.error(e))
+})
+
+// Edit Product Listeners
+$(document).on('click', event => {
+  if(event.target.id === 'edit-prod-listing') {
+    window.location.replace(`/product-edit/${event.target.value}`)
+  } else if (event.target.id === 'edit-prod-btn') {
+    event.preventDefault()
+    axios.put(`/api/items/${event.target.value}`, {
+      name: $('#edit-product-title').val(),
+      condition: $('#edit-item-condition').val(),
+      price: $('#edit-price').val(),
+      location: $('#edit-item-location').val(),
+      description: $('#edit-description').val()
+    })
+      .then(() => {
+        window.location.replace(`/products/${event.target.value}`)
+      })
+  }
 })
