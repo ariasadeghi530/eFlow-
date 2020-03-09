@@ -41,7 +41,6 @@ const Default = props => {
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
-        <script src="../js/checklogin.js"></script>
         <script src="../js/app.js"></script>
         <script src="../js/auth.js"></script>
         <script src="../js/userContact.js"></script>
