@@ -246,3 +246,7 @@ html, body {
     width: 90px;
 }
 
+.uk-card-home {
+    width: 160px !important;
+    height: 250px !important;
+}

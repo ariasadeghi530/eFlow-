@@ -16,8 +16,8 @@ const Home = (props) => {
       <MiddleContent />
       <HomeSlider />
       <CatSlider />
-        <WhatsHot whats={props.whatsHot} />
-        <WhatsHot whats={props.whatsNew} />
+      <WhatsHot whats={props.whatsHot} list={props.new} />
+        <WhatsHot whats={props.whatsNew} list={props.new} />
         <div className="uk-container">
           <div className="spacer"></div>
         </div>

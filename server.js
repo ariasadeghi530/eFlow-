@@ -45,11 +45,17 @@ app.get('/register', (req, res) => {
 
 app.get('/', (req, res) => {
   if (req.session.isLoggedin === true) {
-    res.render('home',
-      {
-        whatsHot: `What's Hot`,
-        whatsNew: `What's New`
-      })
+    Item.findAll({limit: 4,  where: { isSold: 0 },  order: [['createdAt', 'DESC']], include: [Upload]}).then((items) => {
+      
+          res.render('home',
+            {
+              whatsHot: `What's Hot`,
+              whatsNew: `What's New`,
+              new: items
+            })
+        
+    })
+    .catch(e => console.log(e))
   } else {
     res.render('login')
   }
