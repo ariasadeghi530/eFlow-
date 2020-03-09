@@ -22,7 +22,7 @@ const WhatsHot = (props) => {
                   </div>
                   <div class="uk-card-body ef-card-body">
                     <p class="uk-text-bold slider-product-title slider-margin-bottom-remove uk-text-truncate">{hot.name}</p>
-                    <p className="uk-text-bold slider-product-title uk-margin-remove uk-text-truncate">${hot.price}</p>
+                    <p className="uk-text-bold slider-product-title uk-margin-small-top uk-text-truncate">${hot.price}</p>
                   </div>
                 </div>
               </div>

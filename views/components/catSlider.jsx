@@ -12,7 +12,7 @@ const CatSlider = () => {
               </div>
               </div>
             </li>
-          <li className="cat-width">
+          <li className="cat-width-apparel">
             <div className="uk-text-center">
               <div class="uk-panel">
                   <a href="/collections/Apparel" id="category-apparel"><h4 className="sidebar-text">Apparel</h4></a>

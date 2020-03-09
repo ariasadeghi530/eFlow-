@@ -175,7 +175,7 @@ router.post('/ForgetPasswordToken', (req, res) => {
       ForgotPassword.create({ userid: userid, token: newToken, email: userEmail })
         .then(forgot => {
           let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/api/forgetPasswordReset/' + newToken
-          sendForgotPasswordMail(userEmail, tokenUrlLink)
+          sendForgotPasswordMail(userEmail, tokenUrlLink, user)
         })
 
     })
@@ -208,7 +208,7 @@ router.get('/forgetPasswordReset/:token', (req, res) => {
     })
 })
 
-async function sendForgotPasswordMail(email, tokenURL) {
+async function sendForgotPasswordMail(email, tokenURL, user) {
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -226,8 +226,8 @@ async function sendForgotPasswordMail(email, tokenURL) {
     from: '"eflow Password Reset" <eflowresponse@gmail.com>', // sender address
     to: email, // list of receivers
     subject: "Password Reset", // Subject line
-    text: `Please use the following URL to resetup your password: ${tokenURL}`, // plain text body
-    html: `<b>Please use the following URL to resetup your password:</b> ${tokenURL}` // html body
+    text: `Your username is ${user.username}. Please use the following URL to resetup your password: ${tokenURL}`, // plain text body
+    html: `Your username is ${user.username}.  <b>Please use the following URL to resetup your password:</b> ${tokenURL}` // html body
   })
     .catch(e => console.log(e))
 

@@ -143,6 +143,9 @@ html, body {
 }
 
 /* Product Page Styles */
+.ef-card-related{
+    height: 240px !important;
+}
 
 .share-btn {
     border-radius: 15px;
@@ -210,12 +213,13 @@ html, body {
 
 .uk-card-collection {
     width: 170px !important;
-    height: 300px !important;
+    height: 260px !important;
 }
 
-.ef-bc-margin{
-margin-top: 10px;
+.ef-bc-margin {
+    margin-top: 10px;
 }
+
 /* Footer*/
 
 .footer-container {
@@ -246,7 +250,13 @@ margin-top: 10px;
 .cat-width {
     margin-top: 10px;
     margin-left: 0px;
-    width: 90px;
+    width: 100px;
+}
+
+.cat-width-apparel {
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 100px;
 }
 
 .ef-card-home {

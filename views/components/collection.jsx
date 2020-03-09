@@ -16,10 +16,10 @@ const Collection = (props) => {
               }
             })} className="slider-img" alt="" />
         </div>
-        <div class="uk-card-body">
+        <div class="uk-card-body ef-card-body">
             <p class="uk-text-bold slider-product-title slider-margin-bottom-remove uk-text-truncate">{props.card.name}</p>
-            <p className="slider-margin-remove uk-text-light">Asking Price</p>
-            <p className="uk-text-bold slider-price slider-margin-remove uk-text-truncate">${props.card.price}</p>
+            <p className="slider-margin-remove uk-margin-small-top uk-text-light">Asking Price</p>
+            <p className="uk-text-bold slider-price slider-margin-remove uk-margin-small-top uk-text-truncate">${props.card.price}</p>
         </div>
       </div>
     </div>
