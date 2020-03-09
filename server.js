@@ -149,10 +149,21 @@ app.get('/products/:id', (req, res) => {
     })
       .then((product) => {
 
-        res.render('products',
-          {
-            prod: product
-          })
+        Item.findAll({
+          limit: 4,
+          where: {
+            isSold: 0,
+            category: product.category
+            
+          }, include: [Upload]
+        }).then((similar) => {
+
+          res.render('products',
+            {
+              prod: product,
+              sim: similar
+            })
+        })
       })
 
   } else {

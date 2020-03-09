@@ -47,7 +47,7 @@ const Products = props => {
         </p>
       </div>
       <Info blah={props.prod}/>
-      <ProductSlider blah={props.prod}/>
+      <ProductSlider related={props.sim}/>
       <Footer />
       </div>
     </Default>

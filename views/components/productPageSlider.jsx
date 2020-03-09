@@ -1,6 +1,7 @@
 const React = require('react')
 
-const ProductSlider = () => {
+const ProductSlider = (props) => {
+  
   return (
     <div className="uk-margin uk-margin-left uk-margin-right">
       <h3>Related Products</h3>
@@ -8,7 +9,26 @@ const ProductSlider = () => {
         <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
         <div className="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
           <ul className="uk-slider-items uk-child-width-1-2@s uk-grid">
-            <li className="uk-child-width-1-2" uk-grid>
+            {props.related.map(item => {
+              return (
+                <li className="uk-child-width-1-2" uk-grid="true">
+                  <div className="uk-flex-inline">
+
+                    <div className="uk-card uk-card-default">
+                      <div className="uk-card-media-top uk-flex uk-flex-center">
+                        <img src={item.uploads.path} className="ef-home-img" alt="" />
+                      </div>
+                      <div className="uk-card-body">
+                        <p className="uk-text-bold slider-product-title slider-margin-bottom-remove">{item.name}</p>
+                        <p className="slider-margin-remove uk-text-light">Asking Price</p>
+                        <p className="uk-text-bold slider-price slider-margin-remove">${item.price}</p>
+                      </div>
+                    </div>
+                  </div>
+                  </li>
+              )
+            })}
+            {/* <li className="uk-child-width-1-2" uk-grid>
               <div className="uk-flex-inline">
 
                 <div className="uk-card uk-card-default">
@@ -61,7 +81,7 @@ const ProductSlider = () => {
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> */}
             </ul>
               <a className="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
               <a className="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
