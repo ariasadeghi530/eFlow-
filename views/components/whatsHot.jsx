@@ -10,10 +10,9 @@ const WhatsHot = (props) => {
 
         <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
           {props.list.map(hot => {
-            
             return(
             <li className="home-sliders">
-              <a href={"/products/" + hot.id}>
+              <a href={"/products/"+hot.id}>
                 <div class="uk-panel ef-card-home">
               <div className="uk-flex-inline">
                 <div class="uk-card uk-card-default uk-card-small ef-card-home">

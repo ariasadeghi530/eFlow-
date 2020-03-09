@@ -6,10 +6,10 @@ const LogIn = () => {
         <form>
             <div id="alerts"></div>
             <div className="uk-margin">
-                <input type="text" className="uk-input" id="loginUsername" placeholder="Username"></input>
+                <input type="text" className="uk-input ef-border-radius" id="loginUsername" placeholder="Username"></input>
             </div>
             <div className="uk-margin">
-                <input type="password" className="uk-input" id="loginPassword" placeholder="Password"></input>
+                <input type="password" className="uk-input ef-border-radius" id="loginPassword" placeholder="Password"></input>
             </div>
             <div className="uk-flex uk-flex-right">
                 <p><a href="api/forgetpasswordemail">Forgot Account Info?</a></p>

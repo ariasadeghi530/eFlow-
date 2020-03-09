@@ -321,6 +321,11 @@ app.get('/product-edit/:id', (req, res) => {
   }
 })
 
+// Forgot Username
+app.get('/forgot-username', (req, res) => {
+  res.render('forgetUsername')
+})
+
 
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(process.env.PORT || 3000))
