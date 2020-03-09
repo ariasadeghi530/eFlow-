@@ -55,6 +55,7 @@ const Products = props => {
       </Default>
     ) 
   } else {
+    return(
     <Default>
       <div>
         <Breadcrumb item={props.prod} />
@@ -91,6 +92,7 @@ const Products = props => {
         <Footer />
       </div>
     </Default>
+    )
   }
   
 }
