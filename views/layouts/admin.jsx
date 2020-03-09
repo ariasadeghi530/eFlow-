@@ -28,15 +28,18 @@ const Admin = props => {
                   
                   <div class="sb-sidenav-menu-heading">Users</div>
                   <a class="nav-link" href="/admin/users">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                     Manage</a>
                     <a class="nav-link" href="/admin/newuser">
-                      <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                     New User</a>
                   <div class="sb-sidenav-menu-heading">Items</div>
                   <a class="nav-link" href="/items">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Manage</a>
+                  <a class="nav-link" href="/admin/reports">
+                    <div class="sb-nav-link-icon"><i class="fas fa-flag"></i></div>
+                    Item Reports</a>
                 </div>
               </div>
               <div class="sb-sidenav-footer">

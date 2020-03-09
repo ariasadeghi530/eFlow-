@@ -42,14 +42,11 @@ const Default = props => {
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
         <script src="../js/app.js"></script>
-        <script src="../js/auth.js"></script>
         <script src="../js/userContact.js"></script>
         <script src="../js/forgotpasswordemail.js"></script>
         <script src="../js/userResetPassword.js"></script>
         <script src="../js/newListing.js"></script>
-        
       </body>
-
     </html>
   )
 }

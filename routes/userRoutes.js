@@ -231,7 +231,7 @@ router.get('/chat/newconvo/:userid', (req, res) => {
   let newChatToken = srs()
   Conversation.create({ user1: parseInt(req.session.userId), user2: parseInt(req.params.userid), chatToken: newChatToken })
     .then(() => {
-      res.sendStatus(200)
+      res.end(newChatToken)
     })
     .catch(e => console.log(e))
 })
