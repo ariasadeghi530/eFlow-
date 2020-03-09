@@ -36,7 +36,7 @@ $('#postItem').click(event => {
     condition: $('#item-condition').val(),
     price: $('#item-price').val(),
     location: $('#item-location').val(),
-    // popularity: 1,
+    popularity: 1,
     userId: userPostId
   })
     .then(({ data }) => {

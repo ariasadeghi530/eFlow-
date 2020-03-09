@@ -213,6 +213,9 @@ html, body {
     height: 300px !important;
 }
 
+.ef-bc-margin{
+margin-top: 10px;
+}
 /* Footer*/
 
 .footer-container {
@@ -246,7 +249,17 @@ html, body {
     width: 90px;
 }
 
-.uk-card-home {
+.ef-card-home {
     width: 160px !important;
-    height: 250px !important;
+    height: 230px !important;
+}
+
+.ef-home-img {
+    height: 140px;
+    width: 140px;
+}
+
+.ef-card-body {
+    background-color: rgb(241, 241, 241);
+    padding-bottom: 40px !important;
 }
