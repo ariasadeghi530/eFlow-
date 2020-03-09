@@ -5,7 +5,7 @@ const Breadcrumb = (props) => {
   if (props.item) {
     return (
       <div className="uk-margin-top uk-margin-left ef-bc-margin">
-        <ul class="uk-breadcrumb">
+        <ul class="uk-breadcrumb uk-text-truncate">
           <li><a href="/">Home</a></li>
           <li><a href={"/collections/" + props.item.category} >{props.item.category}</a></li>
             <li><a href={"/products/" + props.item.id} >{props.item.name}</a></li>

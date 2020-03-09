@@ -29,6 +29,14 @@ router.put('/users/:id',
     .catch(e=>console.log(e))
   })
 
+// Find One user By Email
+router.get('/users/email/:email', (req, res) => {
+  User.findOne({where: {email: req.params.email}})
+    .then(user => {
+      res.json(user)
+    })
+    .catch(e => console.log(e))
+})
 
 // POST an user
 router.post('/users', (req, res) => {
@@ -166,7 +174,7 @@ router.post('/ForgetPasswordToken', (req, res) => {
       //res.end(userid)
       ForgotPassword.create({ userid: userid, token: newToken, email: userEmail })
         .then(forgot => {
-          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/forgetPasswordReset/' + newToken
+          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/api/forgetPasswordReset/' + newToken
           sendForgotPasswordMail(userEmail, tokenUrlLink)
         })
 

@@ -17,14 +17,7 @@ const Profile = props => {
           <div id="edit-profile">
             <div className="uk-width-expand">
               <div className="uk-margin-small">
-                <h3 className="uk-card-title uk-margin-small" id="profile-username">WowOmgIKnowHTML</h3>
-              </div>
-              <div className="uk-margin-small">
-                <p className="uk-text-meta uk-margin-remove profile-online"><i className="gg-shape-circle uk-inline-flex"></i> Online</p>
-              </div>
-              <div className="uk-margin-small">
-                <p className="uk-text-muted uk-margin-remove uk-text-small">Last Online</p>
-                <p className="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                <h3 className="uk-card-title uk-margin-small" id="profile-username"></h3>
               </div>
               </div>
               <div className="uk-card-body uk-padding-remove">
