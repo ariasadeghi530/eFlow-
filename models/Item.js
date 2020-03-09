@@ -28,10 +28,10 @@ Item.init({
     type: STRING,
     allowNull: false
   },
-  // popularity: {
-  //   type: INTEGER,
-  //   allowNull: false
-  // },
+  popularity: {
+    type: INTEGER,
+    allowNull: false
+  },
   sell_price: {
     type: INTEGER,
     allowNull: true,
