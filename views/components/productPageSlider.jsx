@@ -13,16 +13,16 @@ const ProductSlider = (props) => {
                 <li>
                   <a href={"/products/" + item.id}>
                   <div class="uk-panel">
-                  <div className="uk-card uk-card-default">
+                  <div className="uk-card uk-card-default uk-card-small ef-card-related">
                       <div className="uk-card-media-top uk-flex uk-flex-center">
                     <img src={ (!item.uploads === undefined) ?  
                     (item.uploads[0].path) : ('/images/favicon.ico')
                     } alt="" />
                       </div>
-                      <div className="uk-card-body">
+                        <div className="uk-card-body ef-card-body">
                         <p className="uk-text-bold slider-product-title slider-margin-bottom-remove uk-text-truncate">{item.name}</p>
 
-                        <p className="uk-text-bold slider-price slider-margin-remove uk-text-truncate">${item.price}</p>
+                        <p className="uk-text-bold slider-price slider-margin-small-top uk-text-truncate">${item.price}</p>
                       </div>
                     </div>
                      
