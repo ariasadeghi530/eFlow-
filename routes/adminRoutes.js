@@ -82,6 +82,26 @@ router.post('/users/new', (req, res) => {
     .catch(e => console.log(e))
 })
 
+router.get('/items/all', (req, res) => {
+  Item.findAll({ include: [User] })
+    .then(items => {
+      res.json(items)
+    })
+    .catch(e => console.log(e))
+})
+
+// DELETE ITEM
+router.get('/items/delete/:id', (req, res) => {
+  Item.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
 
 // REPORTING ROUTES
 
