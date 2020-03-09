@@ -40,3 +40,13 @@
   background-color: rgb(0, 197, 0);
   color: white;
 }
+
+.ef-button-unsold {
+  background-color: rgb(162, 0, 255);
+  color: white;
+}
+/* Sold */
+
+.ef-sold-text {
+  color: rgb(0, 197, 0);
+}

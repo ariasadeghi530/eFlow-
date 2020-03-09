@@ -115,7 +115,7 @@ $(document).on('click', event => {
 $(document).on('click', event => {
   if(event.target.id === 'edit-btn') {
     window.location.replace('/profile-edit')
-  }
+  } 
 })
 
 // Start Chat
@@ -162,7 +162,17 @@ $(document).on('click', event => {
     })
       .then(() => {
         console.log('Item Updated to SOLD')
+        window.location.replace('/profile')
       })
       .catch(e => console.error(e))
+  } else if (event.target.id === 'unmark-sold-btn') {
+    event.preventDefault()
+    axios.put(`/api/items/${event.target.value}`, {
+      isSold: 0
+    })
+      .then(() => {
+        console.log('Item Updated to UnSold')
+        window.location.replace('/profile')
+      })
   }
 })
