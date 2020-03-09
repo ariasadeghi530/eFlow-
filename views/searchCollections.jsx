@@ -4,7 +4,7 @@ const Collection = require('./components/collection.jsx')
 const Breadcrumb = require('./components/breadcrumb.jsx')
 const Pagination = require('./components/pagination.jsx')
 const Tile = require('./components/tile.jsx')
-
+const Footer = require('./components/footer.jsx')
 
 const Collections = (props) => {
 
@@ -12,12 +12,13 @@ const Collections = (props) => {
     <Default>
      
       <div id='searchCollectionResult'>
-      <Tile categ={'Showing results for ' + props.category} />
+      <Tile categ={'Showing results for ' + `"` + props.category + `"`} />
       <Breadcrumb cat={props.category} />
       {props.stuff.map((item) => <Collection card={item} />)}
 
-      <Pagination />
+      {/* <Pagination /> */}
       </div>
+     <Footer />
     </Default>
   )
 }

@@ -50,16 +50,24 @@ router.get('/items/category/:name', (req, res) => {
 router.put('/items/:id', (req,res) => {
   Item.update( req.body, {where: {id: req.params.id}})
   .then(() => {
-    console.log('poopoo')
+   
     res.sendStatus(200)
   })
+
   .catch(e => console.log(e))
+})
+router.put('/items/popularity/:id', (req, res) => {
+  Item.increment({ popularity: 1 }, { where: { id: req.params.id } })
+    .then(() => {
+      res.sendStatus(200)
+    })
+
+    .catch(e => console.log(e))
 })
 
 router.delete('/items/:id', (req, res) => {
   Item.destroy({where: { id: req.params.id }})
   .then(() => {
-    console.log('peepee')
     res.sendStatus(200)
   })
   .catch(e => console.log(e))

@@ -1,4 +1,5 @@
 
+
 // Open navbar search
 $('#search').click(function (event) {
   event.preventDefault()
@@ -99,20 +100,14 @@ $('#logout').on('click', () => {
 })
 
 // Product Page
-function calumSucksDick(id) {
-  axios.get(`/api/items/${id}`)
-    .then(({data}) => {
-      $('#product-title').text(name)
-      $('#product-description').text(description)
-      $('#product-price').text('$'+price)
-      $('#product-img').attr('src', './images/favicon.ico')
-    })
-    .catch(e => console.error(e))
-}
 
 $(document).on('click', event => {
-  if(event.target.classList.contains('product-collection')) {
-    calumSucksDick(event.target.value)
+  if(event.target.classList.contains('bid-btn')) {
+    axios.put(`/api/items/popularity/${event.target.value}`)
+    .then(() => {
+      console.log('Updated popularity')
+    })
+    .catch(e=>console.log(e))
   }
 })
 
