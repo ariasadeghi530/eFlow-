@@ -12,7 +12,7 @@ const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item, Report }
 
 
 
-app.use(express.static(join(__dirname, 'public')))
+app.use(express.static(join(__dirname, '/public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
@@ -274,9 +274,30 @@ app.put('/forgetPasswordReset/:user/:token', (req, res) => {
   res.sendStatus(200)
 })
 
+// Post New Product
 app.get('/newListing', (req, res) => {
   if (req.session.isLoggedin === true) {
     res.render('newItem')
+  } else {
+    res.render('login')
+  }
+})
+
+// Edit Existing Product
+app.get('/product-edit/:id', (req, res) => {
+  if(req.session.isLoggedin === true) {
+    Item.findOne({
+      where: { id: req.params.id},
+      include: [Upload]
+    })
+      .then((product) => {
+        res.render('product-edit', 
+          {
+            editProd: product
+          }
+        )
+        console.log(product)
+      })
   } else {
     res.render('login')
   }
