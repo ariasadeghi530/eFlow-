@@ -45,11 +45,21 @@ app.get('/register', (req, res) => {
 
 app.get('/', (req, res) => {
   if (req.session.isLoggedin === true) {
-    res.render('home',
-      {
-        whatsHot: `What's Hot`,
-        whatsNew: `What's New`
+    Item.findAll({limit: 4,  where: { isSold: 0 },  order: [['createdAt', 'DESC']], include: [Upload]}).then((items) => {
+      Item.findAll({limit: 4, where: {isSold: 0}, order: [['popularity', 'DESC']], include: [Upload]}).then((hotStuff) =>{
+        
+        res.render('home',
+          {
+            whatsHot: `What's Hot`,
+            whatsNew: `What's New`,
+            new: items,
+            hot: hotStuff
+          })
       })
+      .catch(e => console.log(e))
+        
+    })
+    .catch(e => console.log(e))
   } else {
     res.render('login')
   }
@@ -73,6 +83,7 @@ app.get('/searchCollections/:searchText', (req, res) => {
     if (req.params.searchText !== 'EmptySearchStringParameter') {
       Item.findAll({
         where: {
+          isSold: 0,
           category: categoryOption,
           [Op.or]: [
             {
@@ -108,7 +119,7 @@ app.get('/searchCollections/:searchText', (req, res) => {
 app.get('/collections/:category', (req, res) => {
   if (req.session.isLoggedin === true) {
     if(req.params.category === 'All'){
-      Item.findAll({ include: [Upload] })
+      Item.findAll({ where:{isSold: 0}, include: [Upload] })
         .then((items) => {
           res.render('collections',
             {
@@ -117,7 +128,7 @@ app.get('/collections/:category', (req, res) => {
             })
         })
     }
-    Item.findAll({ where: { category: req.params.category }, include: [Upload] })
+    Item.findAll({ where: { category: req.params.category, isSold: 0 }, include: [Upload] })
       .then((items) => {
         res.render('collections',
           {
@@ -133,15 +144,26 @@ app.get('/collections/:category', (req, res) => {
 app.get('/products/:id', (req, res) => {
   if (req.session.isLoggedin === true) {
     Item.findOne({
-      where: { id: req.params.id },
+      where: { id: req.params.id, isSold: 0 },
       include: [Upload]
     })
       .then((product) => {
 
-        res.render('products',
-          {
-            prod: product
-          })
+        Item.findAll({
+          limit: 4,
+          where: {
+            isSold: 0,
+            category: product.category
+            
+          }, include: [Upload]
+        }).then((similar) => {
+
+          res.render('products',
+            {
+              prod: product,
+              sim: similar
+            })
+        })
       })
 
   } else {

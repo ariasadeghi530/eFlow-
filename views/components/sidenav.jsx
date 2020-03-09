@@ -44,7 +44,7 @@ const Sidenav = () => {
       </div>        
         <a href=""><h4 className="sidebar-text sidebar-title">FAQ</h4></a>
         <a href=""><h4 className="sidebar-text sidebar-title">About Us</h4></a>
-        <a href=""><h4 className="sidebar-text sidebar-title">Contact Us</h4></a>
+        <a href="/api/userContact"><h4 className="sidebar-text sidebar-title">Contact Us</h4></a>
       </div>
     </div>
   )
