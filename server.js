@@ -263,6 +263,7 @@ app.get('/admin/reports', (req, res) => {
 })
 
 //Reset password external link
+
 app.put('/forgetPasswordReset/:user/:token', (req, res) => {
   let md5pass = md5(req.body.password)
 

@@ -3,8 +3,8 @@ const React = require('react');
 const ForgotPasswordResetForm = props => {
   return (
     <div className="uk-container">
+        <div id="alerts">
     <form>
-      <div id="alerts">
       </div>
       <h3>Please enter a new password.</h3>
       <hr />

@@ -12,9 +12,9 @@ const Collection = (props) => {
               if(arr.length > 0){
                  return item.path 
               } else{
-                return "https://firebasestorage.googleapis.com/v0/b/eflow-ca056.appspot.com/o/images%2Ffavicon.ico?alt=media&token=138b2db8-1d86-40be-b312-3a676fd4448a"
+                return "/images/favicon.ico"
               }
-              })} className="slider-img" alt="" />
+            })} className="slider-img" alt="" />
         </div>
         <div class="uk-card-body">
             <p class="uk-text-bold slider-product-title slider-margin-bottom-remove uk-text-truncate">{props.card.name}</p>
