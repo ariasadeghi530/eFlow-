@@ -197,6 +197,7 @@ app.get('/profile-edit', (req, res) => {
 
 // ADMIN DASHBOARD
 app.get('/admin', (req, res) => {
+  console.log(req.session)
   if (req.session.isLoggedin === true) {
     if (req.session.perm === 1) {
       res.render('admindash',
@@ -204,6 +205,7 @@ app.get('/admin', (req, res) => {
           js: '../admin/js/dash.js',
           adminid: req.session.userId
         })
+        console.log(req.session)
     } else {
       res.render('home')
     }
@@ -252,6 +254,22 @@ app.get('/admin/reports', (req, res) => {
       res.render('adminreports',
       {
         js: '../admin/js/reports.js',
+        adminid: req.session.userId
+      })
+    }else{
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
+})
+
+app.get('/admin/items', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('adminitems',
+      {
+        js: '../admin/js/items.js',
         adminid: req.session.userId
       })
     }else{

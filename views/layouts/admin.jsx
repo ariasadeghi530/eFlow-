@@ -34,7 +34,7 @@ const Admin = props => {
                     <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                     New User</a>
                   <div class="sb-sidenav-menu-heading">Items</div>
-                  <a class="nav-link" href="/items">
+                  <a class="nav-link" href="/admin/items">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Manage</a>
                   <a class="nav-link" href="/admin/reports">
@@ -73,7 +73,6 @@ const Admin = props => {
         <script src="../admin/assets/tables/datatables.checkboxes.min.js" crossOrigin="anonymous"></script>
         <script src="../admin/assets/tables/datatables.select.min.js" crossOrigin="anonymous"></script>
         <script src="../admin/js/scripts.js"></script>
-        <script src="../admin/js/admin.js"></script>
         <script src={props.js}></script>
         
       </body>
