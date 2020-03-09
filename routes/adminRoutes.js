@@ -5,7 +5,7 @@ const srs = require('secure-random-string')
 const { Op } = require("sequelize")
 const axios = require('axios')
 const md5 = require('md5')
-const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item } = require('../models')
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item, Report } = require('../models')
 
 // GET ALL USERS
 router.get('/allusers', (req, res) => {
@@ -78,6 +78,52 @@ router.post('/users/new', (req, res) => {
   User.create(req.body)
     .then(() => {
       res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
+
+
+// REPORTING ROUTES
+
+// status codes
+// +---+--------+
+// | 0 | open   |
+// +---+--------+
+// | 1 | closed |
+// +---+--------+
+
+// resolution codes
+// +---+----------------- +
+// | 0 | unresolved       |
+// +---+----------------- +
+// | 1 | item deleted     |
+// +---+----------------- +
+// | 2 | item edited      |
+// +---+----------------- +
+// | 3 | item left as- is |
+// +---+----------------- +
+
+router.post('/reports/new', (req, res) => {
+  let user_id = req.session.userId
+  let item_id = req.body.item_id
+  let comment = req.body.comment
+  Report.create({
+    comment: comment,
+    status: 0,
+    resolution: 0,
+    itemId: item_id,
+    userId: user_id
+  })
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(e => console.log(e))
+})
+// GET ALL REPORTS
+router.get('/getreports', (req, res) => {
+  Report.findAll({ include: [User, Item] })
+    .then(reports => {
+      res.json(reports)
     })
     .catch(e => console.log(e))
 })

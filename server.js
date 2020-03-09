@@ -5,7 +5,7 @@ const axios = require('axios')
 const md5 = require('md5')
 const sequelize = require('./config')
 const cookieSession = require('cookie-session')
-const { User, Message, Conversation, FAQ, ForgotPassword, Upload } = require('./models')
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Report } = require('./models')
 
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -146,6 +146,22 @@ app.get('/admin/newuser', (req, res) => {
       res.render('adminnewuser',
       {
         js: '../admin/js/newuser.js',
+        adminid: req.session.userId
+      })
+    }else{
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
+})
+
+app.get('/admin/reports', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('adminreports',
+      {
+        js: '../admin/js/reports.js',
         adminid: req.session.userId
       })
     }else{
