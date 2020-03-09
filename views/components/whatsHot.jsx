@@ -2,6 +2,7 @@ const React = require('react')
 
 const WhatsHot = (props) => {
   console.log(props)
+  if(props.whats){
   return (
     <div className="uk-margin uk-margin-left uk-margin-right uk-hidden@m">
       <h3>{props.whats}</h3>
@@ -9,6 +10,7 @@ const WhatsHot = (props) => {
 
         <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
           {props.list.map(hot => {
+            
             return(
             <li className="home-sliders">
               <a href={"/products/" + hot.id}>
@@ -16,7 +18,8 @@ const WhatsHot = (props) => {
               <div className="uk-flex-inline">
                 <div class="uk-card uk-card-default uk-card-small ef-card-home">
                   <div class="uk-card-media-top uk-flex uk-flex-center">
-                        <img src={hot.uploads.map(items => items.path)} className="ef-home-img" alt="" />
+                        <img src={ 
+                           hot.uploads.map((items) => {return items.path})} className="ef-home-img" alt="" />
                   </div>
                   <div class="uk-card-body ef-card-body">
                     <p class="uk-text-bold slider-product-title slider-margin-bottom-remove">{hot.name}</p>
@@ -39,6 +42,10 @@ const WhatsHot = (props) => {
     </div>
     
   )
+                        }
+                        else{
+                          return(<div></div>)
+                        }
 }
 
 module.exports = WhatsHot
