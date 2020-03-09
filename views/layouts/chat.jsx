@@ -18,6 +18,7 @@ const Chat = props => {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../css/styles.css"></link>
         <link rel="stylesheet" href="../css/chat.css"></link>
+        <link rel="stylesheet" href="../css/eflex.css"></link>
         <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 
       </head>

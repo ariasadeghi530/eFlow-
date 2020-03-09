@@ -17,7 +17,8 @@ const Default = props => {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../css/styles.css"></link>
-        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="../css/eflex.css"></link>
+        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
       </head>
 
       <body>
@@ -43,9 +44,11 @@ const Default = props => {
         <script src="../js/checklogin.js"></script>
         <script src="../js/app.js"></script>
         <script src="../js/auth.js"></script>
-        <script src="../js/upload.js"></script>
+        <script src="../js/userContact.js"></script>
         <script src="../js/forgotpasswordemail.js"></script>
         <script src="../js/userResetPassword.js"></script>
+        <script src="../js/newListing.js"></script>
+        
       </body>
 
     </html>

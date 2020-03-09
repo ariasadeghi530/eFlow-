@@ -28,14 +28,16 @@ html, body {
 .nav-margin {
     margin-bottom: 0px;
 }
-.other-nav-logo{
+
+.other-nav-logo {
     padding-bottom: 30px;
 }
 
-.other-nav{
+.other-nav {
     margin-bottom: 0px;
 }
-.nav-background{
+
+.nav-background {
     background-color: white !important;
 }
 
@@ -168,6 +170,7 @@ html, body {
 }
 
 .slider-img {
+    margin-top: 1em;
     width: 150px !important;
     height: 150px !important;
 }
@@ -205,6 +208,14 @@ html, body {
     margin-top: 10px;
 }
 
+.uk-card-collection {
+    width: 170px !important;
+    height: 300px !important;
+}
+
+.ef-bc-margin{
+margin-top: 10px;
+}
 /* Footer*/
 
 .footer-container {
@@ -236,4 +247,19 @@ html, body {
     margin-top: 10px;
     margin-left: 0px;
     width: 90px;
+}
+
+.ef-card-home {
+    width: 160px !important;
+    height: 230px !important;
+}
+
+.ef-home-img {
+    height: 140px;
+    width: 140px;
+}
+
+.ef-card-body {
+    background-color: rgb(241, 241, 241);
+    padding-bottom: 40px !important;
 }

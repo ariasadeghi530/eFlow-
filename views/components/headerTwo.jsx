@@ -5,7 +5,7 @@ const SidenavLink = require('../components/sidenavLink.jsx')
 // Header with links
 const HeaderTwo = () => {
     return (
-        <div>
+        <div className="uk-hidden@m">
             <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
                 <nav className="uk-navbar uk-navbar-container uk-margin nav-margin nav-background">
                     <div className="uk-navbar-left">

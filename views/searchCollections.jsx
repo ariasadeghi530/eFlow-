@@ -7,15 +7,19 @@ const Tile = require('./components/tile.jsx')
 const Footer = require('./components/footer.jsx')
 
 const Collections = (props) => {
-  
+
   return (
     <Default>
-      <Tile categ={props.category}/>
-      <Breadcrumb cat={props.category}/>
-      {props.stuff.map((item, index, arr) =>  <Collection card={item} /> )}
-      <Pagination />
-      <Footer />
-      </Default>
+     
+      <div id='searchCollectionResult'>
+      <Tile categ={'Showing results for ' + `"` + props.category + `"`} />
+      <Breadcrumb cat={props.category} />
+      {props.stuff.map((item) => <Collection card={item} />)}
+
+      {/* <Pagination /> */}
+      </div>
+     <Footer />
+    </Default>
   )
 }
 

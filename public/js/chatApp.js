@@ -17,6 +17,7 @@ async function getMessages(token) {
 
   return response
 }
+
 function renderMessages(token){
   $('#chatStream').html('')
   getMessages(token)
@@ -37,6 +38,7 @@ function renderMessages(token){
     })
     .catch(e => console.error(e))
 }
+
 function getUrlVars() {
   var vars = {};
   var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {

@@ -17,9 +17,11 @@ let bar = $('#js-progressbar');
 let fileButton = $('#filebutton')
 
 let uid
+let uploadId
 axios.get(`/api/users/getinfo`)
   .then(({ data }) => {
-    uid = data
+    uid = data.id
+   
   })
   .catch(e => console.error(e))
 
@@ -46,21 +48,30 @@ fileButton.change((event) => {
 
       // Upload completed successfully, now we can get the download URL
       task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-        let uploadObj = { userid: uid.id, fileid: fileid, path: downloadURL, contents:'' }
+        let uploadObj = {fileid: fileid, path: downloadURL, contents:'', userId: uid }
         console.log(uploadObj)
-        console.log('File available at', downloadURL)
         axios.post('/api/upload', {
           uploadObj
         })
-          .then((response) => {
-            $('#uploadDisplay').html('File received and stored.')
+          .then((upload) => {
+            uploadId = upload.id
+            $('#uploadDisplay').html('Image added.')
+            $('#form-upload-id').val(uploadId)
+            console.log($('#form-upload-id').val())
+            
           })
           .catch(e => console.error(e))
+
+        console.log('File available at', downloadURL)
+
+         
+
       })
 
     })
 
 })
+
 
 
 

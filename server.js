@@ -4,8 +4,13 @@ const app = express()
 const axios = require('axios')
 const md5 = require('md5')
 const sequelize = require('./config')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 const cookieSession = require('cookie-session')
-const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Report } = require('./models')
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item, Report } = require('./models')
+
+
+
 
 app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
@@ -38,37 +43,129 @@ app.get('/register', (req, res) => {
   }
 })
 
+app.get('/', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    Item.findAll({limit: 4,  where: { isSold: 0 },  order: [['createdAt', 'DESC']], include: [Upload]}).then((items) => {
+      Item.findAll({limit: 4, where: {isSold: 0}, order: [['popularity', 'DESC']], include: [Upload]}).then((hotStuff) =>{
+        
+        res.render('home',
+          {
+            whatsHot: `What's Hot`,
+            whatsNew: `What's New`,
+            new: items,
+            hot: hotStuff
+          })
+      })
+      .catch(e => console.log(e))
+        
+    })
+    .catch(e => console.log(e))
+  } else {
+    res.render('login')
+  }
+})
+
 app.get('/chat', (req, res) => {
   if (req.session.isLoggedin === true) {
-  res.render('userchat')
-}else {
-  res.render('login')
-}
-})
-
-app.get('/collections', (req, res) => {
-  if (req.session.isLoggedin === true) {
-    res.render('collections')
-  }else{
+    res.render('userchat')
+  } else {
     res.render('login')
   }
 })
 
-app.get('/', (req, res) => {
-  if (req.session.isLoggedin===true){
-    res.render('home',
-      {
-        whatsHot: `What's Hot`,
-        whatsNew: `What's New`
+
+app.get('/searchCollections/:searchText', (req, res) => {
+  let categoryOption = ['Electronics', 'Apparel', 'Automotive']
+  
+  
+  if (req.session.isLoggedin === true) {
+
+    if (req.params.searchText !== 'EmptySearchStringParameter') {
+      Item.findAll({
+        where: {
+          isSold: 0,
+          category: categoryOption,
+          [Op.or]: [
+            {
+              name:
+              {
+                [Op.like]: '%' + req.params.searchText + '%'
+              }
+            },
+            {
+              description:
+              {
+                [Op.like]: '%' + req.params.searchText + '%'
+              }
+            }
+          ]
+        }, include: [Upload]
       })
-  }else{
+        .then((items) => {
+          console.log(items)
+          res.render('searchCollections',
+            {
+              stuff: items,
+              category: req.params.searchText
+            })
+        })
+    }
+    
+  } else {
     res.render('login')
   }
 })
 
-app.get('/products', (req, res) => {
+app.get('/collections/:category', (req, res) => {
   if (req.session.isLoggedin === true) {
-  res.render('products')
+    if(req.params.category === 'All'){
+      Item.findAll({ where:{isSold: 0}, include: [Upload] })
+        .then((items) => {
+          res.render('collections',
+            {
+              stuff: items,
+              category: req.params.category
+            })
+        })
+    }
+    Item.findAll({ where: { category: req.params.category, isSold: 0 }, include: [Upload] })
+      .then((items) => {
+        res.render('collections',
+          {
+            stuff: items,
+            category: req.params.category
+          })
+      })
+  } else {
+    res.render('login')
+  }
+})
+
+app.get('/products/:id', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    Item.findOne({
+      where: { id: req.params.id, isSold: 0 },
+      include: [Upload]
+    })
+      .then((product) => {
+
+        Item.findAll({
+          limit: 4,
+          where: {
+            isSold: 0,
+            category: product.category
+            
+          }, include: [Upload]
+        }).then((similar) => {
+
+          res.render('products',
+            {
+              prod: product,
+              sim: similar
+            })
+        })
+      })
+
   } else {
     res.render('login')
   }
@@ -76,45 +173,37 @@ app.get('/products', (req, res) => {
 
 app.get('/profile', (req, res) => {
 if (req.session.isLoggedin === true) {
-  res.render('profile')
+  Item.findAll({ where: { userid: req.session.userId }, include: [Upload]})
+      .then((items) => {
+      res.render('profile',
+      {
+        mylisting: items, 
+        userid: req.session.userId
+      })
+    })
 }else {
   res.render('login')
 }
 })
 
-
-//Render Reset Password View
-app.get('/forgetPasswordReset/:token', (req, res) => {
-  let token = req.params.token
-
-  let found = ForgotPassword.findOne({
-    where: {
-      token: token
-    },
-    // Add order conditions here....
-    order: [
-      ['id', 'DESC'],
-    ]
-  })
-    .then(forgotPassword => {
-
-      res.render('forgetpassword-reset', {
-        userid: forgotPassword.userid,
-        token: token
-      })
-    })
+app.get('/profile-edit', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    res.render('profile-edit')
+  } else {
+    res.render('login')
+  }
 })
 
 // ADMIN DASHBOARD
 app.get('/admin', (req, res) => {
   if (req.session.isLoggedin === true) {
-    if (req.session.perm===1){
+    if (req.session.perm === 1) {
       res.render('admindash',
         {
           js: '../admin/js/dash.js',
           adminid: req.session.userId
         })
-    }else{
+    } else {
       res.render('home')
     }
   } else {
@@ -125,13 +214,13 @@ app.get('/admin', (req, res) => {
 // ADMIN USER MANAGEMENT
 app.get('/admin/users', (req, res) => {
   if (req.session.isLoggedin === true) {
-    if (req.session.perm===1){
+    if (req.session.perm === 1) {
       res.render('adminusers',
-      {
-        js: '../admin/js/users.js',
-        adminid: req.session.userId
-      })
-    }else{
+        {
+          js: '../admin/js/users.js',
+          adminid: req.session.userId
+        })
+    } else {
       res.render('home')
     }
   } else {
@@ -142,13 +231,13 @@ app.get('/admin/users', (req, res) => {
 // ADMIN NEW USER
 app.get('/admin/newuser', (req, res) => {
   if (req.session.isLoggedin === true) {
-    if (req.session.perm===1){
+    if (req.session.perm === 1) {
       res.render('adminnewuser',
-      {
-        js: '../admin/js/newuser.js',
-        adminid: req.session.userId
-      })
-    }else{
+        {
+          js: '../admin/js/newuser.js',
+          adminid: req.session.userId
+        })
+    } else {
       res.render('home')
     }
   } else {
@@ -175,7 +264,7 @@ app.get('/admin/reports', (req, res) => {
 //Reset password external link
 app.put('/forgetPasswordReset/:user/:token', (req, res) => {
   let md5pass = md5(req.body.password)
- 
+
   User.update({ password: md5pass }, { where: { id: req.params.user } })
     .then(() => {
       console.log('Password Updated')
@@ -183,6 +272,15 @@ app.put('/forgetPasswordReset/:user/:token', (req, res) => {
     .catch(e => console.log(e))
   res.sendStatus(200)
 })
+
+app.get('/newListing', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    res.render('newItem')
+  } else {
+    res.render('login')
+  }
+})
+
 
 sequelize.sync() //or .authenticate()
   .then(() => app.listen(process.env.PORT || 3000))

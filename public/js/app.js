@@ -1,4 +1,5 @@
 
+
 // Open navbar search
 $('#search').click(function (event) {
   event.preventDefault()
@@ -31,10 +32,23 @@ $('#close').click(function (event) {
 $(document).on('keypress', function (e) {
   if (e.which == 13) {
     if($('#searchForm').val()){
-      console.log($('#searchForm').val())
-      location.replace('./products')
+      event.preventDefault()
+      
+      let searchText = $('#searchForm').val()
+
+      if (searchText === '') {
+        searchText = 'EmptySearchStringParameter'
+      }
+      window.location.href = `/searchCollections/${searchText}`
+      // axios.get(`/searchCollections/${searchText}`)
+      // .then(({ data }) => {
+        
+        
+      //     $('#searchCollectionResult').html(data)
+      //   })
+      //   .catch(e => console.error(e))
+      }
       $('#searchForm').val('')
-    }
   }
 });
 
@@ -51,9 +65,29 @@ let UserInfo
       $('#profile-name').text(`${data.first_name} ${data.last_name}`)
       $('#profile-email').text(data.email)
 
+      $('#profile-edit-username').val(data.username)
+      $('#profile-name-first').val(data.first_name)
+      $('#profile-name-last').val(data.last_name)
+      $('#profile-edit-email').val(data.email)
     })
     .catch(e => console.error(e))
 
+    // listener for submit profile edits page
+  $(document).on('click', event => {
+    if(event.target.id === 'submit-profile-edit') {
+      axios.put(`/api/users/${UserInfo.id}`, {
+        username: $('#profile-edit-username').val(),
+        first_name: $('#profile-name-first').val(),
+        last_name: $('#profile-name-last').val(),
+        email: $('#profile-edit-email').val()
+      })
+      .then(() => {
+        console.log('User Updated')
+        console.log(UserInfo)
+        window.location.replace('/profile')
+      })
+    }
+  })
 
 
 // Account Logout
@@ -63,4 +97,23 @@ $('#logout').on('click', () => {
       location.replace('./login')
     })
     .catch(e => console.error(e))
+})
+
+// Product Page
+
+$(document).on('click', event => {
+  if(event.target.classList.contains('bid-btn')) {
+    axios.put(`/api/items/popularity/${event.target.value}`)
+    .then(() => {
+      console.log('Updated popularity')
+    })
+    .catch(e=>console.log(e))
+  }
+})
+
+// Edit Profile
+$(document).on('click', event => {
+  if(event.target.id === 'edit-btn') {
+    window.location.replace('/profile-edit')
+  }
 })

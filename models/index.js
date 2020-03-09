@@ -8,8 +8,13 @@ const Upload = require('./Upload.js')
 const Report = require('./Report.js')
 
 Message.belongsTo(User)
+
+User.hasMany(Item)
 Item.belongsTo(User)
 Report.belongsTo(Item)
 Report.belongsTo(User)
+Item.hasMany(Upload)
+Upload.belongsTo(Item)
+
 
 module.exports = { User, Item, Message, Conversation, FAQ, ForgotPassword, Upload, Report }
