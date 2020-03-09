@@ -176,3 +176,19 @@ $(document).on('click', event => {
       })
   }
 })
+
+// Forgot Username
+$(document).on('click', event => {
+  event.preventDefault()
+  if(event.target.id === 'show-username') {
+    axios.get(`api/users/email/${$('#email-input').val()}`)
+      .then(({data}) => {
+        $('#alerts').html(`
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <h3 class="uk-card-title">Your username is: ${data.username}</h3>
+        </div>
+        `)
+        $('#email-input').val(' ')
+      })
+  }
+})
