@@ -117,3 +117,14 @@ $(document).on('click', event => {
     window.location.replace('/profile-edit')
   }
 })
+
+$('.startchat').on('click', e => {
+ let sellerid = e.target.id
+  axios.get(`/api/chat/newconvo/${sellerid}`)
+    .then(({data}) => {
+      // /chat?token=
+      window.location.replace(`/chat?token=${data}`)
+      console.log(data)
+    })
+    .catch(e => console.error(e))
+})

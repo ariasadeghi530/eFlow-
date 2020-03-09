@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('mysql://root:root@localhost:3306/eflow')
+// const sequelize = new Sequelize('mysql://root:root@localhost:3306/eflow')
 const Op = Sequelize.Op
 
-// const sequelize = new Sequelize('mysql://nnkrvaq9e9rlcc55:jtkn6aeksjgx9671@izm96dhhnwr2ieg0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/zmf7l8rel1272z43')
+const sequelize = new Sequelize('mysql://c209p3iee3snfxhw:k1b6iv4if637owrc@nba02whlntki5w2p.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/q3p72mds4851vgnu')
 // const sequelize = new Sequelize('mysql://root:spikey11@localhost:3306/eFLow')
 
 module.exports = sequelize

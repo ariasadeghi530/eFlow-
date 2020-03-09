@@ -36,11 +36,8 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/register', (req, res) => {
-  if (req.session.isLoggedin === true) {
-    res.render('home')
-  } else {
     res.render('register')
-  }
+
 })
 
 app.get('/', (req, res) => {
