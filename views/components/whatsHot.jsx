@@ -11,19 +11,21 @@ const WhatsHot = (props) => {
           {props.list.map(item => {
             return(
             <li className="home-sliders">
-                <div class="uk-panel uk-card-home">
+              <a href={"/products/" + item.id}>
+                <div class="uk-panel ef-card-home">
               <div className="uk-flex-inline">
-                <div class="uk-card uk-card-default uk-card-small uk-card-home">
+                <div class="uk-card uk-card-default uk-card-small ef-card-home">
                   <div class="uk-card-media-top uk-flex uk-flex-center">
-                    <img src={item.uploads.map(items => items.path)} className="slider-img" alt="" />
+                        <img src={item.uploads.map(items => items.path)} className="ef-home-img" alt="" />
                   </div>
-                  <div class="uk-card-body">
+                  <div class="uk-card-body ef-card-body">
                     <p class="uk-text-bold slider-product-title slider-margin-bottom-remove">{item.name}</p>
 
                   </div>
                 </div>
               </div>
             </div>
+                </a>
           </li>)})}
           
          
