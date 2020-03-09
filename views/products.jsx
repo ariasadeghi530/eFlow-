@@ -24,6 +24,8 @@ const Products = props => {
 
             <ul class="uk-slider-items uk-grid">
           {props.prod.uploads.map((item, index) => {
+            console.log(' ')
+            console.log(item)
            
               return (
                 <li class="uk-width-3-4">
@@ -32,6 +34,7 @@ const Products = props => {
                       </div>
                       </li>
                    )
+              
                    })}
         
             </ul>
