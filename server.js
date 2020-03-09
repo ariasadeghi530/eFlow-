@@ -153,7 +153,8 @@ app.get('/products/:id', (req, res) => {
           limit: 4,
           where: {
             isSold: 0,
-            category: product.category
+            category: product.category,
+            id: {[Op.not]: req.params.id}
             
           }, include: [Upload]
         }).then((similar) => {
