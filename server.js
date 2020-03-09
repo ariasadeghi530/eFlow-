@@ -7,7 +7,7 @@ const sequelize = require('./config')
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 const cookieSession = require('cookie-session')
-const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item } = require('./models')
+const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item, Report } = require('./models')
 
 
 
@@ -153,7 +153,8 @@ app.get('/products/:id', (req, res) => {
           limit: 4,
           where: {
             isSold: 0,
-            category: product.category
+            category: product.category,
+            id: {[Op.not]: req.params.id}
             
           }, include: [Upload]
         }).then((similar) => {
@@ -238,6 +239,22 @@ app.get('/admin/newuser', (req, res) => {
           adminid: req.session.userId
         })
     } else {
+      res.render('home')
+    }
+  } else {
+    res.render('login')
+  }
+})
+
+app.get('/admin/reports', (req, res) => {
+  if (req.session.isLoggedin === true) {
+    if (req.session.perm===1){
+      res.render('adminreports',
+      {
+        js: '../admin/js/reports.js',
+        adminid: req.session.userId
+      })
+    }else{
       res.render('home')
     }
   } else {
