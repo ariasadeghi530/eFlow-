@@ -166,7 +166,7 @@ router.post('/ForgetPasswordToken', (req, res) => {
       //res.end(userid)
       ForgotPassword.create({ userid: userid, token: newToken, email: userEmail })
         .then(forgot => {
-          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/forgetPasswordReset/' + newToken
+          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/api/forgetPasswordReset/' + newToken
           sendForgotPasswordMail(userEmail, tokenUrlLink)
         })
 
