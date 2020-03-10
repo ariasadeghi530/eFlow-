@@ -11,10 +11,13 @@ const displayPasswordReset = () => {
   $('#alerts').html(`
         <div className="uk-alert-success" uk-alert="true">
          
-          <p className="uk-text-bold">Your password has been reset! You may login now.</p>
+          <p className="uk-text-bold">Your password has been reset! You may login now!</p>
         </div>`)
   $('#password').val('')
   $('#passwordConfirm').val('')
+  setTimeout(() => {
+    window.location.href="/login"
+  }, 2000);
 
 }
 
