@@ -12,10 +12,11 @@ const Collections = (props) => {
     <Default>
       <Tile categ={props.category}/>
       <Breadcrumb cat={props.category}/>
-      {props.stuff.map((item, index, arr) =>  <Collection card={item} /> )}
-     
+        <div className="uk-margin-bottom-large">
+          {props.stuff.map((item, index, arr) =>  <Collection card={item} /> )}
+        </div>
       <Footer />
-      </Default>
+    </Default>
   )
 }
 
