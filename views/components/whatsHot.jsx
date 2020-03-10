@@ -1,7 +1,7 @@
 const React = require('react')
 
 const WhatsHot = (props) => {
-  console.log(props)
+
   if(props.whats){
   return (
     <div className="uk-margin uk-margin-left uk-margin-right uk-hidden@m">
