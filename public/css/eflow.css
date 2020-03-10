@@ -54,3 +54,26 @@
 .ef-sold-text {
   color: rgb(0, 197, 0);
 }
+
+/* Padding */
+
+.ef-padding-top {
+  padding-top: 3%;
+}
+
+/* Position */
+.ef-page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.ef-content-wrap {
+  padding-bottom: 6rem;
+}
+
+.ef-footer-absolute {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6rem;            /* Footer height */
+}

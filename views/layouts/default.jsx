@@ -25,7 +25,10 @@ const Default = props => {
         <HeaderTwo />
         <Sidenav />
         <SidenavLink />
-        {props.children}
+        <div className="ef-page-container ef-content-wrap">
+          {props.children}
+        </div>
+        
 
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>

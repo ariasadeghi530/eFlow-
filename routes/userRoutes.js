@@ -9,7 +9,7 @@ const TokenGenerator = require('uuid-token-generator');
 const { User, Message, Conversation, FAQ, ForgotPassword, Upload } = require('../models')
 const nodemailer = require("nodemailer");
 
-let domainName = 'localhost' //This will be where we read in the current domain name
+let domainName = process.env.domainurl || 'localhost' //This will be where we read in the current domain name
 
 let domainPort = process.env.PORT || 3000 //Read in config setting for our default listen port on our domain
 

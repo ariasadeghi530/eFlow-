@@ -56,7 +56,7 @@ if(props.editProd.isSold) {
               <p>Asking Price:</p>
             </div>
             <div className="uk-flex uk-flex-center">
-              <label htmlFor="edit-price">$</label>
+              <label htmlFor="edit-price" className="ef-padding-top">$</label>
               <input id="edit-price" className="uk-inline-flex uk-margin-remove ef-border-radius-input uk-input uk-form-width-small" value={+props.editProd.price}></input>
             </div>
           </Card>
