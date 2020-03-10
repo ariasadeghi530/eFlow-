@@ -90,6 +90,7 @@ const Products = props => {
         </p>
       </div>
       <Info blah={props.prod}/>
+      <button id={props.prod.id} className='uk-button uk-button-default uk-button-small uk-margin-left report-btn' value={props.prod.id}>Report</button>
       <ProductSlider related={props.sim}/>
       <Footer />
     </Default>
