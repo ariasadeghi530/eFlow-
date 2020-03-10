@@ -29,6 +29,14 @@ router.put('/users/:id',
     .catch(e=>console.log(e))
   })
 
+// Find One user By Email
+router.get('/users/email/:email', (req, res) => {
+  User.findOne({where: {email: req.params.email}})
+    .then(user => {
+      res.json(user)
+    })
+    .catch(e => console.log(e))
+})
 
 // POST an user
 router.post('/users', (req, res) => {
@@ -166,8 +174,8 @@ router.post('/ForgetPasswordToken', (req, res) => {
       //res.end(userid)
       ForgotPassword.create({ userid: userid, token: newToken, email: userEmail })
         .then(forgot => {
-          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/forgetPasswordReset/' + newToken
-          sendForgotPasswordMail(userEmail, tokenUrlLink)
+          let tokenUrlLink = 'http://' + domainName + ':' + domainPort + '/api/forgetPasswordReset/' + newToken
+          sendForgotPasswordMail(userEmail, tokenUrlLink, user)
         })
 
     })
@@ -200,7 +208,7 @@ router.get('/forgetPasswordReset/:token', (req, res) => {
     })
 })
 
-async function sendForgotPasswordMail(email, tokenURL) {
+async function sendForgotPasswordMail(email, tokenURL, user) {
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -218,8 +226,8 @@ async function sendForgotPasswordMail(email, tokenURL) {
     from: '"eflow Password Reset" <eflowresponse@gmail.com>', // sender address
     to: email, // list of receivers
     subject: "Password Reset", // Subject line
-    text: `Please use the following URL to resetup your password: ${tokenURL}`, // plain text body
-    html: `<b>Please use the following URL to resetup your password:</b> ${tokenURL}` // html body
+    text: `Your username is ${user.username}. Please use the following URL to resetup your password: ${tokenURL}`, // plain text body
+    html: `Your username is ${user.username}.  <b>Please use the following URL to resetup your password:</b> ${tokenURL}` // html body
   })
     .catch(e => console.log(e))
 

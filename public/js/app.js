@@ -115,9 +115,10 @@ $(document).on('click', event => {
 $(document).on('click', event => {
   if(event.target.id === 'edit-btn') {
     window.location.replace('/profile-edit')
-  }
+  } 
 })
 
+// Start Chat
 $('.startchat').on('click', e => {
  let sellerid = e.target.id
  let prodname = $('#prodName').val()
@@ -128,4 +129,51 @@ $('.startchat').on('click', e => {
       console.log(data)
     })
     .catch(e => console.error(e))
+})
+
+// Edit Product Listeners
+$(document).on('click', event => {
+  if(event.target.id === 'edit-prod-listing') {
+    window.location.replace(`/product-edit/${event.target.value}`)
+  } else if (event.target.id === 'edit-prod-btn') {
+    event.preventDefault()
+    axios.put(`/api/items/${event.target.value}`, {
+      name: $('#edit-product-title').val(),
+      condition: $('#edit-item-condition').val(),
+      price: $('#edit-price').val(),
+      location: $('#edit-item-location').val(),
+      description: $('#edit-description').val()
+    })
+      .then(() => {
+        window.location.replace(`/products/${event.target.value}`)
+      })
+      .catch(e => console.error(e))
+  } else if (event.target.id === 'delete-listing-btn') {
+    event.preventDefault()
+    axios.delete(`/api/items/${event.target.value}`)
+      .then(() => {
+        console.log('Product Deleted')
+        window.location.replace('/profile')
+      })
+      .catch(e => console.error(e))
+  } else if (event.target.id === 'mark-sold-btn') {
+    event.preventDefault()
+    axios.put(`/api/items/${event.target.value}`, {
+      isSold: 1
+    })
+      .then(() => {
+        console.log('Item Updated to SOLD')
+        window.location.replace('/profile')
+      })
+      .catch(e => console.error(e))
+  } else if (event.target.id === 'unmark-sold-btn') {
+    event.preventDefault()
+    axios.put(`/api/items/${event.target.value}`, {
+      isSold: 0
+    })
+      .then(() => {
+        console.log('Item Updated to UnSold')
+        window.location.replace('/profile')
+      })
+  }
 })

@@ -9,35 +9,77 @@ const SidenavLink = require('./components/sidenavLink.jsx')
 const Sidenav = require('./components/sidenav.jsx')
 
 const Products = props => {
-  
-  return (
+  if (props.prod.isSold) {
+    return (
+      <Default>
+        <div>
+          <Breadcrumb item={props.prod} />
+          <div className="uk-margin-top uk-margin-left uk-margin-right">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light uk-margin-top" tabindex="-1" uk-slider="center: true">
+
+              <ul class="uk-slider-items uk-grid">
+                {props.prod.uploads.map((item, index) => {
+                  console.log(' ')
+                  console.log(item)
+
+                  return (
+                    <li class="uk-width-3-4">
+                      <div class="uk-panel" >
+                        <img src={item.path} alt="" />
+                      </div>
+                    </li>
+                  )
+
+                })}
+
+              </ul>
+            </div>
+            <div className="uk-margin">
+              <h1 id="product-title" className="uk-text-bold uk-text-center uk-text-muted">{'(SOLD)'+props.prod.name}</h1>
+            </div>
+          </div>
+          <Pricing stuff={props.prod} />
+          <ul class="uk-list uk-list-striped uk-margin-left uk-margin-right">
+            <li className="uk-padding-remove-vertical uk-padding-remove-right">
+              <h3 className="uk-text-small uk-text-bold uk-flex-inline">Location:</h3>
+              <p id="product-price" className="uk-flex-inline uk-margin-left product-price-secondary">{props.prod.location}</p>
+            </li>
+            <li>
+              <h3 className="uk-text-small uk-text-bold">Description:</h3>
+              <p id="product-description">{props.prod.description}</p>
+            </li>
+          </ul>
+          <Footer />
+        </div>
+      </Default>
+    ) 
+  } else {
+    return(
     <Default>
       <div>
-      <Breadcrumb item={props.prod}/>
-      <div className="uk-margin-top uk-margin-left uk-margin-right">
-        
-        
-        {/* {props.prod.uploads.map((item,index) => { 
-          if(index === 0){
-              return <img src={item.path} width="500" height="500" alt="product-image" uk-img /> }})} */}
+        <Breadcrumb item={props.prod} />
+        <div className="uk-margin-top uk-margin-left uk-margin-right">
           <div class="uk-position-relative uk-visible-toggle uk-light uk-margin-top" tabindex="-1" uk-slider="center: true">
-
             <ul class="uk-slider-items uk-grid">
-          {props.prod.uploads.map((item, index) => {
-           
-              return (
-                <li class="uk-width-3-4">
-                  <div class="uk-panel" >
-                    <img src={item.path}  alt="" />
-                      </div>
-                      </li>
-                   )
-                   })}
-        
+              {props.prod.uploads.map((item, index) => {
+                console.log(' ')
+                console.log(item)
+
+                return (
+                  <li class="uk-width-3-4">
+                    <div class="uk-panel" >
+                      <img src={item.path} alt="" />
+                    </div>
+                  </li>
+                )
+              })}
+
             </ul>
           </div>
-        <div className="uk-margin">
-          <h1 id="product-title" className="uk-text-bold uk-text-center">{props.prod.name}</h1>
+          <div className="uk-margin">
+            <h1 id="product-title" className="uk-text-bold uk-text-center">{props.prod.name}</h1>
+          </div>
         </div>
       </div>
       <Pricing stuff={props.prod}/>
@@ -52,7 +94,9 @@ const Products = props => {
       <Footer />
       </div>
     </Default>
-  ) 
+    )
+  }
+  
 }
 
 module.exports = Products
