@@ -14,9 +14,9 @@ const ProductSlider = (props) => {
                   <a href={"/products/" + item.id}>
                   <div class="uk-panel">
                   <div className="uk-card uk-card-default uk-card-small ef-card-related">
-                      <div className="uk-card-media-top uk-flex uk-flex-center">
-                    <img src={ (!item.uploads === undefined) ?  
-                    (item.uploads[0].path) : ('/images/favicon.ico')
+                      <div className="uk-card-media-top uk-flex uk-flex-center slider-img" >
+                    <img src={ 
+                    (item.uploads[0].path)
                     } alt="" />
                       </div>
                         <div className="uk-card-body ef-card-body">
