@@ -10,7 +10,7 @@ const Login = props => {
         <title>eFlow</title>
 
         <link rel="stylesheet" href="../css/reset.css"></link>
-        <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css.gg/icons-compressed/icons.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
         <link rel="stylesheet" href="../css/styles.css"></link>

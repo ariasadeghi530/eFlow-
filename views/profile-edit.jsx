@@ -23,19 +23,19 @@ const ProfileEdit = () => {
                 <ul className="uk-list uk-list-striped">
                   <li className="uk-flex uk-padding">
                     <p className="uk-inline-flex uk-text-bold uk-margin-remove-bottom uk-margin-right">FIRST NAME:</p>
-                    <input className="uk-inline-flex uk-margin-remove ef-border-radius-input" id="profile-name-first" placeholder="First Name"></input>
+                    <input className="uk-input uk-inline-flex uk-margin-remove ef-border-radius-input" id="profile-name-first" placeholder="First Name"></input>
                   </li>
                   <li className="uk-flex uk-padding">
                     <p className="uk-inline-flex uk-text-bold uk-margin-remove-bottom uk-margin-right">Last NAME:</p>
-                    <input className="uk-inline-flex uk-margin-remove ef-border-radius-input" id="profile-name-last" placeholder="Last Name"></input>
+                    <input className="uk-input uk-inline-flex uk-margin-remove ef-border-radius-input" id="profile-name-last" placeholder="Last Name"></input>
                   </li>
                   <li className="uk-flex uk-padding">
                     <p className="uk-inline-flex uk-text-bold uk-margin-remove-bottom uk-margin-right">EMAIL:</p>
-                    <input className="uk-inline-flex uk-margin-remove ef-border-radius-input" id="profile-edit-email" placeholder="newEmail@email.com"></input>
+                    <input className="uk-input uk-inline-flex uk-margin-remove ef-border-radius-input" id="profile-edit-email" placeholder="newEmail@email.com"></input>
                   </li>
                 </ul>
               </div>
-              <button id="submit-profile-edit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Submit</button>
+              <button id="submit-profile-edit" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-margin-small-top">Save Changes</button>
             </div>
           </div>
         </div>

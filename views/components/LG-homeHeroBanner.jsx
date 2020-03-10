@@ -3,7 +3,7 @@ const React = require('react')
 const HeroBanner = () => {
     return (
         <div class="uk-position-relative uk-width-1-1 uk-visible@m">
-            <img src="images/eflow-hero-banner.jpg" alt="" />
+            <img src="images/lg-hero-banner-eflow.jpg" alt="" />
             <div class="uk-position-top">
                 <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
                     <div class="uk-navbar-left">
@@ -25,7 +25,7 @@ const HeroBanner = () => {
                                 </div>
                             </li>
                             <li>
-                                <a href="#">Info</a>
+                                <a href="/profile">Info</a>
                                 <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li><a href="#">About Us</a></li>
