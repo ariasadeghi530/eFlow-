@@ -4,8 +4,8 @@ const ForgotPasswordResetForm = props => {
   return (
     <div className="uk-container">
         <div id="alerts">
-    <form>
       </div>
+    <form>
       <h3>Please enter a new password.</h3>
       <hr />
       <div className="uk-margin">
