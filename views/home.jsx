@@ -13,14 +13,14 @@ const Home = (props) => {
     <Default>
       <HeroBanner />
       <CategoryBanner />
-      <MiddleContent />
       <HomeSlider />
       <CatSlider />
       <WhatsHot whats={props.whatsHot} list={props.hot} />
-        <WhatsHot whats={props.whatsNew} list={props.new} />
-        <div className="uk-container">
-          <div className="spacer"></div>
-        </div>
+      <WhatsHot whats={props.whatsNew} list={props.new} />
+      <MiddleContent />
+      {/* <div className="uk-container">
+        <div className="spacer"></div>
+      </div> */}
       <Footer />
     </Default>
   )
