@@ -76,7 +76,7 @@ axios.get('/api/chat/getconvos')
           })
           .then(() => {
             let convoElem = `
-              <li class="list-group-item"><a href="./chat?token=${convo.chatToken}">${recipientInfo.first_name} ${recipientInfo.last_name} - (${recipientInfo.username})</a></li>
+              <li class="list-group-item"><a href="./chat?token=${convo.chatToken}">${recipientInfo.username} - ${convo.chatName}</a></li>
             `
             $('#conversations').append(convoElem)
           })

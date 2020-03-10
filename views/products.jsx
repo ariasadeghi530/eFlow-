@@ -81,15 +81,17 @@ const Products = props => {
             <h1 id="product-title" className="uk-text-bold uk-text-center">{props.prod.name}</h1>
           </div>
         </div>
-        <Pricing stuff={props.prod} />
-        <div className="uk-flex uk-flex-center">
-          <p>
+      </div>
+      <Pricing stuff={props.prod}/>
+      <div className="uk-flex uk-flex-center">
+        <p>
+            <input type="hidden" id="prodName" name="custId" value={props.prod.name}></input>
             <button id={props.prod.userId} value={props.prod.id} className="uk-button uk-button-primary uk-button-medium startchat">Inquire</button>
-          </p>
-        </div>
-        <Info blah={props.prod} />
-        <ProductSlider related={props.sim} />
-        <Footer />
+        </p>
+      </div>
+      <Info blah={props.prod}/>
+      <ProductSlider related={props.sim}/>
+      <Footer />
       </div>
     </Default>
     )
