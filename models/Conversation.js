@@ -12,6 +12,10 @@ Conversation.init({
     type: INTEGER,
     allowNull: false
   },
+  chatName: {
+    type: STRING,
+    allowNull: false
+  },
   chatToken: {
     type: STRING,
     allowNull: false

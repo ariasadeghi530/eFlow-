@@ -121,7 +121,8 @@ $(document).on('click', event => {
 // Start Chat
 $('.startchat').on('click', e => {
  let sellerid = e.target.id
-  axios.get(`/api/chat/newconvo/${sellerid}`)
+ let prodname = $('#prodName').val()
+  axios.get(`/api/chat/newconvo/${sellerid}/${prodname}`)
     .then(({data}) => {
       // /chat?token=
       window.location.replace(`/chat?token=${data}`)
