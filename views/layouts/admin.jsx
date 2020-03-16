@@ -72,7 +72,7 @@ const Admin = props => {
         <script src="../admin/assets/tables/datatables.buttons.min.js" crossOrigin="anonymous"></script>
         <script src="../admin/assets/tables/datatables.checkboxes.min.js" crossOrigin="anonymous"></script>
         <script src="../admin/assets/tables/datatables.select.min.js" crossOrigin="anonymous"></script>
-        <script src="../admin/js/scripts.js"></script>
+        <script src="../admin/js/scripts.min.js"></script>
         <script src={props.js}></script>
         
       </body>

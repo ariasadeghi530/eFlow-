@@ -203,7 +203,7 @@ app.get('/admin', (req, res) => {
     if (req.session.perm === 1) {
       res.render('admindash',
         {
-          js: '../admin/js/dash.js',
+          js: '../admin/js/dash.min.js',
           adminid: req.session.userId
         })
         console.log(req.session)
@@ -221,7 +221,7 @@ app.get('/admin/users', (req, res) => {
     if (req.session.perm === 1) {
       res.render('adminusers',
         {
-          js: '../admin/js/users.js',
+          js: '../admin/js/users.min.js',
           adminid: req.session.userId
         })
     } else {
@@ -238,7 +238,7 @@ app.get('/admin/newuser', (req, res) => {
     if (req.session.perm === 1) {
       res.render('adminnewuser',
         {
-          js: '../admin/js/newuser.js',
+          js: '../admin/js/newuser.min.js',
           adminid: req.session.userId
         })
     } else {
@@ -254,7 +254,7 @@ app.get('/admin/reports', (req, res) => {
     if (req.session.perm===1){
       res.render('adminreports',
       {
-        js: '../admin/js/reports.js',
+        js: '../admin/js/reports.min.js',
         adminid: req.session.userId
       })
     }else{
@@ -270,7 +270,7 @@ app.get('/admin/items', (req, res) => {
     if (req.session.perm===1){
       res.render('adminitems',
       {
-        js: '../admin/js/items.js',
+        js: '../admin/js/items.min.js',
         adminid: req.session.userId
       })
     }else{

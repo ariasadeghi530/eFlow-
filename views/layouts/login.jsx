@@ -33,9 +33,9 @@ const Login = props => {
           crossOrigin="anonymous"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-        <script src="../js/app.js"></script>
-        <script src="../js/auth.js"></script>
-        <script src="../js/forgotpasswordemail.js"></script>
+        <script src="../js/app.min.js"></script>
+        <script src="../js/auth.min.js"></script>
+        <script src="../js/forgotpasswordemail.min.js"></script>
      
       </body>
 

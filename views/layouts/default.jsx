@@ -44,11 +44,11 @@ const Default = props => {
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
-        <script src="../js/app.js"></script>
-        <script src="../js/userContact.js"></script>
-        <script src="../js/forgotpasswordemail.js"></script>
-        <script src="../js/userResetPassword.js"></script>
-        <script src="../js/newListing.js"></script>
+        <script src="../js/app.min.js"></script>
+        <script src="../js/userContact.min.js"></script>
+        <script src="../js/forgotpasswordemail.min.js"></script>
+        <script src="../js/userResetPassword.min.js"></script>
+        <script src="../js/newListing.min.js"></script>
       </body>
     </html>
   )

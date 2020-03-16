@@ -34,7 +34,7 @@ const Reset = props => {
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
        
-        <script src="/js/userResetPassword.js"></script>
+        <script src="/js/userResetPassword.min.js"></script>
       </body>
 
     </html>
