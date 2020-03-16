@@ -59,7 +59,7 @@ let UserInfo
   axios.get(`/api/users/getinfo`)
     .then(({data}) => {
       UserInfo = data
-      console.log(data)
+      
       $('#side-username').text(data.username)
       $('#profile-username').text(data.username)
       $('#profile-name').text(`${data.first_name} ${data.last_name}`)
@@ -82,8 +82,7 @@ let UserInfo
         email: $('#profile-edit-email').val()
       })
       .then(() => {
-        console.log('User Updated')
-        console.log(UserInfo)
+       
         window.location.replace('/profile')
       })
     }
@@ -105,7 +104,7 @@ $(document).on('click', event => {
   if(event.target.classList.contains('bid-btn')) {
     axios.put(`/api/items/popularity/${event.target.value}`)
     .then(() => {
-      console.log('Updated popularity')
+      
     })
     .catch(e=>console.log(e))
   }
@@ -126,7 +125,7 @@ $('.startchat').on('click', e => {
     .then(({data}) => {
       // /chat?token=
       window.location.replace(`/chat?token=${data}`)
-      console.log(data)
+     
     })
     .catch(e => console.error(e))
 })
@@ -152,7 +151,7 @@ $(document).on('click', event => {
     event.preventDefault()
     axios.delete(`/api/items/${event.target.value}`)
       .then(() => {
-        console.log('Product Deleted')
+        
         window.location.replace('/profile')
       })
       .catch(e => console.error(e))
@@ -162,7 +161,7 @@ $(document).on('click', event => {
       isSold: 1
     })
       .then(() => {
-        console.log('Item Updated to SOLD')
+       
         window.location.replace('/profile')
       })
       .catch(e => console.error(e))
@@ -172,7 +171,7 @@ $(document).on('click', event => {
       isSold: 0
     })
       .then(() => {
-        console.log('Item Updated to UnSold')
+        
         window.location.replace('/profile')
       })
   }

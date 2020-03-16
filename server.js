@@ -14,6 +14,7 @@ const { User, Message, Conversation, FAQ, ForgotPassword, Upload, Item, Report }
 
 app.use(express.static(join(__dirname, '/public')))
 app.use(express.urlencoded({ extended: true }))
+app.use(require('compression')())
 app.use(express.json())
 
 app.use(cookieSession({

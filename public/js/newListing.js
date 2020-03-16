@@ -40,7 +40,7 @@ $('#postItem').click(event => {
     userId: userPostId
   })
     .then(({ data }) => {
-      console.log(data.id)
+      
       fileButton.change((event) => {
         // Get file
         let file = event.target.files[0]
