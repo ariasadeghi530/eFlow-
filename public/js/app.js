@@ -59,7 +59,7 @@ let UserInfo
   axios.get(`/api/users/getinfo`)
     .then(({data}) => {
       UserInfo = data
-      console.log(data)
+     
       $('#side-username').text(data.username)
       $('#profile-username').text(data.username)
       $('#profile-name').text(`${data.first_name} ${data.last_name}`)
@@ -126,7 +126,7 @@ $('.startchat').on('click', e => {
     .then(({data}) => {
       // /chat?token=
       window.location.replace(`/chat?token=${data}`)
-      console.log(data)
+   
     })
     .catch(e => console.error(e))
 })
